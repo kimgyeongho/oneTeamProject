@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나 홀로 집에</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery/jquery-3.5.1.min.js"></script>
+    <script src="jquery/jquery-migrate-1.4.1.min.js"></script>
+    <script src="jquery/jquery-ui.min.js"></script>
+    <script src="jquery/jstyle.js"></script>
+    <script src="jquery/jmap.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eebca8bc6ea1c503c7974e25d7381936"></script>
+    
+
+</head>
+<body>
+    <header>
+        <div class="header_container">
+        <a href="main.html">
+            <div class="header_logo">
+            <!-- <img src="img/logo.png" alt="로고"> -->
+            </div>
+        </a>   
+        <nav class="ul_nav">
+            <ul class="nav_ul">
+                <li><p>소개</p> 
+                <ul class="nav_ul_b">
+                    <a href="#"><li>목표</li></a>
+                    <a href="#"><li>서비스 소개</li></a>
+                    <a href="#"><li>만든이</li></a>
+                </ul>
+                </li>
+            </ul>
+        </nav>      
+        <nav class="ul_nav">
+            <ul class="nav_ul">
+                <li><p>회원관리</p> 
+                <ul class="nav_ul_b">
+                    <a href="authentication.html"><li>회원가입</li></a>
+                    <a href="login.html"><li>로그인</li></a>
+                </ul>
+                </li>
+            </ul>
+        </nav> 
+        <nav class="ul_nav">
+            <ul class="nav_ul"> 
+                <li><p>부동산</p> 
+                <ul class="nav_ul_b">
+                    <a href="map.html"><li>지도보기</li></a>
+                    <a href="board_all.html"><li>게시판</li></a>
+                    <a href="boardWrite.html"><li>글쓰기</li></a>
+                </ul>
+                </li>
+            </ul>
+        </nav> 
+        <nav class="ul_nav">
+            <ul class="nav_ul">
+                <li><p>서비스</p> 
+                <ul class="nav_ul_b">
+                    <a href="tips.html"><li>팁</li></a>
+                    <a href=""><li>언어 / Language</li></a>
+                </ul>
+                </li>
+            </ul>
+        </nav> 
+        </div>  
+        <div class="div_allow">
+            <img id="nav_left_arrow" src="img/arrow_left_w.png" alt="왼쪽화살표">
+            <img id="nav_right_arrow"src="img/arrow_right_w.png" alt="오른쪽화살표">
+        </div>    
+    </header>    
+    <section class="all_body_section">        
+        <!-- 지도 상단 바  탭 -->
+       <div class="map_top_bar" >
+        <ul class="map_top_ul">
+            <li>
+                <input type="search" name="map_search" id="map_search">
+                <button id="map_search_btn" type="button">찾기</button>
+            </li>
+            <li>#</li>
+            <li>#</li>
+            <li>#</li>
+        </ul>
+       </div>
+         <!-- 지도 영역 -->        
+            <div id="map" ></div>
+            <!-- <map name="real_est">지도</map> -->
+            <!-- <area shape="rect" coords="#" href="#" alt="#" /> -->            
+            <!-- <p>
+                    <button onclick="setOverlayMapTypeId('traffic')">교통정보 보기</button> 
+                    <button onclick="setOverlayMapTypeId('roadview')">로드뷰 도로정보 보기</button> 
+                    <button onclick="setOverlayMapTypeId('terrain')">지형정보 보기</button>
+                    <button onclick="setOverlayMapTypeId('use_district')">지적편집도 보기</button>
+            </p>              -->
+            <p>                
+                <button onclick="$hideMarkers()">마커 감추기</button>
+                <button onclick="showMarkers()">마커 보이기</button>
+            </p> 
+            <div id="clickLatlng"></div>
+        
+         <!-- <div class="map_communicate">
+            <div class="map_info">
+                <table class="map_info_table">
+                    <tr class="map_table_tr">
+                        <td><h5>메물 정보</h5> </td>
+                        <td colspan="2"><h5>내용</h5> </td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                    </table>
+            </div>
+            <div class="map_sum">
+                <table class="map_sum_table">
+                    <tr class="map_table_tr">
+                        <td><h5>아이디</h5></td>
+                        <td colspan="2"><h5>내용</h5></td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                    <tr class="map_table_tr">
+                        <td>#</td>
+                        <td colspan="2">##</td>
+                    </tr>
+                </table>
+            </div>
+         </div>         -->
+    </section>    
+    
+</body>
+</html>
