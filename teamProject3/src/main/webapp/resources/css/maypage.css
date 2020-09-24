@@ -1,0 +1,57 @@
+*{margin: 0 auto; font-family: Arial, Helvetica, sans-serif;}
+body{width: 1920px; margin: 0;}
+.all_body_section{z-index: -1; width: 100%; position: absolute; margin-top: 100px;}
+
+/* 사이드 네비게이션 부분========================================================= */
+header{width: 350px;float: left; position: fixed; z-index: 3;}
+.header_container{ display: none; border: 2px solid rgb(199, 199, 199); float: left; width: 250px;box-shadow: rgba(0, 0, 0, .2) 5px 5px 3px 3px; background-color: white;}
+.header_logo{line-height: 100px; height: 100px; background-image: url(img/logo.png); background-size: 70px; background-repeat: no-repeat; background-position: center; }
+/* .header_logo>img{width: 30%;} */
+.user_information{text-align: center; color: rgb(0, 77, 41); line-height: 48px; width: 100%; height: 48px; margin-top: 18px; position: relative;}
+.user_information>a{text-decoration: none; color: black;}
+.ul_nav{position: relative; width: 100%; margin-top: 36px;}
+.nav_ul{position: relative;list-style: none;}
+.nav_ul>li>p{font-size: 18px; font-weight: bold;}
+.nav_ul_b{list-style:none; margin-top: 18px;}
+.nav_ul_b>a{text-decoration:none; color: rgb(39, 39, 39);}
+.nav_ul_b>a>li{font-size:18px; margin-bottom: 12px;} 
+.nav_ul_b>a>li:hover{opacity: .5;} 
+
+.div_allow{float: left; width: 70px;}
+.div_allow>img{margin-top: 117px; width: 15%; position: absolute;  background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
+.div_allow>img:hover{cursor: pointer; box-shadow: rgba(0, 0, 0, .2) 2px 2px 1px 1px;}
+
+/* 마이페이지================================================================================================ */
+.mypage_section{float: left; margin-top: 150px; width: 100%; height: 650px;}
+.mypage_1{box-shadow: rgba(0, 0, 0, .1) 5px 5px; border-radius: 10px; background-color: white; padding: 15px; margin-left: 40px; float: left;  position: relative; width: 440px; height: 410px; border:2px solid rgb(192, 192, 192);}
+.mypage_1>ul{list-style: none; width: 80%;}
+.mypage_1>ul>li{float: left;margin-top: 12px;}
+.mypage_1>h3{margin-left: 25px; margin-top: 25px;}
+.mypage_2>h3{margin-left: 25px; margin-top: 25px;}
+.mypage_3>h3{margin-left: 25px; margin-top: 25px;}
+.mypage_btn{margin-left: 80px; margin-top: 15px; height: 24px;}
+#my_info{width: 220px; border-bottom:1px rgb(192, 192, 192) solid;}
+.mypage_2{box-shadow: rgba(0, 0, 0, .1) 5px 5px; border-radius: 10px;  background-color: white; padding: 15px; margin-left: 20px; float: left; width: 480px; height: 650px; border: 2px solid rgb(192, 192, 192);}
+.mypage_2scroll{width: 450; height: 630px; overflow: scroll;}
+.mypage_2scroll::-webkit-scrollbar{display: none;}
+.mypage_2_table{width: 420px; margin-top: 40px;}
+.mypage_2_tr>td{border-collapse: collapse;width: 80px; height: 40px; border-bottom: 1px rgb(192, 192, 192) solid;}
+.mypage_2_tr>td>img{width: 80px; height: 40px;}
+.mypage_3{box-shadow: rgba(0, 0, 0, .1) 5px 5px; border-radius: 10px;  background-color: white; padding: 15px; margin-left: 20px; float: left; width: 770px; height: 650px; border: 2px solid rgb(192, 192, 192);}
+
+.service_section_btnAll{margin-top:20px;}
+.service_section_btnAll>button{width: 120px; height: 24px; border-top-right-radius: 10px;}
+.service_section_btnA{background-color: rgb(221, 221, 221); color:white; border: 1px solid rgb(192, 192, 192);}
+.service_section_btnB{background-color: white; color:white; border: 1px solid rgb(192, 192, 192);border-left:none;}
+
+.sectionA_container{position: absolute; width: 750px; height: 550px; overflow:scroll;}
+.sectionA_container::-webkit-scrollbar{display: none;}
+.sectionA_table{width: 750px;}
+.sectionA_tr>td{border-collapse: collapse;width: 250px; height: 40px;  border-bottom: 1px rgb(192, 192, 192) solid;}
+
+.sectionB_container{position: absolute; width: 750px; height: 550px; overflow:scroll;}
+.sectionB_container::-webkit-scrollbar{display: none;}
+.sectionB_table{width: 750px;}
+.sectionB_tr>td{border-collapse: collapse;width: 250px; height: 40px;  border-bottom: 1px rgb(192, 192, 192) solid;}
+
+

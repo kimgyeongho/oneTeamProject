@@ -1,0 +1,38 @@
+*{margin: 0 auto; font-family: Arial, Helvetica, sans-serif;}
+body{width: 1920px; margin: 0;}
+.all_body_section{z-index: -1; width: 100%; position: absolute; margin-top: 100px;}
+
+/* 사이드 네비게이션 부분========================================================= */
+header{width: 350px;float: left; position: fixed; z-index: 3;}
+.header_container{ display: none; border: 2px solid rgb(199, 199, 199); float: left; width: 250px;box-shadow: rgba(0, 0, 0, .2) 5px 5px 3px 3px; background-color: white;}
+.header_logo{line-height: 100px; height: 100px; background-image: url(img/logo.png); background-size: 70px; background-repeat: no-repeat; background-position: center; }
+/* .header_logo>img{width: 30%;} */
+.user_information{text-align: center; color: rgb(0, 77, 41); line-height: 48px; width: 100%; height: 48px; margin-top: 18px; position: relative;}
+.user_information>a{text-decoration: none; color: black;}
+.ul_nav{position: relative; width: 100%; margin-top: 36px;}
+.nav_ul{position: relative;list-style: none;}
+.nav_ul>li>p{font-size: 18px; font-weight: bold;}
+.nav_ul_b{list-style:none; margin-top: 18px;}
+.nav_ul_b>a{text-decoration:none; color: rgb(39, 39, 39);}
+.nav_ul_b>a>li{font-size:18px; margin-bottom: 12px;} 
+.nav_ul_b>a>li:hover{opacity: .5;} 
+
+.div_allow{float: left; width: 70px;}
+.div_allow>img{margin-top: 117px; width: 15%; position: absolute;  background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
+.div_allow>img:hover{cursor: pointer; box-shadow: rgba(0, 0, 0, .2) 2px 2px 1px 1px;}
+
+/* 회원가입=================================================================================== */
+/* table */
+.signup{border: 2px solid rgb(221, 221, 221); margin-top: 180px; width: 740px; height: 500px; background-color: rgb(255, 255, 255); border-radius: 5px; padding: 15px; box-shadow: rgba(0, 0, 0, .2) 8px 8px 7px 7px;} 
+.signup>table>tr{padding-top:15px}
+#index{border-right: 1px solid rgb(199, 199, 199); position: relative; width: 80px;}
+#index>p{font-size: 16px; font-weight: bold; text-align: center;}
+td>input{margin-top: 12px; border: none; border-bottom: 1px solid rgb(199, 199, 199); margin-left: 12px; width: 150px; padding: 0px; height: 20px; text-align: center;  font-size: 14px; color: rgb(172, 170, 170);}
+#emailOpt{margin-top: 12px; width: 150px; height: 30px; font-size: 14px;}
+#firstNum{margin-top: 12px; width: 80px; height: 30px; float: right; font-size: 14px;}
+button{width: 150px; height: 20px; color: white; background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); font-size: 14px;border-radius: 5px; border: none;}
+#addrInput>input{width: 150px;}
+#click{width: 400px; margin-top: 20px;}
+#click>button{box-shadow: rgba(0, 0, 0, .2) 5px 5px 4px 4px;}
+#click>button{border-radius: 5px; margin-top: 20px; width: 150px; height: 30px; font-weight: bolder;  font-size: 18px; background-color: rgb(61, 121, 79); }
+button:hover{opacity: .7;}

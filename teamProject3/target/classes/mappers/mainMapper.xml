@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.knk.home_alone.mapper.MainMapper">
+
+	<!-- 회원가입 -->
+	<insert id="oneteam_join" parameterType="MainVO">
+		insert into oneteam_join
+	     (
+				userName,
+				userID,
+				userPW,
+				identidication1,
+				identidication2,
+				email,
+				emailAddr,
+				emailOpt,
+				firstNum1,
+				userPhone1,
+				userPhone2,
+				firstNum2,
+				userPhone3,
+				userPhone4,
+				zipNo,
+				roadAddrPart1,
+				addrDetail
+			)
+		values(
+		#{userName},#{userID},#{userPW},#{identidication1},#{identidication2},
+		#{email},#{emailAddr},#{emailOpt},#{firstNum1},#{userPhone1},#{userPhone2},
+		#{firstNum2},#{userPhone3},#{userPhone4},#{zipNo},#{roadAddrPart1},#{addrDetail})
+	</insert>
+
+	<!-- 로그인 -->
+	<select id="oneteam_login" resultType="MainVO">
+	SELECT userID, userPW ,userName ,email ,emailAddr , emailOpt, zipNo, roadAddrPart1, addrDetail
+	, firstNum1, userPhone1, userPhone2
+		  FROM oneteam_join
+		 WHERE userID = #{userID}
+		   AND userPW = #{userPW}
+	</select>
+	
+	
+	
+	
+	
+	<!--주소 정보 수정 -->
+	<update id="oneteam_Update" >
+		UPDATE oneteam_join SET zipNo = #{zipNo}, roadAddrPart1 = #{roadAddrPart1}, 
+		addrDetail = #{addrDetail}
+		WHERE userID = #{userID}
+	</update>
+    <!--폰 번호정보 수정 -->
+	<update id="oneteam_NumberUpdate" >
+		UPDATE oneteam_join SET firstNum1 = #{firstNum1}, userPhone1 = #{userPhone1}, 
+		userPhone2 = #{userPhone2}
+		WHERE userID = #{userID}
+	</update>
+	<!--비밀번호 정보 수정 -->
+	<update id="oneteam_PasswordUpdate" >
+		UPDATE oneteam_join SET userPW = #{userPW}
+		WHERE userID = #{userID}
+	</update>
+    
+</mapper>
