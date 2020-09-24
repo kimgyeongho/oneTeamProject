@@ -139,5 +139,10 @@ public class MainController {
 	 public void find_pw() throws Exception{
 		 log.info("GET find_pw");
 	 }
+	//지도찾기 GET
+		 @RequestMapping(value="/map.do", method = RequestMethod.GET)
+		 public void map() throws Exception{
+			 log.info("GET find_pw");
+		 }
 	 
 }
