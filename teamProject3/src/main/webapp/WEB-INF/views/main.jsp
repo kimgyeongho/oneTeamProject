@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인페이지</title>
+    <title>메인페이지12333333</title>
     <link rel="stylesheet" href="resources/css/style.css">
     <script src="resources/jquery/jquery-3.5.1.min.js"></script>
     <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
