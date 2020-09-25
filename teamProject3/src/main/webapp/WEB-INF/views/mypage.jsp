@@ -134,8 +134,8 @@ function goPopup(){
             </ul>
             </div>
                 <!-- 회원 정보 변경사항을 보낼 form 태그 -->
-            <div class="flexible_info">
-                <form class="change_pw" action="PassswordChange" method="post">
+<div class="flexible_info">
+        <form class="change_pw" action="PassswordChange" method="post">
                 <input type="hidden" name="userID" value="${user.userID}"/>   
                 <ul>
                 <li>
@@ -143,12 +143,13 @@ function goPopup(){
                     <input type="password" name="userPW"/>
                     <button type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li>
-                </form>
-                <form class="change_num" action="NumberChange" method="post">
+                </ul>
+        </form>
+        <form class="change_num" action="NumberChange" method="post">
 				 <input type="hidden" name="userID" value="${user.userID}"/>
-                <li>
-                    <p>연락처</p>
-                    <button type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
+            <ul>
+                 <li>
+                    <p>연락처</p>                    
                     <select name="firstNum1" id="firstNum">
                         <option value="010">010</option>
                         <option value="011">011</option>
@@ -156,41 +157,42 @@ function goPopup(){
                     </select>       
                     <input type="tel" id="userPhone" name="userPhone1">
                     <input type="tel" id="userPhone" name="userPhone2">
+                    <button type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li>
-                </form>
-                
-                 <form  class="change_addr" action="mypageUpdate" name="form" id="form" method="post">
+            </ul>
+        </form>                
+        <form  class="change_addr" action="mypageUpdate" name="form" id="form" method="post">
                 <input type="hidden" name="userID" value="${user.userID}"/>
+            <ul>
                 <li>
                     <p>우편번호</p>
                     <input type="text"  id="zipNo"  name="zipNo"/>
-                     <button type="button" class="findaddr" onClick="goPopup();" >주소 찾기</button>
-                    
-                </li>   
-                             
+                    <button type="button" class="findaddr" onClick="goPopup();" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">주소 찾기</button>
+                </li>  
                 <li>
                     <p>주소</p>
                    <input type="text" id="roadAddrPart1" name="roadAddrPart1" />
-                </li>   
-                             
+                </li>     
                 <li>
                     <p>상세주소</p>
                    <input type="text"  id="addrDetail"  name="addrDetail"/>
                    <button type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
-                </li>  
-                </form>
-                <form class="inform_delete" action="userDelete"method="post" id="userDelete">
+                </li> 
+            </ul> 
+        </form>
+        <form class="inform_delete" action="userDelete"method="post" id="userDelete">
+            <ul>
                 <li>
                     <p>회원탈퇴</p>
                    <input type="text" name="userID" value="${user.userID}" />
-                   <input type="password" id="userPW" name="userPW" />
-          		  </form> 
-          		   <button id="submit" type="button" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
-                </li>   
-               
+                   <input type="password" id="userPW" name="userPW" style="margin-top:12px" />
+                   <button id="submit" type="button" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
+                </li>  
             </ul>
+        </form> 
+          	
             
-            </div>
+</div>
             <!-- <div class="mypage_btn">
                 <a href="#"><button >회원정보 변경</button></a> 
             </div>          -->
