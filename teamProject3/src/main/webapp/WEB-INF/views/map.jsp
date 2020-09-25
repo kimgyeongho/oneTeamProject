@@ -29,7 +29,7 @@
             <ul class="nav_ul">
                 <li><p>소개</p> 
                 <ul class="nav_ul_b">
-                    <a href="#"><li>목표</li></a>
+                    <a href="#d"><li>목표</li></a>
                     <a href="#"><li>서비스 소개</li></a>
                     <a href="#"><li>만든이</li></a>
                 </ul>
