@@ -6,15 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나 홀로 집에-지도</title>
-    <link rel="stylesheet" href="resources/style.css">
+     <link rel="stylesheet" href="resources/css/style.css">
     <script src="resources/jquery/jquery-3.5.1.min.js"></script>
-    <script src="resources/jquery/jquery-1.11.0.js"></script>
     <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/jstyle.js"></script>
     <!-- <script src="jquery/jmap.js"></script> -->
-    <script src="resources/jquery/fullsdk.js"></script>
-    <script src="resources/jquery/map_service.js"></script>
+<!--     <script src="resources/jquery/fullsdk.js"></script>
+    <script src="resources/jquery/map_service.js"></script> -->
     
 
 </head>
