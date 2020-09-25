@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나 홀로 집에</title>
+    <title>나 홀로 집에-게시판</title>
     <link rel="stylesheet" href="resources/style.css">
     <script src="resources/jquery/jquery-3.5.1.min.js"></script>
     <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
