@@ -64,9 +64,9 @@
             <ul class="nav_ul"> 
                 <li><p>부동산</p> 
                 <ul class="nav_ul_b">
-                    <a href="map.html"><li>지도보기</li></a>
-                    <a href="board_all.html"><li>게시판</li></a>
-                    <a href="boardWrite.html"><li>글쓰기</li></a>
+                    <a href="map.do"><li>지도보기</li></a>
+                    <a href="board_all.do"><li>게시판</li></a>
+                    <a href="boardWrite.do"><li>글쓰기</li></a>
                 </ul>
                 </li>
             </ul>
@@ -75,7 +75,7 @@
             <ul class="nav_ul">
                 <li><p>서비스</p> 
                 <ul class="nav_ul_b">
-                    <a href="tips.html"><li>팁</li></a>
+                    <a href="tips.do"><li>팁</li></a>
                     <a href=""><li>언어 / Language</li></a>
                 </ul>
                 </li>
@@ -96,13 +96,34 @@
         <input type="search" placeholder="검색어를 입력하세요">
         <button type="submit"><img src="resources/img/search_w.png" alt="검색"></button>
         </div>
-    </div>
-    <section class="main_part2"> 
-        <div class="main_part2_div">
-            <img src="resources/img/move1.png" alt="이사 1">
-            <img src="resources/img/move2.png" alt="이사 1">
-            <img src="resources/img/move3.png" alt="이사 1">
-        </div>
+        <div id="page_dot">            
+            <div id="dot_div"></div>           
+            <!-- <div id="dot_div"></div>           
+            <div id="dot_div"></div>            -->
+    </div> 
+    </div>    
+    <section class="main_part2">        
+        <div id="imgs_main">            
+            <div class="img_slide">
+                <a href="map.html" style="position: absolute; left: 1580px; top: 250px;">
+                    <button style="background: rgb(90, 92, 91); height: 60px; font-size: 24px; width: 180px; ">지도 보러가기</button>
+                </a>
+                <img src="img/main_2_img.png" alt="지도 홍보">
+            </div>
+            <div class="img_slide">
+                <a href="map.html" style="position: absolute; left: 1580px; top: 270px;">
+                    <button style="background: rgb(136, 155, 151); height: 60px; font-size: 24px; width: 180px;">안내 보러가기</button>
+                </a>
+                <img src="img/main_3_img.png" alt="지도 홍보">
+            </div>
+            <div class="img_slide">
+                <!-- <a href="map.html" style="position: absolute; left: 1580px; top: 250px;">
+                    <button style="background: rgb(90, 92, 91); height: 60px; font-size: 24px; width: 180px;">지도 보러가기</button>
+                </a> -->
+                <img src="img/main_4_img.png" alt="지도 홍보">
+            </div>
+         
+        </div>        
     </section>
     <section class="main_part3"> 
         <div class="main_part3_div">

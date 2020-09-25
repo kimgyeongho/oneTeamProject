@@ -22,7 +22,7 @@
 	<!-- 테이터베이스 -->
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		   <property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/oneteam_join"></property>
+        <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/scott"></property>
         <property name="username" value="scott"></property>
         <property name="password" value="tiger"></property>
 	</bean>
