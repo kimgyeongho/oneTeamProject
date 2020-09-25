@@ -135,7 +135,7 @@ function goPopup(){
             </div>
                 <!-- 회원 정보 변경사항을 보낼 form 태그 -->
             <div class="flexible_info">
-                <form action="PassswordChange" method="post">
+                <form class="change_pw" action="PassswordChange" method="post">
                 <input type="hidden" name="userID" value="${user.userID}"/>   
                 <ul>
                 <li>
@@ -144,7 +144,7 @@ function goPopup(){
                     <button type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li>
                 </form>
-                <form action="NumberChange" method="post">
+                <form class="change_num" action="NumberChange" method="post">
 				 <input type="hidden" name="userID" value="${user.userID}"/>
                 <li>
                     <p>연락처</p>
@@ -159,7 +159,7 @@ function goPopup(){
                 </li>
                 </form>
                 
-                 <form action="mypageUpdate" name="form" id="form" method="post">
+                 <form  class="change_addr" action="mypageUpdate" name="form" id="form" method="post">
                 <input type="hidden" name="userID" value="${user.userID}"/>
                 <li>
                     <p>우편번호</p>
@@ -179,7 +179,7 @@ function goPopup(){
                    <button type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li>  
                 </form>
-                <form action="userDelete"method="post" id="userDelete">
+                <form class="inform_delete" action="userDelete"method="post" id="userDelete">
                 <li>
                     <p>회원탈퇴</p>
                    <input type="text" name="userID" value="${user.userID}" />
