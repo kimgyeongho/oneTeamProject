@@ -26,7 +26,7 @@ function jusoCallBack(zipNo,roadAddr, addrDetail){
 <body>
     <header>
         <div class="header_container">
-        <a href="main.html">
+        <a href="/">
             <div class="header_logo">
             <!-- <img src="img/logo.png" alt="로고"> -->
             </div>

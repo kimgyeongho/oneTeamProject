@@ -15,7 +15,7 @@
 <body>
     <header>
         <div class="header_container">
-        <a href="main.html">
+        <a href="/">
             <div class="header_logo">
             <!-- <img src="img/logo.png" alt="로고"> -->
             </div>
@@ -82,7 +82,7 @@
         </table>
         <div class="loginbutton">
         <a href="#"><button type="submit" class="log">로그인</button></a>
-        <a href="authentication.html"><button type="submit" class="sign">회원가입</button></a>
+        <a href="authentication.do"><button type="submit" class="sign">회원가입</button></a>
         </div>
         </form>
         <div class="login_find">

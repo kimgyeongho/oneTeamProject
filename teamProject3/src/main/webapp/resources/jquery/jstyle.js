@@ -8,6 +8,28 @@ $(function() {
         $(".header_container").hide(500);
         $("#nav_right_arrow").show();
     });
+});
+
+//메인 판넬 에니메이션
+$(function(){
+    $(".img_slide").eq(0).siblings().hide();
+    var main_img=0;
+    var marginLeft=0;
+    setInterval(function(){
+        if(main_img<2){
+            main_img++;
+            marginLeft =(marginLeft+54);
+            $("#dot_div").animate({"margin-left": marginLeft});
+        }else{
+            main_img=0;
+            marginLeft=0;
+        }
+        $(".img_slide").eq(main_img).siblings().fadeOut(500);
+        $(".img_slide").eq(main_img).fadeIn(500);
+        $("#dot_div").eq(marginLeft).css({"margin-left": "0px"});
+    },5000)
+});
+
 
     //비밀번호 확인하는 알고리즘
 $(function(){    
@@ -92,7 +114,6 @@ var a3=$(".clear").click(function(){
    
 });
 
-});
 function goPopup() {
     var pop = window.open("popup/jusoPopup.jsp", "pop",
           "width=570,height=420, scrollbars=yes, resizable=yes");
@@ -112,6 +133,36 @@ $(function(){
     })
 });
 
+//지도 검색기능이 보이는 버튼
+$(function(){
+    $("#btn_search_cata").click(function(){
+        $("#category").toggle('50');
+        });     
+    $("#btn_search_loc").click(function(){
+        $("#menu_wrap").toggle('50');
+        });         
+});
+//지도 검색기능 안내 메세지
+$(function(){
+    $("#btn_search_cata").mouseover(function(){
+        $("#map_cata_show").show();
+        }); 
+        $("#btn_search_cata").mouseout(function(){
+            $("#map_cata_show").hide();
+            });
+    $("#btn_search_loc").mouseover(function(){
+        $("#map_loc_show").show();
+        }); 
+        $("#btn_search_loc").mouseout(function(){
+            $("#map_loc_show").hide();
+            });        
+    $("#btn_search_distance").mouseover(function(){
+        $("#map_distance_show").show();
+        }); 
+        $("#btn_search_distance").mouseout(function(){
+            $("#map_distance_show").hide();
+            });    
+});
 
 
 
