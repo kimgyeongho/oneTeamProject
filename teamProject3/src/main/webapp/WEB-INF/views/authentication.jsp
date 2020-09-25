@@ -13,13 +13,24 @@
     <script src="resources/jquery/jstyle.js"></script>
 </head>
 <body>
-    <header>
+     <header>
         <div class="header_container">
-        <a href="/">
+        <a href="main.html">
             <div class="header_logo">
-            <!-- <img src="img/logo.png" alt="로고"> -->
+            <!-- <img src="img/logo.png" alt="로고"> f-->
             </div>
         </a>   
+        <div class="user_information">
+           <c:if test="${user != null}">        
+           <a href="mypage.do">           
+           <h3>${user.userID}님 마이페이지</h3>
+           
+           </a> 
+           </c:if>
+           <c:if test="${user == null}">
+           <h3></h3>
+           </c:if>
+        </div>
         <nav class="ul_nav">
             <ul class="nav_ul">
                 <li><p>소개</p> 
@@ -35,8 +46,14 @@
             <ul class="nav_ul">
                 <li><p>회원관리</p> 
                 <ul class="nav_ul_b">
-                    <a href="authentication.html"><li>회원가입</li></a>
-                    <a href="login.html"><li>로그인</li></a>
+                    <a href="authentication.do"><li>회원가입</li></a>
+                     <c:if test="${user == null}">
+                    <a href="login.do"><li>로그인</li></a>
+                     </c:if> 
+                      <c:if test="${user != null}">
+                    <a href="logout.do"><li>로그아웃</li></a>
+                     </c:if>           
+                     
                 </ul>
                 </li>
             </ul>
@@ -45,9 +62,9 @@
             <ul class="nav_ul"> 
                 <li><p>부동산</p> 
                 <ul class="nav_ul_b">
-                    <a href="map.html"><li>지도보기</li></a>
-                    <a href="board_all.html"><li>게시판</li></a>
-                    <a href="boardWrite.html"><li>글쓰기</li></a>
+                    <a href="map.do"><li>지도보기</li></a>
+                    <a href="board_all.do"><li>게시판</li></a>
+                    <a href="boardWrite.do"><li>글쓰기</li></a>
                 </ul>
                 </li>
             </ul>
@@ -56,7 +73,7 @@
             <ul class="nav_ul">
                 <li><p>서비스</p> 
                 <ul class="nav_ul_b">
-                    <a href="tips.html"><li>팁</li></a>
+                    <a href="tips.do"><li>팁</li></a>
                     <a href=""><li>언어 / Language</li></a>
                 </ul>
                 </li>
@@ -67,7 +84,7 @@
             <img id="nav_left_arrow" src="resources/img/arrow_left_w.png" alt="왼쪽화살표">
             <img id="nav_right_arrow"src="resources/img/arrow_right_w.png" alt="오른쪽화살표">
         </div>    
-    </header>  
+    </header>    
     <section class="all_body_section">   
 <div class="authentication_div">
     <article class="kor">
