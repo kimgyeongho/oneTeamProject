@@ -135,7 +135,7 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.3.2</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -166,20 +166,30 @@
 			<artifactId>spring-tx</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-      <!-- 데이터를 쉬고 빠르게 -->
+		<!-- 데이터를 쉬고 빠르게 -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.0</version>
 			<scope>provided</scope>
 		</dependency>
-   	<!-- Jackson은 JSON 데이터 구조를 처리해주는 라이브러리 -->
+		<!-- Jackson은 JSON 데이터 구조를 처리해주는 라이브러리 -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.8.4</version>
+			<version>2.10.0</version>
 		</dependency>
-  	<!-- 로그를 찍자 라이브러리 -->
+		<!-- 로그를 찍자 라이브러리 -->
 		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>
 			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>

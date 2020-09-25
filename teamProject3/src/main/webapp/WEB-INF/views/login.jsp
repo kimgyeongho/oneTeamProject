@@ -86,8 +86,8 @@
         </div>
         </form>
         <div class="login_find">
-        <a href="find_id.do"><p>아이디 찾기</p></a>
-        <a href="find_pw.do"><p>비밀번호 찾기</p></a>
+        <a href="find_id.html"><p>아이디 찾기</p></a>
+        <a href="find_pw.html"><p>비밀번호 찾기</p></a>
         </div>
     </section>
     <section class="panel">

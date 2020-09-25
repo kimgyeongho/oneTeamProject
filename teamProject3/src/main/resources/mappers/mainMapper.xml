@@ -39,8 +39,24 @@
 		   AND userPW = #{userPW}
 	</select>
 	
+	<!-- 회원탈퇴 -->
+	<delete id="oneteam_userDelete">
+	DELETE FROM oneteam_join
+	WHERE userID = #{userID}  AND userPW = #{userPW} 
+	</delete>
 	
+	<!--패스워드 확인-->
+	<select id="oneteam_passwordCheck" resultType="int">
+	SELECT COUNT(*) FROM oneteam_join
+	WHERE userID = #{userID}
+	  AND userPW = #{userPW}
+	</select>
 	
+	<!-- 아이디 중복 -->
+	<select id="oneteam_idCHeck" resultType="int">
+	SELECT COUNT(*) FROM oneteam_join
+	WHERE userID = #{userId}
+	</select>
 	
 	
 	<!--주소 정보 수정 -->

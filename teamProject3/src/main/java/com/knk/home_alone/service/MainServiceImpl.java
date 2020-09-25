@@ -62,6 +62,34 @@ public class MainServiceImpl implements MainService {
 
 		mainMapper.oneteam_PasswordUpdate(VO);
 	}
+
+
+
+	@Override
+	public void oneteam_userDelete(MainVO VO) throws Exception {
+		log.info("userDelete"+VO);
+
+		mainMapper.oneteam_userDelete(VO);
+	}
+
+
+
+	@Override
+	public int oneteam_passwordCheck(MainVO VO) throws Exception {
+		log.info("oneteam_passwordCheck"+VO);
+		int  passwordCheck= mainMapper.oneteam_passwordCheck(VO);
+		return passwordCheck;
+
+	}
+
+
+
+	@Override
+	public int oneteam_idCHeck(MainVO VO) throws Exception {
+		log.info("oneteam_idCHeck"+VO);
+		int  IdCheck= mainMapper.oneteam_idCHeck(VO);
+		return IdCheck;
+	}
 	
 
 	

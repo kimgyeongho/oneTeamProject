@@ -15,7 +15,7 @@
 <body>
     <header>
         <div class="header_container">
-        <a href="/">
+        <a href="main.html">
             <div class="header_logo">
             <!-- <img src="img/logo.png" alt="로고"> -->
             </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +23,31 @@ function goPopup(){
           document.form.roadAddrPart1.value = roadAddrPart1;
           document.form.addrDetail.value = addrDetail;
 }
+      $(document).ready(function(){
+    		$("#submit").on("click", function(){
+    			if($("#userPW").val()==""){
+    				alert("비밀번호를 입력하세요.");
+    				$("#userPW").focus();
+    				return false;
+    			}
+    			$.ajax({
+    				url : "/passwordCheck",
+    				type : "POST",
+    				dataType : "json",
+    				data : $("#userDelete").serializeArray(),
+    				success: function(data){
+    					
+    					if(data==0){
+    						alert("패스워드가 틀렸습니다.");
+    						return;
+    					}if(confirm("회원탈퇴하시겠습니까?")){
+    							$("#userDelete").submit();
+    						}  					
+    				}
+    			})
+    			
+    		});
+    		})
 </script>
 <body>
     <header>
@@ -152,7 +178,16 @@ function goPopup(){
                    <input type="text"  id="addrDetail"  name="addrDetail"/>
                    <button type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li>  
-                </form>         
+                </form>
+                <form action="userDelete"method="post" id="userDelete">
+                <li>
+                    <p>회원탈퇴</p>
+                   <input type="text" name="userID" value="${user.userID}" />
+                   <input type="password" id="userPW" name="userPW" />
+          		  </form> 
+          		   <button id="submit" type="button" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
+                </li>   
+               
             </ul>
             
             </div>
