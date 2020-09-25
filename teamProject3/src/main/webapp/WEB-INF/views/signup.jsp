@@ -39,6 +39,61 @@ function goPopup(){
 					$("#userPW").focus();
 					return false;
 				}
+				if($("#pwCheck").val()==""){
+					alert("비밀번호 확인을 해주세요.");
+					$("#pwCheck").focus();
+					return false;
+				}
+				if($("#identification1").val()==""){
+					alert("주민번호 입력해주세요.");
+					$("#identification1").focus();
+					return false;
+				}
+				if($("#identification2").val()==""){
+					alert("주민번호 입력해주세요.");
+					$("#identification2").focus();
+					return false;
+				}
+				if($("#email").val()==""){
+					alert("이메일를입력해주세요.");
+					$("#email").focus();
+					return false;
+				}
+				if($("#userPhone1").val()==""){
+					alert("핸드폰 번호를 입력해주세요.");
+					$("#userPhone1").focus();
+					return false;
+				}
+				if($("#userPhone2").val()==""){
+					alert("핸드폰 번호를 입력해주세요.");
+					$("#userPhone2").focus();
+					return false;
+				}
+				if($("#userPhone3").val()==""){
+					alert("집 번호를입력해주세요.");
+					$("#userPhone3").focus();
+					return false;
+				}
+				if($("#userPhone4").val()==""){
+					alert("집 번호를입력해주세요.");
+					$("#userPhone4").focus();
+					return false;
+				}
+				if($("#zipNo").val()==""){
+					alert("우편번호를 입력해주세요.");
+					$("#zipNo").focus();
+					return false;
+				}
+				if($("#roadAddrPart1").val()==""){
+					alert("주소를 입력해주세요.");
+					$("#roadAddrPart1").focus();
+					return false;
+				}
+				if($("#addrDetail").val()==""){
+					alert("상세주소를 입력해주세요.");
+					$("#addrDetail").focus();
+					return false;
+				}
 				var idCheckVal = $("#idCheck").val();
 				if(idCheckVal == "중복확인"){
 					alert("중복확인 버튼을 눌러주세요.");
@@ -125,7 +180,7 @@ function goPopup(){
     </header>      
     <section class="all_body_section">  
         <!-- 회원가입부분 -->
-        <form action="join" name="form" id="form" method="post">          
+        <form action="join" method="post"name="form" id="form" >          
         <div class="signup">                        
             <table>
                 <tr>
@@ -134,15 +189,15 @@ function goPopup(){
                 </tr>
                 <tr>
                     <td id="index" rowspan="2"><p>아이디</p></td>
-                    <td ><input type="text" name="userID" id="userID" placeholder="아이디를 입력하세요" minlength="3" maxlength="16"></td>                    
-                    <td><button type="button" name="idCheck" id="idCheck" onclick="idCheck1();" value="중복확인">중복확인</button></td>
+                    <td ><input type="text" name="userID" id="userID" placeholder="아이디를 입력하세요" minlength="6" maxlength="16"></td>                    
+                    <td><button type="button" name="idCheck" id="idCheck" onclick="idCheck1();" value="ANO">중복확인</button></td>
                 </tr>
                 <tr>                    
                     <td colspan="3" style="font-size: 12px; padding-left: 25px;">6~16자 영문(소문자), 숫자 입력가능합니다.</td>
                 </tr>                
                 <tr>
                     <td id="index" rowspan="2"><p>비밀번호</p></td>
-                    <td ><input type="password" name="userPW" class="pw" id="userPW" placeholder="비밀번호를 입력하세요" minlength="3" maxlength="16"></td>
+                    <td ><input type="password" name="userPW" class="pw" id="userPW" placeholder="비밀번호를 입력하세요" minlength="6" maxlength="16"></td>
                 </tr>
                 <tr>
                     <td colspan="3" style="font-size: 12px; padding-left: 25px;">6~16자 영문(소문자), 숫자, 특수문자 입력가능합니다.</td>
@@ -154,8 +209,8 @@ function goPopup(){
                 </tr>
                 <tr>
                     <td id="index"><p>주민번호</p></td>
-                    <td ><input type="text" name="identidication1" id="identification" placeholder="주민번호 앞 자리 입력" maxlength="6"></td>
-                    <td ><input type="password" name="identidication2" id="identification" placeholder="주민번호 뒷 자리 입력" maxlength="8"></td>
+                    <td ><input type="text" name="identidication1" id="identification1" placeholder="주민번호 앞 자리 입력" minlength="6" maxlength="6"></td>
+                    <td ><input type="password" name="identidication2" id="identification2" placeholder="주민번호 뒷 자리 입력" minlength="7" maxlength="7"></td>
                 </tr>
                 <tr>
                     <td id="index"><p>이메일</p></td>
@@ -178,8 +233,8 @@ function goPopup(){
                         <option value="022">022</option>
                     </select>    
                     </td>                
-                    <td ><input type="tel" id="userPhone" name="userPhone1"></td>
-                    <td ><input type="tel" id="userPhone" name="userPhone2"></td>
+                    <td ><input type="tel" id="userPhone1" name="userPhone1" minlength="4" maxlength="4"></td>
+                    <td ><input type="tel" id="userPhone2" name="userPhone2" minlength="4" maxlength="4"></td>
                 </tr>
                 <tr>                 
                       
@@ -190,8 +245,8 @@ function goPopup(){
                         <option value="033">033</option>
                     </select>    
                 </td>                
-                    <td ><input type="tel" id="userPhone" name="userPhone3"></td>
-                    <td ><input type="tel" id="userPhone" name="userPhone4"></td>
+                    <td ><input type="tel" id="userPhone3" name="userPhone3"  minlength="4" maxlength="4"></td>
+                    <td ><input type="tel" id="userPhone4" name="userPhone4"  minlength="4" maxlength="4"></td>
                 </tr>
                 <tr>
                     <td id="index" rowspan="3"><p>주소</p></td>

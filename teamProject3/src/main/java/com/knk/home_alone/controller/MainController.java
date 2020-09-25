@@ -63,11 +63,12 @@ public class MainController {
 		log.info("==========================");
 		log.info("POST join");
 		int IdCheck = service.oneteam_idCHeck(VO);
-		if(IdCheck==0) {
-		return "redirect:/join";
-		}else{
-			String pw = VO.getUserPW();
-			String pwd = pwencoder.encode(pw);
+		if(IdCheck!=0) {
+		return "redirect:/signup.do";
+		}else if(IdCheck!=1){
+			String passwordSecurity = VO.getUserPW();
+			String password = pwencoder.encode(passwordSecurity);
+			VO.setUserPW(password);
 			service.userInsert(VO);
 		}
 		return "redirect:/";
@@ -87,12 +88,13 @@ public class MainController {
 		
 		MainVO login = service.oneteam_login(VO);
 		HttpSession session = HSR.getSession();
-
-		if (login == null) {
-		//	RA.addFlashAttribute("message", false); 메시지를 전달 할 것이라면  사용하기 일단 보류 
-			session.setAttribute("user", null);
-		} else {
+		boolean PwMapping = pwencoder.matches(VO.getUserPW(),login.getUserPW());
+		if(login != null && PwMapping == true) {
 			session.setAttribute("user", login);
+		}else{
+			session.setAttribute("user", null);
+			//	RA.addFlashAttribute("message", false); 메시지를 전달 할 것이라면  사용하기 일단 보류 
+
 		}
 		return "redirect:/";
 	}
@@ -116,7 +118,6 @@ public class MainController {
 	 //마이페이지  주소 수정 
 	 @RequestMapping(value="/mypageUpdate", method = RequestMethod.POST)
 	 public String mypageUpdate(MainVO VO, HttpSession session) throws Exception{
-		 	
 	 service.oneteam_Update(VO);		 	
 	 session.invalidate();
 		 	
@@ -144,24 +145,17 @@ public class MainController {
 	 // 회원 탈퇴 post
 	 @RequestMapping(value="/userDelete", method = RequestMethod.POST)
 	 public String userDelete(MainVO VO, HttpSession session, RedirectAttributes RA) throws Exception{	 
-     MainVO mainVO = (MainVO)session.getAttribute("user");
-     String Pass = mainVO.getUserPW();
-     String voPass = VO.getUserPW();	
-	 if(!(Pass.equals(voPass))) {
-	 RA.addFlashAttribute("message", false);
-	 return "redirect:mypage.do";
-	 }else {
 	 service.oneteam_userDelete(VO);
 	 session.invalidate();
 	 return "redirect:/";
 	 }
-	}
 	 // 패스워드 확인
 	 @ResponseBody
 	 @RequestMapping(value="/passwordCheck", method = RequestMethod.POST)
-	 public int passwordCheck(MainVO VO) throws Exception {
-	 int passwordCheck = service.oneteam_passwordCheck(VO);
-	 return passwordCheck;
+	 public boolean passwordCheck(MainVO VO) throws Exception {
+	 MainVO login = service.oneteam_login(VO);
+	 boolean PwMapping = pwencoder.matches(VO.getUserPW(),login.getUserPW());
+	 return PwMapping;
 	 }
 	 // 아이디 중복
 	 @ResponseBody

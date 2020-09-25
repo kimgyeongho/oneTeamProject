@@ -1,0 +1,23 @@
+CREATE TABLE `oneteam_join` (
+	`userName` VARCHAR(20) NOT NULL COLLATE 'utf8_general_ci',
+	`userID` VARCHAR(20) NOT NULL COLLATE 'utf8_general_ci',
+	`userPW` VARCHAR(20) NOT NULL COLLATE 'utf8_general_ci',
+	`identidication1` VARCHAR(8) NOT NULL DEFAULT '' COLLATE 'utf8_general_ci',
+	`identidication2` VARCHAR(8) NOT NULL DEFAULT '' COLLATE 'utf8_general_ci',
+	`email` VARCHAR(20) NULL DEFAULT '' COLLATE 'utf8_general_ci',
+	`emailAddr` VARCHAR(20) NULL DEFAULT '' COLLATE 'utf8_general_ci',
+	`emailOpt` VARCHAR(20) NOT NULL DEFAULT '' COLLATE 'utf8_general_ci',
+	`firstNum1` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
+	`userPhone1` VARCHAR(50) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	`userPhone2` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
+	`firstNum2` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
+	`userPhone3` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
+	`userPhone4` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
+	`zipNo` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
+	`roadAddrPart1` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'utf8_general_ci',
+	`addrDetail` VARCHAR(30) NOT NULL DEFAULT '0' COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`userID`, `identidication1`, `identidication2`) USING BTREE
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
