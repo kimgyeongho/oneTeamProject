@@ -22,8 +22,8 @@
 	<!-- 테이터베이스 -->
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		   <property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/one_team"></property>
-        <property name="username" value="one_team"></property>
+        <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/test"></property>
+        <property name="username" value="root"></property>
         <property name="password" value="mariadb"></property>
 	</bean>
    <!-- 커넥션 풀 -->

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,8 +23,8 @@ public class MainController {
 	@Autowired
 	private MainService service;
 
-	/*@Autowired // 비밀번호 암호화
-	private PasswordEncoder pwencoder;*/
+	@Autowired // 비밀번호 암호화
+	private PasswordEncoder pwencoder;
 
 	// 메인화면 창
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -63,11 +64,13 @@ public class MainController {
 		log.info("POST join");
 		int IdCheck = service.oneteam_idCHeck(VO);
 		if(IdCheck==0) {
-		return "redirect:/";
-		}else {
+		return "redirect:/join";
+		}else{
+			String pw = VO.getUserPW();
+			String pwd = pwencoder.encode(pw);
 			service.userInsert(VO);
 		}
-		return "main";
+		return "redirect:/";
 	}
 	
 	//로그인 get
