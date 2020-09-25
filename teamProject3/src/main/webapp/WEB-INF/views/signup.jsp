@@ -22,6 +22,49 @@ function goPopup(){
           document.form.roadAddrPart1.value = roadAddrPart1;
           document.form.addrDetail.value = addrDetail;
 }
+    $(document).ready(function(){
+			$("#submit").on("click", function(){
+				if($("#userName").val()==""){
+					alert("이름을 입력해주세요.");
+					$("#userName").focus();
+					return false;
+				}
+				if($("#userID").val()==""){
+					alert("아이디를 입력해주세요.");
+					$("#userID").focus();
+					return false;
+				}
+				if($("#userPW").val()==""){
+					alert("비밀번호을 입력해주세요.");
+					$("#userPW").focus();
+					return false;
+				}
+				var idCheckVal = $("#idCheck").val();
+				if(idCheckVal == "중복확인"){
+					alert("중복확인 버튼을 눌러주세요.");
+				}else if(idCheckVal == "사용가능"){
+					$("#form").submit();
+				}
+			});
+		})
+		
+		function idCheck1(){
+			$.ajax({
+				url : "/IdCheck",
+				type : "post",
+				dataType : "json",
+				data : {"userID" : $("#userID").val()},
+				success : function(data){
+					if(data == 1){
+						alert("중복된 아이디입니다.");
+					}else{
+						$("#idCheck").attr("value", "사용가능");
+						alert("사용가능한 아이디입니다.");
+					}
+				}
+			})
+		}
+      
 </script>
 <body>
 
@@ -92,7 +135,7 @@ function goPopup(){
                 <tr>
                     <td id="index" rowspan="2"><p>아이디</p></td>
                     <td ><input type="text" name="userID" id="userID" placeholder="아이디를 입력하세요" minlength="3" maxlength="16"></td>                    
-                    <td><button type="submit" name="idCheck" id="idCheck" value="중복확인">중복확인</button></td>
+                    <td><button type="submit" name="idCheck" id="idCheck" onclick="idCheck1();" value="중복확인">중복확인</button></td>
                 </tr>
                 <tr>                    
                     <td colspan="3" style="font-size: 12px; padding-left: 25px;">6~16자 영문(소문자), 숫자 입력가능합니다.</td>

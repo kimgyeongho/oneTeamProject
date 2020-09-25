@@ -19,7 +19,7 @@
         <div class="header_container">
         <a href="main.html">
             <div class="header_logo">
-            <!-- <img src="img/logo.png" alt="로고"> f-->
+            <!-- <img src="img/logo.png" alt="로고"> -->
             </div>
         </a>   
         <div class="user_information">
@@ -64,9 +64,9 @@
             <ul class="nav_ul"> 
                 <li><p>부동산</p> 
                 <ul class="nav_ul_b">
-                    <a href="map.do"><li>지도보기</li></a>
-                    <a href="board_all.do"><li>게시판</li></a>
-                    <a href="boardWrite.do"><li>글쓰기</li></a>
+                    <a href="map.html"><li>지도보기</li></a>
+                    <a href="board_all.html"><li>게시판</li></a>
+                    <a href="boardWrite.html"><li>글쓰기</li></a>
                 </ul>
                 </li>
             </ul>
@@ -75,7 +75,7 @@
             <ul class="nav_ul">
                 <li><p>서비스</p> 
                 <ul class="nav_ul_b">
-                    <a href="tips.do"><li>팁</li></a>
+                    <a href="tips.html"><li>팁ㅇ</li></a>
                     <a href=""><li>언어 / Language</li></a>
                 </ul>
                 </li>

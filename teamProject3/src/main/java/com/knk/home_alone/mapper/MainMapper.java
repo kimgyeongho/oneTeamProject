@@ -18,7 +18,17 @@ public interface MainMapper {
 	
 	//주소 회원정보 수정
 	public void oneteam_NumberUpdate(MainVO VO)throws Exception;
+	
+	//회원탈퇴
+	public void oneteam_userDelete(MainVO vo)throws Exception;
 
 	//비밀번호 회원정보 수정
 	public void oneteam_PasswordUpdate(MainVO VO)throws Exception;
+	
+	//비밀번호 확인
+	public int oneteam_passwordCheck(MainVO VO) throws Exception;
+	
+	//아이디 중복
+	public int oneteam_idCHeck(MainVO VO) throws Exception;
+
 }

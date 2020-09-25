@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.knk.home_alone.domain.MainVO;
@@ -60,7 +61,12 @@ public class MainController {
 	public String postjoin(MainVO VO) throws Exception {
 		log.info("==========================");
 		log.info("POST join");
-		service.userInsert(VO);
+		int IdCheck = service.oneteam_idCHeck(VO);
+		if(IdCheck==0) {
+		return "redirect:/";
+		}else {
+			service.userInsert(VO);
+		}
 		return "main";
 	}
 	
@@ -97,6 +103,8 @@ public class MainController {
 		
 		 return "redirect:/";
 	 }
+	 
+		 
 	 //마이페이지 GET
 	 @RequestMapping(value="/mypage.do", method = RequestMethod.GET)
 	 public void mypage() throws Exception{
@@ -129,20 +137,35 @@ public class MainController {
 			 	
 	 return "redirect:/";
 	 }
-	 //아이디 찾기GET
-	 @RequestMapping(value="/find_id.do", method = RequestMethod.GET)
-	 public void find_id() throws Exception{
-		 log.info("GET find_id");
-	 }
-	 //비밀번호 찾기GET
-	 @RequestMapping(value="/find_pw.do", method = RequestMethod.GET)
-	 public void find_pw() throws Exception{
-		 log.info("GET find_pw");
-	 }
-	//지도찾기 GET
-		 @RequestMapping(value="/map.do", method = RequestMethod.GET)
-		 public void map() throws Exception{
-			 log.info("GET find_pw");
-		 }
 	 
+	 // 회원 탈퇴 post
+	 @RequestMapping(value="/userDelete", method = RequestMethod.POST)
+	 public String userDelete(MainVO VO, HttpSession session, RedirectAttributes RA) throws Exception{	 
+     MainVO mainVO = (MainVO)session.getAttribute("user");
+     String Pass = mainVO.getUserPW();
+     String voPass = VO.getUserPW();	
+	 if(!(Pass.equals(voPass))) {
+	 RA.addFlashAttribute("message", false);
+	 return "redirect:mypage.do";
+	 }else {
+	 service.oneteam_userDelete(VO);
+	 session.invalidate();
+	 return "redirect:/";
+	 }
+	}
+	 // 패스워드 확인
+	 @ResponseBody
+	 @RequestMapping(value="/passwordCheck", method = RequestMethod.POST)
+	 public int passwordCheck(MainVO VO) throws Exception {
+	 int passwordCheck = service.oneteam_passwordCheck(VO);
+	 return passwordCheck;
+	 }
+	 // 아이디 중복
+	 @ResponseBody
+	 @RequestMapping(value="/IdCheck", method = RequestMethod.POST)
+	 public int IdCheck(MainVO VO) throws Exception {
+     int IdCheck = service.oneteam_idCHeck(VO);
+     return IdCheck;
+	}
+	
 }
