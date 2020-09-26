@@ -65,7 +65,7 @@ public class MainController {
 		int IdCheck = service.oneteam_idCHeck(VO);
 		if(IdCheck!=0) {
 		return "redirect:/signup.do";
-		}else if(IdCheck!=1){
+		}else if(IdCheck==0){
 			String passwordSecurity = VO.getUserPW();
 			String password = pwencoder.encode(passwordSecurity);
 			VO.setUserPW(password);

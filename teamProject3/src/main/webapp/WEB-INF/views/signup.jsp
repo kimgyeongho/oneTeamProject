@@ -112,7 +112,7 @@ function goPopup(){
 				success : function(data){
 					if(data == 1){
 						alert("중복된 아이디입니다.");
-					}else{
+					}else if(data == 0){
 						$("#idCheck").attr("value", "사용가능");
 						alert("사용가능한 아이디입니다.");
 					}
@@ -190,7 +190,7 @@ function goPopup(){
                 <tr>
                     <td id="index" rowspan="2"><p>아이디</p></td>
                     <td ><input type="text" name="userID" id="userID" placeholder="아이디를 입력하세요" minlength="6" maxlength="16"></td>                    
-                    <td><button type="button" name="idCheck" id="idCheck" onclick="idCheck1();" value="ANO">중복확인</button></td>
+                    <td><button type="button" name="idCheck" id="idCheck" onclick="idCheck1();" value="중복확인">중복확인</button></td>
                 </tr>
                 <tr>                    
                     <td colspan="3" style="font-size: 12px; padding-left: 25px;">6~16자 영문(소문자), 숫자 입력가능합니다.</td>
