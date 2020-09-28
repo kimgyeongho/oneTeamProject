@@ -195,8 +195,8 @@ function goPopup(){
                         <option value="011">011</option>
                         <option value="022">022</option>
                     </select>       
-                    <input   type="tel" id="userPhone1" name="userPhone1">
-                    <input  type="tel" id="userPhone2" name="userPhone2">
+                    <input   type="tel" id="userPhone1" name="userPhone1" style="width:90px">
+                    <input  type="tel" id="userPhone2" name="userPhone2" style="width:90px">
                     <button id="submit3" type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li>
             </ul>
