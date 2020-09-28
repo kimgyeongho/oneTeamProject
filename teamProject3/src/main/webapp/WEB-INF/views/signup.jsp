@@ -98,7 +98,7 @@ function goPopup(){
 				if(idCheckVal == "중복확인"){
 					alert("중복확인 버튼을 눌러주세요.");
 				}else if(idCheckVal == "사용가능"){
-					$("#form").submit();
+					$("#form1").submit();
 				}
 			});
 		})
@@ -180,7 +180,7 @@ function goPopup(){
     </header>      
     <section class="all_body_section">  
         <!-- 회원가입부분 -->
-        <form action="join" method="post"name="form" id="form" >          
+        <form action="join" method="post"name="form" id="form1" >          
         <div class="signup">                        
             <table>
                 <tr>
@@ -266,7 +266,7 @@ function goPopup(){
             </table>
         </div> 
             <div id="click">
-            <button id="submit" type="submit">제출하기</button>
+            <button id="submit" type="button">제출하기</button>
             <button id="reset" type="reset">다시쓰기</button>            
             </div>            
         </div> 

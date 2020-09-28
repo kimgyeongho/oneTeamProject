@@ -63,7 +63,7 @@ public class MainController {
 		log.info("==========================");
 		log.info("POST join");
 		int IdCheck = service.oneteam_idCHeck(VO);
-		if(IdCheck!=0) {
+		if(IdCheck==1) {
 		return "redirect:/signup.do";
 		}else if(IdCheck==0){
 			String passwordSecurity = VO.getUserPW();
