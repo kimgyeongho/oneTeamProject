@@ -4,18 +4,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=800px, height=700px, initial-scale=1.0">
     <title>나 홀로 집에</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="jquery/jquery-3.5.1.min.js"></script>
-    <script src="jquery/jquery-migrate-1.4.1.min.js"></script>
-    <script src="jquery/jquery-ui.min.js"></script>
-    <script src="jquery/jstyle.js"></script>
+    <link rel="stylesheet" href="resources/css/style.css">
+    <script src="resources/jquery/jquery-3.5.1.min.js"></script>
+    <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
+    <script src="resources/jquery/jquery-ui.min.js"></script>
+    <script src="resources/jquery/jstyle.js"></script>
 </head>
 <body>
     <header>
         <div class="header_container">
-        <a href="/">
+        <a href="main.html">
             <div class="header_logo">
             <!-- <img src="img/logo.png" alt="로고"> -->
             </div>
@@ -64,28 +64,27 @@
         </nav> 
         </div>  
         <div class="div_allow">
-            <img id="nav_left_arrow" src="img/arrow_left_w.png" alt="왼쪽화살표">
-            <img id="nav_right_arrow"src="img/arrow_right_w.png" alt="오른쪽화살표">
+            <img id="nav_left_arrow" src="resources/img/arrow_left_w.png" alt="왼쪽화살표">
+            <img id="nav_right_arrow"src="resources/img/arrow_right_w.png" alt="오른쪽화살표">
         </div>    
     </header> 
-        <form id="find_identification" action="#">
-            <table>
+    <section class="all_body_section">  
+        <form id="find_identification_id" action="#">
+            <h3>아이디 찾기</h3>
+            <table class="find_id_table">
                 <tr>
                     <td>이름</td>
-                    <td><input name="name"></td>
+                    <td><input name="userName" style="margin-left: 24px; width: 240px;"></td>
                 </tr>
                 <tr>
                     <td>이메일</td>
-                    <td><input type="email" name="email"></td>
-                </tr>
-                <tr>
-                    <td>정보나눔 이야기</td>
-                    <td><textarea name="message" rows="10" cols="40">메세지 입력</textarea></td>
-                </tr>
-                <tr>
-                    <td><input type="submit"></td>
-                </tr>
+                    <td><input type="email" name="userEmail" style="margin-left: 24px; width: 240px;"></td>
+                </tr>      
             </table>
+            <div class="find_identification_btn">
+            <button type="submit" style="height: 24px;">확인</button>
+            </div>
         </form> 
+    </section>
 </body>
 </html>

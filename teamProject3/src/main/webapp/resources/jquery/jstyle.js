@@ -163,7 +163,15 @@ $(function(){
             $("#map_distance_show").hide();
             });    
 });
-
+//아이디 비밀번호 찾기 팝업 알고리즘
+$(function(){
+    $("#find_id_pop").click(function(){
+        window.open('find_id.html','info','width = 1000px height= 1200px top=300 left=455');
+    })
+    $("#find_pw_pop").click(function(){
+        window.open('find_pw.html','info','width = 1000px height= 1200px top=300 left=455');
+    })
+});
 
 
   
