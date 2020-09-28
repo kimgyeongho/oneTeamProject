@@ -36,13 +36,15 @@
 	, firstNum1, userPhone1, userPhone2
 		  FROM oneteam_join
 		 WHERE userID = #{userID}
-		   AND userPW = #{userPW}
+
 	</select>
 	
 	<!-- 회원탈퇴 -->
 	<delete id="oneteam_userDelete">
 	DELETE FROM oneteam_join
-	WHERE userID = #{userID}  AND userPW = #{userPW} 
+	WHERE userID = #{userID}
+	
+	
 	</delete>
 	
 	<!--패스워드 확인-->

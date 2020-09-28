@@ -24,30 +24,70 @@ function goPopup(){
           document.form.addrDetail.value = addrDetail;
 }
       $(document).ready(function(){
-    		$("#submit").on("click", function(){
-    			if($("#userPW").val()==""){
-    				alert("비밀번호를 입력하세요.");
-    				$("#userPW").focus();
-    				return false;
-    			}
+    	  
+    	  $("#submit1").on("click", function(){
+        			if($("#userPW").val()==""){
+        				alert("비밀번호를 입력하세요.");
+        				$("#userPW").focus();
+        				return false;
+        			}
     			$.ajax({
-    				url : "/passwordCheck",
-    				type : "POST",
-    				dataType : "json",
-    				data : $("#userDelete").serializeArray(),
-    				success: function(data){
-    					
-    					if(data==0){
-    						alert("패스워드가 틀렸습니다.");
-    						return;
-    					}if(confirm("회원탈퇴하시겠습니까?")){
-    							$("#userDelete").submit();
-    						}  					
-    				}
-    			})
-    			
-    		});
-    		})
+					url : "/PassswordChange",
+					type : "POST",
+					dateType : "json",
+					data : $("#delete").serializeArray(),
+					success: function(data){
+						
+						if(data==false){
+							alert("패스워드가 틀렸습니다.");
+							return;
+						}else{
+							if(confirm("회원탈퇴하시겠습니까?")){
+								$("#delete").submit();
+							}
+							
+						}
+					}
+				})
+				
+			});
+    	  $("#submit2").on("click", function(){
+				if($("#userPW1").val()==""){
+					alert("비밀번호를 입력해주세요.");
+					$("#userPW1").focus();
+					return false;
+				}
+		});
+    	  $("#submit3").on("click", function(){
+				if($("#userPhone1").val()==""){
+					alert("번호 앞자리 입력해주세요.");
+					$("#userPhone1").focus();
+					return false;
+				}
+				if($("#userPhone2").val()==""){
+					alert("번호 뒷자리 입력해주세요.");
+					$("#userPhone2").focus();
+					return false;
+				}
+		});
+    	  $("#submit4").on("click", function(){
+				if($("#zipNo").val()==""){
+					alert("우편번호를 입력해주세요.");
+					$("#zipNo").focus();
+					return false;
+				}
+				if($("#roadAddrPart1").val()==""){
+					alert("주소를 입력해주세요.");
+					$("#roadAddrPart1").focus();
+					return false;
+				}
+				if($("#addrDetail").val()==""){
+					alert("상세주소를 입력해주세요.");
+					$("#addrDetail").focus();
+					return false;
+				}
+		});
+	}) 
 </script>
 <body>
     <header>
@@ -135,17 +175,17 @@ function goPopup(){
             </div>
                 <!-- 회원 정보 변경사항을 보낼 form 태그 -->
 <div class="flexible_info">
-        <form class="change_pw" action="PassswordChange" method="post">
+        <form class="change_pw" action="PassswordChange" method="post" id="pswwordCH">
                 <input type="hidden" name="userID" value="${user.userID}"/>   
                 <ul>
                 <li>
                     <p>비밀번호</p>
-                    <input type="password" name="userPW"/>
-                    <button type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
+                    <input type="password" name="userPW" id="userPW1"/>
+                    <button id="submit2"type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li>
                 </ul>
         </form>
-        <form class="change_num" action="NumberChange" method="post">
+        <form class="change_num" action="NumberChange" method="post" >
 				 <input type="hidden" name="userID" value="${user.userID}"/>
             <ul>
                  <li>
@@ -155,9 +195,9 @@ function goPopup(){
                         <option value="011">011</option>
                         <option value="022">022</option>
                     </select>       
-                    <input type="tel" id="userPhone" name="userPhone1">
-                    <input type="tel" id="userPhone" name="userPhone2">
-                    <button type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
+                    <input   type="tel" id="userPhone1" name="userPhone1">
+                    <input  type="tel" id="userPhone2" name="userPhone2">
+                    <button id="submit3" type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li>
             </ul>
         </form>                
@@ -176,17 +216,17 @@ function goPopup(){
                 <li>
                     <p>상세주소</p>
                    <input type="text"  id="addrDetail"  name="addrDetail"/>
-                   <button type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
+                   <button  id="submit4" type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li> 
             </ul> 
         </form>
-        <form class="inform_delete" action="userDelete"method="post" id="userDelete">
+        <form class="inform_delete" action="userDelete"method="post" id="delete">
             <ul>
                 <li>
                     <p>회원탈퇴</p>
                    <input type="text" name="userID" value="${user.userID}" />
                    <input type="password" id="userPW" name="userPW" style="margin-top:12px" />
-                   <button id="submit" type="button" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
+                   <button id="submit1" type="button" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">탈퇴</button>
                 </li>  
             </ul>
         </form> 

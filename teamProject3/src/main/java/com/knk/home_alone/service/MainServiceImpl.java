@@ -90,7 +90,8 @@ public class MainServiceImpl implements MainService {
 		int  IdCheck= mainMapper.oneteam_idCHeck(VO);
 		return IdCheck;
 	}
-	
+
+
 
 	
 }

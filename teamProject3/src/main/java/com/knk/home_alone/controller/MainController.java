@@ -85,18 +85,19 @@ public class MainController {
 	public String postlogin(MainVO VO, HttpServletRequest HSR, RedirectAttributes RA) throws Exception {
 		log.info("==========================");
 		log.info("post login");
-		
-		MainVO login = service.oneteam_login(VO);
 		HttpSession session = HSR.getSession();
+		MainVO login = service.oneteam_login(VO);
+		
 		boolean PwMapping = pwencoder.matches(VO.getUserPW(),login.getUserPW());
 		if(login != null && PwMapping == true) {
 			session.setAttribute("user", login);
-		}else{
-			session.setAttribute("user", null);
-			//	RA.addFlashAttribute("message", false); 메시지를 전달 할 것이라면  사용하기 일단 보류 
+			
+		}else {
+		session.setAttribute("user", null);
+		//	RA.addFlashAttribute("message", false); 메시지를 전달 할 것이라면  사용하기 일단 보류 
+		return "redirect:/login.do";
+		}return "redirect:/";
 
-		}
-		return "redirect:/";
 	}
 	
 	 //로그아웃 GET
@@ -132,10 +133,13 @@ public class MainController {
 		 	
 	 return "redirect:/";
 	 }
-	 //마이페이지  폰 번호 수정 
+	 //마이페이지  비밀번호 수정 
 	 @RequestMapping(value="/PassswordChange", method = RequestMethod.POST)
 	 public String PassswordChange(MainVO VO, HttpSession session) throws Exception{
 			 	
+	 String passwordSecurity = VO.getUserPW();
+	 String password = pwencoder.encode(passwordSecurity);
+	 VO.setUserPW(password);
 	 service.oneteam_PasswordUpdate(VO);		 	
 	 session.invalidate();
 			 	
@@ -145,7 +149,8 @@ public class MainController {
 	 // 회원 탈퇴 post
 	 @RequestMapping(value="/userDelete", method = RequestMethod.POST)
 	 public String userDelete(MainVO VO, HttpSession session, RedirectAttributes RA) throws Exception{	 
-	 service.oneteam_userDelete(VO);
+		 log.info("POST userDelete");
+	service.oneteam_userDelete(VO);
 	 session.invalidate();
 	 return "redirect:/";
 	 }
