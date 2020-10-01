@@ -26,7 +26,7 @@ public interface MainMapper {
 	public void oneteam_PasswordUpdate(MainVO VO)throws Exception;
 	
 	//비밀번호 확인
-	public int oneteam_passwordCheck(MainVO VO) throws Exception;
+	public MainVO oneteam_passwordCheck(MainVO VO) throws Exception;
 	
 	//아이디 중복
 	public int oneteam_idCHeck(MainVO VO) throws Exception;

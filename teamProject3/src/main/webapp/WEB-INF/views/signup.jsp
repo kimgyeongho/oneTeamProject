@@ -15,96 +15,100 @@
 <script>
 // 도로명 주소 창
 function goPopup(){
-   var pop = window.open("popup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+   var pop = window.open("popup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
+	   $("#address2").attr("value", "주소체크");
 }
       function jusoCallBack(zipNo,roadAddrPart1,addrDetail){
           document.form.zipNo.value = zipNo;
           document.form.roadAddrPart1.value = roadAddrPart1;
           document.form.addrDetail.value = addrDetail;
-}
+}    
     $(document).ready(function(){
-			$("#submit").on("click", function(){
-				if($("#userName").val()==""){
-					alert("이름을 입력해주세요.");
-					$("#userName").focus();
+			$("#submit1").on("click", function(){
+					var name = /^[가-힣]+$/;        
+			    	var pw = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,16}$/;
+
+			    	var pwCh = $("#userPW").val();
+			        var nameCH =  $("#userName").val();
+			        var addr =  $("#emailAddr").val();
+			        var Opt = $("#emailOpt").val();
+			        // 두가지에 방식으로 만들었음. 
+			 		if(false == name.test(nameCH) || nameCH == "") {
+					alert('이름을 한글로 입력해주시길 바랍니다.');
 					return false;
-				}
-				if($("#userID").val()==""){
-					alert("아이디를 입력해주세요.");
-					$("#userID").focus();
+					}
+			        if(!/^[a-zA-Z0-9]{6,16}$/.test($("#userID").val())){
+					alert('아이디는 숫자와 영문자 조합으로 6~16자리를 입력해주시길 바랍니다.');
 					return false;
-				}
-				if($("#userPW").val()==""){
-					alert("비밀번호을 입력해주세요.");
-					$("#userPW").focus();
+					} 
+			    	if(false == pw.test(pwCh) || $("#userPW").val()=="") {
+			    	alert('비밀번호는 6~16자 이어야 하며, 6~16자 영문(소문자), 숫자, 특수문자로 입력해주시길 바랍니다.');
+			    	return false;
+			    	}
+			    	if($("#pwCheck").val()=="") {
+				    alert('비밀번호 확인해주세요');
+				    return false;
+				    }
+			    	if(!/^[0-9]{6}$/.test($("#identification1").val())){
+					alert('주민번호 앞자리 숫자 6자로 입력해주시길 바랍니다.');
 					return false;
-				}
-				if($("#pwCheck").val()==""){
-					alert("비밀번호 확인을 해주세요.");
-					$("#pwCheck").focus();
+					} 
+			    	if(!/^[0-9]{7}$/.test($("#identification2").val())){
+					alert('주민번호 뒷자리 숫자 7자로 입력해주시길 바랍니다.');
 					return false;
-				}
-				if($("#identification1").val()==""){
-					alert("주민번호 입력해주세요.");
-					$("#identification1").focus();
+					}
+			    	if( !/^@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test($("#emailAddr").val()) &&
+					$("#emailOpt").val()==""){
+					alert('이메일 형식에 맞게 입력해주시길 바랍니다.');
 					return false;
-				}
-				if($("#identification2").val()==""){
-					alert("주민번호 입력해주세요.");
-					$("#identification2").focus();
+					}
+					if(addr != "" && Opt != ""){
+					alert('이메일 형식에 맞게 입력해주시길 바랍니다.');
 					return false;
-				}
-				if($("#email").val()==""){
-					alert("이메일를입력해주세요.");
-					$("#email").focus();
+					}
+					if(!/^[0-9]{4}$/.test($("#userPhone1").val())){
+					alert('핸드폰 번호 앞자리  입력해주시길 바랍니다.');
 					return false;
-				}
-				if($("#userPhone1").val()==""){
-					alert("핸드폰 번호를 입력해주세요.");
-					$("#userPhone1").focus();
+					}
+					if(!/^[0-9]{4}$/.test($("#userPhone2").val())){
+					alert('핸드폰 번호 뒷자리  입력해주시길 바랍니다.');
 					return false;
-				}
-				if($("#userPhone2").val()==""){
-					alert("핸드폰 번호를 입력해주세요.");
-					$("#userPhone2").focus();
+					}userPhone3
+					if(!/^[0-9]{4}$/.test($("#userPhone3").val())){
+					alert('일반전호  앞자리  입력해주시길 바랍니다.');
 					return false;
-				}
-				if($("#userPhone3").val()==""){
-					alert("집 번호를입력해주세요.");
-					$("#userPhone3").focus();
+					}
+					if(!/^[0-9]{4}$/.test($("#userPhone4").val())){
+					alert('일반전호 뒷자리  입력해주시길 바랍니다.');
 					return false;
-				}
-				if($("#userPhone4").val()==""){
-					alert("집 번호를입력해주세요.");
-					$("#userPhone4").focus();
+					} 
+			        var address2 = $("#address2").val();
+				 	if(address2 == "주소찾기"){
+					alert("주소찾기를 통해 주소를 찾아주세요");
 					return false;
-				}
-				if($("#zipNo").val()==""){
-					alert("우편번호를 입력해주세요.");
-					$("#zipNo").focus();
+					}if($("#zipNo").val() == ""){
+					alert("주소찾기를 통해 주소를 찾아주세요");
 					return false;
-				}
-				if($("#roadAddrPart1").val()==""){
-					alert("주소를 입력해주세요.");
-					$("#roadAddrPart1").focus();
+					}
+					if($("#roadAddrPart1").val() == ""){
+					alert("주소찾기를 통해 주소를 찾아주세요");
 					return false;
-				}
-				if($("#addrDetail").val()==""){
-					alert("상세주소를 입력해주세요.");
-					$("#addrDetail").focus();
+					}
+					if($("#addrDetail").val() == ""){
+					alert("주소찾기를 통해 주소를 찾아주세요");
 					return false;
-				}
-				var idCheckVal = $("#idCheck").val();
-				if(idCheckVal == "중복확인"){
+					}  
+				    var idCheckVal = $("#idCheck").val();
+				    if(idCheckVal == "중복확인"){
 					alert("중복확인 버튼을 눌러주세요.");
-				}else if(idCheckVal == "사용가능"){
-					$("#form1").submit();
+				    }else if(idCheckVal == "사용가능"){
+					$("#form").submit();
 				}
 			});
 		})
 		
 		function idCheck1(){
-			$.ajax({
+    	$.ajax({
 				url : "/IdCheck",
 				type : "post",
 				dataType : "json",
@@ -113,13 +117,15 @@ function goPopup(){
 					if(data == 1){
 						alert("중복된 아이디입니다.");
 					}else if(data == 0){
-						$("#idCheck").attr("value", "사용가능");
-						alert("사용가능한 아이디입니다.");
+					if(!/^[a-zA-Z0-9]{6,16}$/.test($("#userID").val())){
+						alert('숫자와 영문자 조합으로 6~16자리를 입력해주세요.');
+						return false;
+					}$("#idCheck").attr("value", "사용가능");
+					alert("사용가능한 아이디입니다.");
 					}
 				}
 			})
 		}
-      
 </script>
 <body>
 
@@ -180,7 +186,7 @@ function goPopup(){
     </header>      
     <section class="all_body_section">  
         <!-- 회원가입부분 -->
-        <form action="join" method="post"name="form" id="form1" >          
+        <form action="join" method="post"name="form" id="form" >          
         <div class="signup">                        
             <table>
                 <tr>
@@ -220,7 +226,7 @@ function goPopup(){
                         <option value="">@직접입력</option>
                         <option value="@google.com">@google.com</option>
                         <option value="@daum.net">@daum.net</option>
-                        <option value="@daum.net">@naver.net</option>
+                        <option value="@naver.com">@naver.com</option>
                     </select>    
                 </td>      
                 </tr>
@@ -249,10 +255,11 @@ function goPopup(){
                     <td ><input type="tel" id="userPhone4" name="userPhone4"  minlength="4" maxlength="4"></td>
                 </tr>
                 <tr>
-                    <td id="index" rowspan="3"><p>주소</p></td>
+                    <td id="index" rowspan="3"  id="address"><p>주소</p></td>
                     <td id="subindex" style="font-size: 14px; padding-left: 25px;">우편번호</td>  
                     <td ><input type="text" id="zipNo" name="zipNo"></td>
                     <td><button type="button" class="findaddr" onClick="goPopup();" >주소 찾기</button></td>
+                 <input type="hidden" id="address2" value="주소찾기">
                 </tr>
                 <tr>
                     <td style="font-size: 14px; padding-left: 25px;">주소</td>
@@ -266,7 +273,7 @@ function goPopup(){
             </table>
         </div> 
             <div id="click">
-            <button id="submit" type="button">제출하기</button>
+            <button id="submit1" type="button" onclick="check()">제출하기</button>
             <button id="reset" type="reset">다시쓰기</button>            
             </div>            
         </div> 

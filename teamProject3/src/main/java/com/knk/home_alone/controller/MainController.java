@@ -76,8 +76,8 @@ public class MainController {
 	
 	//로그인 get
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
-	public void login() throws Exception {
-		log.info("GET authentication");
+	public void main2() throws Exception {
+		log.info("GET main2 로그인 된 메인페이지");
 	}	
 		
 	//로그인 post
@@ -91,15 +91,12 @@ public class MainController {
 		boolean PwMapping = pwencoder.matches(VO.getUserPW(),login.getUserPW());
 		if(login != null && PwMapping == true) {
 			session.setAttribute("user", login);
-			
-		}else {
+		}/*else {
 		session.setAttribute("user", null);
 		//	RA.addFlashAttribute("message", false); 메시지를 전달 할 것이라면  사용하기 일단 보류 
-		return "redirect:/login.do";
-		}return "redirect:/";
-
+		return "redirect:/login.do";}*/
+		return "redirect:/";
 	}
-	
 	 //로그아웃 GET
 	 @RequestMapping(value = "/logout.do", method = RequestMethod.GET)
 	 public String logout(HttpSession session) throws Exception{
@@ -159,6 +156,14 @@ public class MainController {
 	 @RequestMapping(value="/passwordCheck", method = RequestMethod.POST)
 	 public boolean passwordCheck(MainVO VO) throws Exception {
 	 MainVO login = service.oneteam_login(VO);
+	 boolean PwMapping = pwencoder.matches(VO.getUserPW(),login.getUserPW());
+	 return PwMapping;
+	 }
+	 // 패스워드 확인
+	 @ResponseBody
+	 @RequestMapping(value="/passwordCheck2", method = RequestMethod.POST)
+	 public boolean passwordCheck2(MainVO VO) throws Exception {
+	 MainVO login = service.oneteam_passwordCheck(VO);
 	 boolean PwMapping = pwencoder.matches(VO.getUserPW(),login.getUserPW());
 	 return PwMapping;
 	 }

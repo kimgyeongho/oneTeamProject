@@ -17,6 +17,7 @@
 // 도로명 주소 창
 function goPopup(){
    var pop = window.open("popup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+   $("#address2").attr("value", "주소체크");
 }
       function jusoCallBack(zipNo,roadAddrPart1,addrDetail){
           document.form.zipNo.value = zipNo;
@@ -52,26 +53,34 @@ function goPopup(){
 				
 			});
     	  $("#submit2").on("click", function(){
-				if($("#userPW1").val()==""){
-					alert("비밀번호를 입력해주세요.");
+				if(!/^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,16}$/.test($("#userPW1").val())){
+					alert("비밀번호는 6~16자 이어야 하며, 6~16자 영문(소문자), 숫자, 특수문자로 입력해주시길 바랍니다.");
 					$("#userPW1").focus();
+					return false;
+				}
+					if(confirm("비밀번호가 변경이 되고 로그아웃 됩니다.")){
+					$("#pswwordCH").submit();
 					return false;
 				}
 		});
     	  $("#submit3").on("click", function(){
-				if($("#userPhone1").val()==""){
+			if(!/^[0-9]{4}$/.test($("#userPhone1").val())){
 					alert("번호 앞자리 입력해주세요.");
 					$("#userPhone1").focus();
 					return false;
 				}
-				if($("#userPhone2").val()==""){
+				if(!/^[0-9]{4}$/.test($("#userPhone2").val())){
 					alert("번호 뒷자리 입력해주세요.");
 					$("#userPhone2").focus();
 					return false;
 				}
+				if(confirm("번호 변경이 되고 로그아웃 됩니다.")){
+					$("#firstNumCH").submit();
+					return false;
+				}
 		});
     	  $("#submit4").on("click", function(){
-				if($("#zipNo").val()==""){
+		/* 		if($("#zipNo").val()==""){
 					alert("우편번호를 입력해주세요.");
 					$("#zipNo").focus();
 					return false;
@@ -85,6 +94,26 @@ function goPopup(){
 					alert("상세주소를 입력해주세요.");
 					$("#addrDetail").focus();
 					return false;
+				}
+ */			    var address2 = $("#address2").val();
+			 	if(address2 == "주소찾기"){
+				alert("주소찾기를 통해 주소를 찾아주세요");
+				return false;
+				}if($("#zipNo").val() ==""){
+				alert("주소찾기를 통해 주소를 찾아주세요");
+				return false;
+				}
+				if($("#roadAddrPart1").val() ==""){
+				alert("주소찾기를 통해 주소를 찾아주세요");
+				return false;
+				}
+				if($("#addrDetail").val() == ""){
+				alert("주소찾기를 통해 주소를 찾아주세요");
+				return false;
+				}  
+				if(confirm("주소가 변경이 되고 로그아웃 됩니다.")){
+				$("#form").submit();
+				return false;
 				}
 		});
 	}) 
@@ -181,11 +210,11 @@ function goPopup(){
                 <li>
                     <p>비밀번호</p>
                     <input type="password" name="userPW" id="userPW1"/>
-                    <button id="submit2"type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
+                    <button id="submit2"type="button" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li>
                 </ul>
         </form>
-        <form class="change_num" action="NumberChange" method="post" >
+        <form class="change_num" action="NumberChange" method="post" id="firstNumCH" >
 				 <input type="hidden" name="userID" value="${user.userID}"/>
             <ul>
                  <li>
@@ -195,9 +224,9 @@ function goPopup(){
                         <option value="011">011</option>
                         <option value="022">022</option>
                     </select>       
-                    <input   type="tel" id="userPhone1" name="userPhone1" style="width:90px">
-                    <input  type="tel" id="userPhone2" name="userPhone2" style="width:90px">
-                    <button id="submit3" type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
+                    <input   type="tel" id="userPhone1" name="userPhone1" style="width:90px" minlength="4" maxlength="4">
+                    <input  type="tel" id="userPhone2" name="userPhone2" style="width:90px" minlength="4" maxlength="4">
+                    <button id="submit3" type="button" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li>
             </ul>
         </form>                
@@ -216,9 +245,10 @@ function goPopup(){
                 <li>
                     <p>상세주소</p>
                    <input type="text"  id="addrDetail"  name="addrDetail"/>
-                   <button  id="submit4" type="submit" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
+                   <button  id="submit4" type="button" style="width: 80px;height: 24px; margin-bottom: 0px; background: none; border-radius: 5px; background-color: rgb(102, 102, 102); line-height: 0px; color:white;">변경</button>
                 </li> 
             </ul> 
+                             <input type="hidden" id="address2" value="주소찾기">
         </form>
         <form class="inform_delete" action="userDelete"method="post" id="delete">
             <ul>

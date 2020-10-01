@@ -75,9 +75,9 @@ public class MainServiceImpl implements MainService {
 
 
 	@Override
-	public int oneteam_passwordCheck(MainVO VO) throws Exception {
+	public MainVO oneteam_passwordCheck(MainVO VO) throws Exception {
 		log.info("oneteam_passwordCheck"+VO);
-		int  passwordCheck= mainMapper.oneteam_passwordCheck(VO);
+		MainVO  passwordCheck= mainMapper.oneteam_passwordCheck(VO);
 		return passwordCheck;
 
 	}

@@ -12,6 +12,59 @@
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/jstyle.js"></script>
 </head>
+<script>
+
+$(document).ready(function(){
+	  $("#idCheck").on("click", function(){
+		  if($("#userID").val()==""){
+				alert('아이디를 입력해주세요');
+				return false;
+			}
+			if($("#userPW").val()==""){
+				alert('비밀번호를 입력해주세요');
+				return false;
+			}
+			if($("#userPW").val()=="" && $("#userID").val()==""){
+				alert('아이디와 비밀번호를 입력해주세요');
+				return false;
+			}
+			 if($("#userID2").val()=="아이디체크완료" && $("#userPW2").val()=="비밀번호체크완료"){
+				$("#loginForm").submit();
+				return false;
+			}
+			$.ajax({
+				url : "/IdCheck",
+				type : "post",
+				dataType : "json",
+				data : {"userID" : $("#userID").val()},
+				success : function(data){
+					if(data == 0){
+						alert("아이디가 틀렸습니다.");			
+					}else if(data == 1){
+						$("#userID2").attr("value", "아이디체크완료");
+					}
+				}
+			}) 
+			$.ajax({
+						url : "/passwordCheck",
+						type : "POST",
+						dateType : "json",
+						data : $("#loginForm").serializeArray(),
+						success: function(data){
+							
+							if(data==false){
+								alert("패스워드가 틀렸습니다.");	
+							}else if(data == true){
+								$("#userPW2").attr("value", "비밀번호체크완료");
+							}
+						}		
+					})
+});
+})  
+/* function idCheck1(){
+
+	} */
+</script>
 <body>
     <header>
         <div class="header_container">
@@ -69,19 +122,21 @@
         </div>    
     </header>     
     <section class="all_body_section">  
-        <form action="login" class="formlogin"  method="post">
+        <form action="login" class="formlogin"  method="post" id="loginForm">
         <table class="logintable">           
             <tr id="ID">
                 <td><h2 class="h2">아이디</h2></td>
                 <td><input type="text" id="userID" name="userID" placeholder="id"></td>
+                <input type="hidden" id="userID2" value="아이디">
             </tr>
             <tr id="PW">
                 <td><h2 class="h2">비밀번호</h2></td>
                 <td><input type="password" id="userPW" name="userPW" placeholder="password"></td>
+                <input type="hidden" id="userPW2" value="비밀번호">
             </tr>        
         </table>
         <div class="loginbutton">
-        <a href="#"><button type="submit" class="log">로그인</button></a>
+        <a><button type="button" class="log" id="idCheck" onclick="idCheck1();">로그인</button></a>
         <a href="authentication.do"><button type="submit" class="sign">회원가입</button></a>
         </div>
         </form>

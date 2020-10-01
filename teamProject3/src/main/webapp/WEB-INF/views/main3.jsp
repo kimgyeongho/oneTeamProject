@@ -14,13 +14,6 @@
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/jstyle.js"></script>
 </head>
-<script>
-function logout(){
-if(confirm("로그아웃하시겠습니까?")){
-	location.href = "logout.do";
-}
-}
-</script>
 <body>   
     <header>
         <div class="header_container">
@@ -33,6 +26,7 @@ if(confirm("로그아웃하시겠습니까?")){
            <c:if test="${user != null}">        
            <a href="mypage.do">           
            <h3>${user.userID}님 마이페이지</h3>
+           
            </a> 
            </c:if>
         </div>
@@ -56,7 +50,7 @@ if(confirm("로그아웃하시겠습니까?")){
                     <a href="login.do"><li>로그인</li></a>
                      </c:if> 
                       <c:if test="${user != null}">
-                    <a onclick="logout();"><li>로그아웃</li></a>
+                    <a href="logout.do"><li>로그아웃</li></a>
                      </c:if>           
                      
                 </ul>

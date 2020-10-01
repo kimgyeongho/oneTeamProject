@@ -50,8 +50,7 @@
 	<!--패스워드 확인-->
 	<select id="oneteam_passwordCheck" resultType="int">
 	SELECT COUNT(*) FROM oneteam_join
-	WHERE userID = #{userID}
-	  AND userPW = #{userPW}
+	WHERE userPW = #{userPW}
 	</select>
 	
 	<!-- 아이디 중복 -->
