@@ -204,112 +204,41 @@ public class MainController {
 	public void getFind_pw() throws Exception{
 	log.info("GET find_pw");
 		 }
-	/*@RequestMapping("/sendEmail.do")
-	public void sendEmail(HttpServletRequest request,HttpServletResponse response) throws Exception{
 	
-		//메일 관련 정보 
-		String host = "smtp.naver.com";
-		final String username = "2018food"; //네이버 이메일 주소중 @naver.com 앞주소 작성
-		final String password = "oneteam123"; //네이버 이메일 비밀번호를 작성 
-		int port=587;
-		
-		//메일 내용 
-		String recipient = "2018food@naver.com"; // 메일을 발송할 이메일 주소를 기재해 줍니다.
-		String subject = "이메일 발송시 제목"; //메일 발송시 제목을 작성
-		String body = "이름: 김경호입니다.\n\n"; //메일 발송시 내용 작성
-
-		Properties props = System.getProperties();
-		
-		props.put("mail.smtp.host", host);
-		props.put("mail.smtp.port", port);
-		props.put("mail.smtp.ayth", "true");
-		props.put("mail.smtp.ssl.enable", "true");
-		props.put("mail.smtp.ssl.trust", host);
-
-		Session session = Session.getDefaultInstance(props, new Authenticator(){
-			String un= username;
-			String pw= password;
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(un,pw);
-			}
-			
-		});
-		session.setDebug(true); //for debug
-		
-		Message mimeMessage = new MimeMessage(session);
-		mimeMessage.setFrom(new InternetAddress("2018food@naver.com"));
-		mimeMessage.setRecipient(Message.RecipientType.TO,new InternetAddress(recipient));
-		mimeMessage.setSubject(subject);
-		mimeMessage.setText(body);
-		Transport.send(mimeMessage);
-		
-		
-	}*/
-	
-	// mailForm
-	  @RequestMapping(value = "/mailForm")
-	  public String mailForm() {
-	   
-	    return "/mailForm";
-	  }  
-	  /*	 
-	  // mailSending 코드
-	  @RequestMapping(value = "/mailSending")
-	  public String mailSending(HttpServletRequest request) {
-	   
-	    String setfrom = "apdlvmf1562@gmail.com";         
-	    String tomail  = request.getParameter("tomail");     // 받는 사람 이메일
-	    String title   = request.getParameter("title");      // 제목
-	    String content = request.getParameter("content");    // 내용
-	   
-	    try {
-	      MimeMessage message = mailSender.createMimeMessage();
-	      MimeMessageHelper messageHelper 
-	                        = new MimeMessageHelper(message, true, "UTF-8");
-	 
-	      messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
-	      messageHelper.setTo(tomail);     // 받는사람 이메일
-	      messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
-	      messageHelper.setText(content);  // 메일 내용
-	     
-	      mailSender.send(message);
-	    } catch(Exception e){
-	      System.out.println(e);
-	    }
-	   
-	    return "redirect:/mailForm";
-	  }
-*/
-
-	// mailSending 코드
-		@RequestMapping(value = "mailSending.do")
+	  @RequestMapping(value = "mailSending.do")
 		public String mailSending(HttpServletRequest request) {
-        
-			String setfrom = "2018food@naver.com";
+	    
+			String setfrom = "apdlvmf1562@gmail.com";
 			String tomail = request.getParameter("tomail"); // 받는 사람 이메일
 			String title = request.getParameter("title"); // 제목
 			String content = request.getParameter("content"); // 내용
-            System.out.println("안되는 이유좀 ");
 			try {
-	            System.out.println("안되는 이유좀 2");
 
 				MimeMessage message = mailSender.createMimeMessage();
 				MimeMessageHelper messageHelper = new MimeMessageHelper(message,
-						true, "UTF-8");
-
+						true, "UTF-8");         
+				
+				
 				messageHelper.setFrom(setfrom); // 보내는사람 생략하면 정상작동을 안함
 				messageHelper.setTo(tomail); // 받는사람 이메일
 				messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
 				messageHelper.setText(content); // 메일 내용
 
 				mailSender.send(message);
+
 			} catch (Exception e) {
-				System.out.println("왜 안되는거니? ");
+				System.out.println(e);
 			}
 
 			return "mailForm";
 		}
 		
+		// mailForm
+			  @RequestMapping(value = "/mailForm")
+			  public String mailForm() {
+			   
+			    return "/mailForm";
+			  }  
 		
 		
 		

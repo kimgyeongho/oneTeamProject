@@ -36,6 +36,6 @@ public interface MainMapper {
     
 	//아이디 찾기
     public String oneteam_findId(@Param("email") String email, @Param("userName") String userName) throws Exception;
-	///test git
+
 
 }
