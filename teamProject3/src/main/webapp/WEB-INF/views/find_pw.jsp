@@ -12,23 +12,6 @@
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/jstyle.js"></script>
 </head>
-<script>
-	$(function(){
-		$("#findBtn").click(function(){
-			$.ajax({
-				url : "/find_pw",
-				type : "POST",
-				data : {
-					id : $("#userID").val(),
-					email : $("#email").val()
-				},
-				success : function(result) {
-					alert(result);
-				},
-			})
-		});
-	})
-</script>
 <body>
     <header>
         <div class="header_container">

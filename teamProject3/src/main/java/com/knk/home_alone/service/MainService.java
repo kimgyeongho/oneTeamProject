@@ -24,11 +24,5 @@ public interface MainService {
 
     public String oneteam_findId(HttpServletResponse response, String email, String userName) throws Exception;
 
-	public void send_mail(MainVO VO, String div) throws Exception;
-
-    public void find_pw(HttpServletResponse response, MainVO VO) throws Exception;
-
-/*	public void oneteam_checkEmail(String email, HttpServletResponse response) throws Exception;
-*/
 	
 }

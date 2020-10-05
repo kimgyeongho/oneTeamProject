@@ -59,11 +59,6 @@
 	WHERE userID = #{userID}
 	</select>
 	
-		<!-- 이메일 중복 검사 -->
-	<select id="oneteam_checkEmail" parameterType="String" resultType="int">
-		select count(*) from member where email = #{email}
-	</select>
-	
 	<!--주소 정보 수정 -->
 	<update id="oneteam_Update" >
 		UPDATE oneteam_join SET zipNo = #{zipNo}, roadAddrPart1 = #{roadAddrPart1}, 
@@ -87,9 +82,5 @@
 		select userID from oneteam_join where email = #{email} and  userName= #{userName}
 	</select>
 	
-	<!-- 비밀번호 찾기 수정 -->
-	<update id="update_pw" parameterType="MainVO">
-		update oneteam_join set userPW = #{userPW} where userID = #{userID} 
-	</update>
 	
 </mapper>

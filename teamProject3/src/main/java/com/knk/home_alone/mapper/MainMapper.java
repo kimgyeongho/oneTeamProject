@@ -37,11 +37,5 @@ public interface MainMapper {
 	//아이디 찾기
     public String oneteam_findId(@Param("email") String email, @Param("userName") String userName) throws Exception;
 	
-	// 비밀번호 찾기
-	@Transactional
-	public int update_pw(MainVO VO) throws Exception;
-	
-	// 이메일 중복 검사
-	public int oneteam_checkEmail(String email) throws Exception;
 
 }
