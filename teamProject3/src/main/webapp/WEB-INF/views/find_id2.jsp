@@ -69,17 +69,15 @@
         </div>    
     </header> 
     <section class="all_body_section">  
-        <form id="find_id" action="find_id" method="post">
+        <form id="find_id" action="find_id">
             <h3>아이디 찾기</h3>
             <table class="find_id_table">
-                <tr>
-                    <td>이름</td>
-                    <td><input name="userName" style="margin-left: 24px; width: 240px;"></td>
-                </tr>
-                <tr>
-                    <td>이메일</td>
-                    <td><input type="email" name="email" style="margin-left: 24px; width: 240px;"></td>
-                </tr>      
+                <h3>아이디 찾기 검색결과</h3>
+			</div>
+			<div>
+				<h5>
+					${ id }
+				</h5>
             </table>
             <div class="find_identification_btn">
             <button type="submit" style="height: 24px;">확인</button>

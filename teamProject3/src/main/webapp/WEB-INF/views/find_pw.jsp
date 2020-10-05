@@ -12,6 +12,23 @@
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/jstyle.js"></script>
 </head>
+<script>
+	$(function(){
+		$("#findBtn").click(function(){
+			$.ajax({
+				url : "/find_pw",
+				type : "POST",
+				data : {
+					id : $("#userID").val(),
+					email : $("#email").val()
+				},
+				success : function(result) {
+					alert(result);
+				},
+			})
+		});
+	})
+</script>
 <body>
     <header>
         <div class="header_container">
@@ -79,15 +96,15 @@
                     </tr>
                     <tr>
                         <td>아이디</td>
-                        <td><input name="userID" style="margin-top: 24px;margin-left: 24px; width: 240px;"></td>
+                        <td><input  id="userID" name="userID" style="margin-top: 24px;margin-left: 24px; width: 240px;"></td>
                     </tr>
                     <tr>
                         <td>이메일</td>
-                        <td><input type="email" name="userEmail" style="margin-top: 24px; margin-left: 24px; width: 240px;"></td>
+                        <td><input type="email" id="email" name="email" style="margin-top: 24px; margin-left: 24px; width: 240px;"></td>
                     </tr>      
                 </table>
                 <div class="find_identification_btn">
-                <button type="submit" style="height: 24px;">확인</button>
+                <button type="button" id="findBtn" style="height: 24px;">확인</button>
                 </div>
             </form> 
         </section>

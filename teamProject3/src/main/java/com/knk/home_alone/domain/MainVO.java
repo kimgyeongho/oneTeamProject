@@ -10,8 +10,8 @@ public class MainVO {
 	private String identidication1;
 	private String identidication2;
 	private String email;
-	private String emailAddr;
-	private String emailOpt;
+/*	private String emailAddr;
+	private String emailOpt;*/
 	private String firstNum1;
 	private String userPhone1;
 	private String userPhone2;

@@ -190,7 +190,7 @@ function goPopup(){
                 </li>
                 <li>
                     <p>이메일</p>
-                    <input type="text" value="${user.email}${user.emailAddr}${user.emailOpt}"/>
+                    <input type="text" value="${user.email}<%-- ${user.emailAddr}${user.emailOpt} --%>"/>
                 </li>
                 <li>
                     <p>주소</p>

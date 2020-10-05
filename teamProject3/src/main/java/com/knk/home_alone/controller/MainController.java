@@ -1,13 +1,17 @@
 package com.knk.home_alone.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -77,7 +81,7 @@ public class MainController {
 	//로그인 get
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public void main2() throws Exception {
-		log.info("GET main2 로그인 된 메인페이지");
+		log.info("GET main 로그인 된 메인페이지");
 	}	
 		
 	//로그인 post
@@ -171,8 +175,33 @@ public class MainController {
 	 @ResponseBody
 	 @RequestMapping(value="/IdCheck", method = RequestMethod.POST)
 	 public int IdCheck(MainVO VO) throws Exception {
-     int IdCheck = service.oneteam_idCHeck(VO);
+	 int IdCheck = service.oneteam_idCHeck(VO);
      return IdCheck;
-	}
-	//ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+	 }
+	 //아이디 찾기 페이지 GET
+	 @RequestMapping(value="/find_id.do", method = RequestMethod.GET)
+	 public void getFind_id() throws Exception{
+	 log.info("GET find_id");
+	 }
+	 
+	 // 아이디 찾기
+	 @RequestMapping(value = "/find_id", method = RequestMethod.POST)
+	 public String find_id(HttpServletResponse response, @RequestParam("email") String email, Model md
+	 ,@RequestParam("userName") String userName) throws Exception{
+	 md.addAttribute("id", service.oneteam_findId(response, email, userName));
+	 
+	 return "find_id2";
+		}
+	 
+	//아이디 찾기 페이지 GET
+	@RequestMapping(value="/find_pw.do", method = RequestMethod.GET)
+	public void getFind_pw() throws Exception{
+	log.info("GET find_pw");
+		 }
+	// 비밀번호 찾기
+	@RequestMapping(value = "/find_pw", method = RequestMethod.POST)
+	public void find_pw(@ModelAttribute MainVO VO, HttpServletResponse response) throws Exception{
+	service.find_pw(response, VO);
+		}
+		
 }

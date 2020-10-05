@@ -57,7 +57,12 @@ function goPopup(){
 					alert('주민번호 뒷자리 숫자 7자로 입력해주시길 바랍니다.');
 					return false;
 					}
-			    	if( !/^@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test($("#emailAddr").val()) &&
+			    	
+	if( !/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test($("#email").val())){
+					alert('이메일 형식에 맞게 입력해주시길 바랍니다.');
+					return false;
+					}
+/* 			    	if( !/^@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test($("#emailAddr").val()) &&
 					$("#emailOpt").val()==""){
 					alert('이메일 형식에 맞게 입력해주시길 바랍니다.');
 					return false;
@@ -65,7 +70,7 @@ function goPopup(){
 					if(addr != "" && Opt != ""){
 					alert('이메일 형식에 맞게 입력해주시길 바랍니다.');
 					return false;
-					}
+					} */
 					if(!/^[0-9]{4}$/.test($("#userPhone1").val())){
 					alert('핸드폰 번호 앞자리  입력해주시길 바랍니다.');
 					return false;
@@ -221,14 +226,14 @@ function goPopup(){
                 <tr>
                     <td id="index"><p>이메일</p></td>
                     <td ><input type="text" name="email" id="email"></td>                    
-                    <td ><input type="text" name="emailAddr" id="emailAddr"></td>                  
+             <!--        <td ><input type="text" name="emailAddr" id="emailAddr"></td>                  
                     <td><select name="emailOpt" id="emailOpt">
                         <option value="">@직접입력</option>
                         <option value="@google.com">@google.com</option>
                         <option value="@daum.net">@daum.net</option>
                         <option value="@naver.com">@naver.com</option>
                     </select>    
-                </td>      
+                </td>     -->  
                 </tr>
                 <tr>
                     <td id="index" rowspan="2"><p>연락처</p></td>
