@@ -55,7 +55,10 @@ public interface MainMapper {
 	public int temporary_password(String userName, String userID , String email, String key) throws Exception;
 	
 	//아이디로 유저이름 찾기 
-	public MainVO oneteam_userName(String userName, String userID, String email) throws Exception;
+	public MainVO oneteam_userName(@Param("userName") String userName,@Param("userID") String userID,@Param("email") String email) throws Exception;
+
+	//비밀번호 찾기 유저정보 체크하기 
+	public int oneteam_userCHeck(MainVO vO) throws Exception;
 
 
 }

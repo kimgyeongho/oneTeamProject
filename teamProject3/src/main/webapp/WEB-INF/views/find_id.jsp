@@ -70,15 +70,15 @@
     </header> 
     <section class="all_body_section">  
         <form id="find_id" action="find_id" method="post">
-            <h3>아이디 찾기</h3>
-            <table class="find_id_table">
+            <h3  style="margin-left: 50px;">아이디 찾기</h3>
+            <table class="find_id_table"  style="margin-top:100px; width: 500px; height: 150px; border:2px solid rgb(192,192,192);">
                 <tr>
                     <td>이름</td>
-                    <td><input name="userName" style="margin-left: 24px; width: 240px;"></td>
+                    <td><input placeholder="이름을 입력하세요" name="userName" style=" border:1px solid rgb(192,192,192); margin-left: 24px; width: 240px;"></td>
                 </tr>
                 <tr>
                     <td>이메일</td>
-                    <td><input type="email" name="email" style="margin-left: 24px; width: 240px;"></td>
+                    <td><input placeholder="이메일을 입력하세요" type="email" name="email" style="border:1px solid rgb(192,192,192); margin-left: 24px; width: 240px;"></td>
                 </tr>      
             </table>
             <div class="find_identification_btn">

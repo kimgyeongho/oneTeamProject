@@ -57,18 +57,16 @@ article{margin-top: 200px; width: 350px; height: 350px; background-color: white;
 
 
 /* 회원가입=================================================================================== */
-/* table */
-.signup{border: 2px solid rgb(221, 221, 221); margin-top: 180px; width: 740px; height: 500px; background-color: rgb(255, 255, 255); border-radius: 5px; padding: 15px; box-shadow: rgba(0, 0, 0, .2) 8px 8px 7px 7px;} 
-.signup>table>tr{padding-top:15px}
-#index{border-right: 1px solid rgb(199, 199, 199); position: relative; width: 80px;}
-#index>p{font-size: 16px; font-weight: bold; text-align: center;}
-td>input{margin-top: 12px; border: none; border-bottom: 1px solid rgb(199, 199, 199); margin-left: 12px; width: 150px; padding: 0px; height: 20px; text-align: center;  font-size: 14px; color: rgb(172, 170, 170);}
-#emailOpt{margin-top: 12px; width: 150px; height: 30px; font-size: 14px;}
-#firstNum{margin-top: 12px; width: 80px; height: 30px; float: right; font-size: 14px;}
+#signup{padding-top:36px; border-radius:5px; box-shadow: rgba(0, 0, 0, .2) 5px 5px 4px 4px; margin-top: 100px; border: 2px solid rgb(192,192,192);}
+#index{display:inline;}
+#index>p{float:left; width: 124px;}
+.sign_upA{float:left; list-style: none; width: 500px;}
+#idCheck{ width: 108px;}
+#sign_upA>li{display:inline; width: 84px;}
 button{width: 150px; height: 20px; color: white; background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); font-size: 14px;border-radius: 5px; border: none;}
 #addrInput>input{width: 150px;}
-#click{width: 400px; margin-top: 20px;}
-#click>button{box-shadow: rgba(0, 0, 0, .2) 5px 5px 4px 4px;}
+#click{width: 320px; margin-top: 20px; margin-bottom: 150px;}
+#click>button{box-shadow: rgba(0, 0, 0, .2) 2px 2px 1px 1px;}
 #click>button{border-radius: 5px; margin-top: 20px; width: 150px; height: 30px; font-weight: bolder;  font-size: 18px; background-color: rgb(61, 121, 79); }
 button:hover{opacity: .7;}
 

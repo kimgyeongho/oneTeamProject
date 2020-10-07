@@ -271,17 +271,31 @@ public class MainController {
 		 }
 		 
 		// 비밀번호 찾기
-			@RequestMapping(value = "/find_identification_pw", method = RequestMethod.GET)
-			@ResponseBody
+			@RequestMapping(value = "/find_identification_pw", method = RequestMethod.POST)
 			public String passwordSearch(@RequestParam("userName")String userName,
 					@RequestParam("userID")String userID,
 					@RequestParam("email")String email,
 					HttpServletRequest request , Model md ,HttpServletResponse response) throws Exception {
-
 				mailsender.mailPassword(userName, userID, email, request);
-				md.addAttribute("name", service.oneteam_findName(response, userName, userID,email));
-
-				return "login";
+				return "redirect:/";
+				
 			}
-
+			
+		
+			
+		//비밀번호 찾기 유저 정보 확인
+		 @ResponseBody
+	     @RequestMapping(value="/userCheck", method = RequestMethod.POST)
+	     public int userCheck(MainVO VO) throws Exception {	
+		 int userCheck = service.oneteam_userCHeck(VO);
+         return userCheck;
+	 }
+		 @RequestMapping(value = "/board_all.do")
+			public void board_all() {
+				   
+			}  
+		 @RequestMapping(value = "/map.do")
+			public void map() {
+				   
+			}  
 }

@@ -100,6 +100,7 @@ public class MainServiceImpl implements MainService {
 		log.info("oneteam_emailCheck");
 		int  emailCheck= mainMapper.oneteam_emailCheck(VO);
 		return emailCheck;
+		
 	}
 	
 	
@@ -145,24 +146,12 @@ public class MainServiceImpl implements MainService {
 	}
 
 
-
 	@Override
-	public String oneteam_findName(HttpServletResponse response, String userName, String userID ,String email ) throws Exception {
-			
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter out = response.getWriter();
-			MainVO vo = mainMapper.oneteam_userName(userName,userID,email);
-			String name = vo.getUserName();
-			
-			if (name == null) {
-				out.println("<script>");
-				out.println("alert('가입된 아이디가 없습니다.');");
-				out.println("</script>");
-				out.close();
-				return null;
-			} else {
-				return name;
-			}
-		}
+	public int oneteam_userCHeck(MainVO VO) throws Exception {
+		int  userCheck= mainMapper.oneteam_userCHeck(VO);
+		return userCheck;
+	}
+
+	
 	
 	}

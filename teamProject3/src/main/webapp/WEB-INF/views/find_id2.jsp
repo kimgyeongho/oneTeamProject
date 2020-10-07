@@ -70,17 +70,19 @@
     </header> 
     <section class="all_body_section">  
         <form id="find_id" action="find_id">
-            <h3>아이디 찾기</h3>
-            <table class="find_id_table">
-                <h3>아이디 찾기 검색결과</h3>
-			</div>
-				<h5>
-					${ id }
-				</h5>
-	
-            </table>
-            <div class="find_identification_btn">
-            <button type="submit" style="height: 24px;">확인</button>
+            <h3 style="margin-left: 50px;">검색결과</h3>                      		
+				<div class="find_id_result" style="padding:8px; margin-top:250px; width: 500px; height: 150px;border-radius:5px; box-shadow: rgba(0, 0, 0, .2) 2px 2px 1px 1px; border:.5px solid rgb(192,192,192);">
+				<div><img style="float:left; margin-right: 72px; width:150px;" src="resources/img/logo.png" /></div>
+				<div style="width:450px; background-color:red; margin-top: 48px;">
+				<p style="float: left;">회원님의 아이디는</p>
+					<h3 style="float: left; margin-top:12px;">" ${ id } " </h3>
+				<p style="float: left;  margin-top:12px;""> 입니다</p>
+				
+				</div>				
+                </div>
+            <div class="find_identification_btn" style="width: 316px;">
+            <button type="submit" style="height: 24px;">로그인</button>
+            <button type="submit" style="height: 24px;">비밀번호 찾기</button>
             </div>
         </form> 
     </section>

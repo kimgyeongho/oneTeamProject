@@ -44,8 +44,9 @@ $(function(){
                 $("#pw_wrong_msg").show();
             }else{
                 $("#pw_wrong_msg").hide();
-            }
+            }        
         }
+
     
     //=========================================================
     //  $('.pw').focusout(function () {
@@ -81,6 +82,22 @@ $(function(){
    
    
 });
+//$(function(){
+//	  $(".pw").focusout(function(){
+//	        var pwd3 = $("#userPW").val();
+//	        var pwd4 = $("#pwCheck").val();
+//	        if(pwd1 !='' && pwd2 == ''){
+//	            null;
+//	        }else if(pwd3 !='' && pwd4 != ''){
+//	            if(pwd3 == pwd4){
+//	                $("#pw_right_msg").show();
+//	            }else{
+//	                $("#pw_right__msg").hide();
+//	            }        
+//	        }
+//	  });
+//});
+
 //거래꿀팁 좌우 슬라이드 알고리즘
 $(function(){
     var ta=$(".tip_all_container")

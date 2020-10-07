@@ -30,7 +30,7 @@ public interface MainService {
 
 	public int oneteam_email_Success_Check(MainVO VO) throws Exception;
 
-	public String oneteam_findName(HttpServletResponse response, String userName, String userID, String email) 
-	throws Exception;
+	public int oneteam_userCHeck(MainVO VO) throws Exception;
+
 	
 }

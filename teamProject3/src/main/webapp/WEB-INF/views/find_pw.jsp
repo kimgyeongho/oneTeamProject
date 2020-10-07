@@ -12,6 +12,41 @@
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/jstyle.js"></script>
 </head>
+<script>
+function check() {
+	$.ajax({
+		url : "/userCheck",
+		type : "post",
+		dataType : "json",
+		data : {"email" : $("#email").val()
+			,"userID" : $("#userID").val(),"userName" : $("#userName").val()},
+		success : function(data){
+			if(data == 0){
+				alert("가입 하신 정보가 안맞습니다.");
+				return false;
+			}else{
+				$("#find_identification_pw").submit();
+				alert("잠시 후 이메일로 임시 비밀번호가 전송 됩니다.");
+				setTimeout(function () {
+			        console.log("클릭됨");
+					$('#findBtn').attr('disabled', false);		            
+		        }, 12000)
+			}
+		}
+	})
+	/* if (true) {
+        console.log("클릭됨");
+        click = false;
+        $('#findBtn').attr('disabled', true);		            
+
+        // 타이밍 추가
+        setTimeout(function () {
+            click = true;
+	        $('#findBtn').attr('disabled', false);		            
+        }, 3000)
+     }   */
+}
+</script>
 <body>
     <header>
         <div class="header_container">
@@ -70,12 +105,12 @@
     </header> 
     <section class="all_body_section">  
         <section class="all_body_section">  
-            <form id="find_identification_pw" action="find_identification_pw" method="GET">
+            <form id="find_identification_pw" action="find_identification_pw" method="POST">
                 <h3>비밀번호 찾기</h3>
                 <table class="find_id_table">
                     <tr>
                         <td>이름</td>
-                        <td><input name="userName" style="margin-left: 24px; width: 240px;"></td>
+                        <td><input  id="userName" name="userName" style="margin-left: 24px; width: 240px;"></td>
                     </tr>
                     <tr>
                         <td>아이디</td>
@@ -87,10 +122,10 @@
                     </tr>      
                 </table>
                 <div class="find_identification_btn">
-                <button type="submit" id="findBtn" style="height: 24px;">확인</button>
+                <button type="button" id="findBtn" style="height: 24px;" onclick="check()">확인</button>
                 </div>
             </form> 
         </section>
-        	${name}
+        </section>
 </body>
 </html>

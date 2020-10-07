@@ -87,15 +87,7 @@ function goPopup(){
 					if(!/^[0-9]{4}$/.test($("#userPhone2").val())){
 					alert('핸드폰 번호 뒷자리  입력해주시길 바랍니다.');
 					return false;
-					}userPhone3
-					if(!/^[0-9]{4}$/.test($("#userPhone3").val())){
-					alert('일반전호  앞자리  입력해주시길 바랍니다.');
-					return false;
 					}
-					if(!/^[0-9]{4}$/.test($("#userPhone4").val())){
-					alert('일반전호 뒷자리  입력해주시길 바랍니다.');
-					return false;
-					} 
 			        var address2 = $("#address2").val();
 				 	if(address2 == "주소찾기"){
 					alert("주소찾기를 통해 주소를 찾아주세요");
@@ -138,20 +130,36 @@ function goPopup(){
 					}
 				}
 			})
+			
 		}
-		    function check() {
-		         if (true) {
-		            console.log("클릭됨");
-		            click = false;
-			        $('#submit1').attr('disabled', true);		            
+</script>
+<script>
+function check() {
+	$.ajax({
+		url : '/emailCheck',
+		type : 'post',
+		dataType : "json",
+		data : {"email" : $("#email").val()},
+		success : function(data) {
+			console.log("사용주인 이메일이라면 데이터에 값이 나옵니다2: "+ data);							
+			if (data == 1 ){
+				alert("중복된 이메일입니다.");
+				location.href="signup.do"
+				}
+			}
+		});
+	if (true) {
+        console.log("클릭됨");
+        click = false;
+        $('#submit1').attr('disabled', true);		            
 
-		            // 타이밍 추가
-		            setTimeout(function () {
-		                click = true;
-				        $('#submit1').attr('disabled', false);		            
-		            }, 5000)
-		         } 
-		    }
+        // 타이밍 추가
+        setTimeout(function () {
+            click = true;
+	        $('#submit1').attr('disabled', false);		            
+        }, 8000)
+     } 
+}
 </script>
 <body>
 
@@ -213,90 +221,89 @@ function goPopup(){
     <section class="all_body_section">  
         <!-- 회원가입부분 -->
         <form action="join" method="post"name="form" id="form" >          
-        <div class="signup">                        
-            <table>
-                <tr>
-                    <td id="index"><p> 이름</p></td>
-                    <td ><input type="text" name="userName" id="userName" placeholder="이름을 입력하세요"></td>
-                </tr>
-                <tr>
-                    <td id="index" rowspan="2"><p>아이디</p></td>
-                    <td ><input type="text" name="userID" id="userID" placeholder="아이디를 입력하세요" minlength="6" maxlength="16"></td>                    
-                    <td><button type="button" name="idCheck" id="idCheck" onclick="idCheck1();" value="중복확인">중복확인</button></td>
-                </tr>
-                <tr>                    
-                    <td colspan="3" style="font-size: 12px; padding-left: 25px;">6~16자 영문(소문자), 숫자 입력가능합니다.</td>
-                </tr>                
-                <tr>
-                    <td id="index" rowspan="2"><p>비밀번호</p></td>
-                    <td ><input type="password" name="userPW" class="pw" id="userPW" placeholder="비밀번호를 입력하세요" minlength="6" maxlength="16"></td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="font-size: 12px; padding-left: 25px;">6~16자 영문(소문자), 숫자, 특수문자 입력가능합니다.</td>
-                </tr>
-                <tr>
-                    <td id="index"><p>비밀번호 확인</p></td>
-                    <td ><input type="password" name="pwCheck" class="pw" id="pwCheck"  minlength="6" maxlength="16"></td>
-                    <td colspan="2" style="color: red; display: none; font-size: 16px;" id="pw_wrong_msg">비밀번호가 일치하지 않습니다.</td>
-                </tr>
-                <tr>
-                    <td id="index"><p>주민번호</p></td>
-                    <td ><input type="text" name="identidication1" id="identification1" placeholder="주민번호 앞 자리 입력" minlength="6" maxlength="6"></td>
-                    <td ><input type="password" name="identidication2" id="identification2" placeholder="주민번호 뒷 자리 입력" minlength="7" maxlength="7"></td>
-                </tr>
-                <tr>
-                    <td id="index"><p>이메일</p></td>
-                    <td ><input type="text" name="email" id="email">
-                    </td>
-                   <td><div class="check_font" id="emailCheck"></div></td>
-                </tr>
-                <tr>
-                    <td id="index" rowspan="2"><p>연락처</p></td>
-                    <td  id="subindex" style="font-size: 14px; padding-left: 25px;"> 휴대폰                
-                    <select name="firstNum1" id="firstNum">
+       		<div id="signup" style=" width: 720px; height: 540px;">
+       			  <ul class="sign_upA">
+                    <li id="index"><p> 이름</p></li>
+                    <li ><input type="text" name="userName" id="userName" placeholder="이름을 입력하세요"></li>
+                </ul>
+                <ul class="sign_upA" style="margin-top: 8px;" >
+                    <li id="index"><p>아이디</p></li>
+                    <li ><input type="text" name="userID" id="userID" placeholder="아이디를 입력하세요" minlength="6" maxlength="16">                   
+                    <button type="button" name="idCheck" id="idCheck" onclick="idCheck1()" value="중복확인">중복확인</button></li>
+                </ul>
+                <ul class="sign_upA" style="margin-top: 8px;">                    
+                    <li style="font-size: 14px; margin-left: 124px; color: rgb(192,192,192);">6~16자 영문(소문자), 숫자 입력가능합니다.</li>
+                </ul>                
+                <ul class="sign_upA"style="margin-top: 8px;">
+                    <li id="index"><p>비밀번호</p></li>
+                    <li ><input type="password" name="userPW" class="pw" id="userPW" placeholder="비밀번호를 입력하세요" minlength="6" maxlength="16"></li>
+                </ul>
+                <ul class="sign_upA"style="margin-top: 8px;">
+                    <li style="font-size: 14px; margin-left: 124px; color: rgb(192,192,192);">6~16자 영문(소문자), 숫자, 특수문자 입력가능합니다.</li>
+                </ul>
+                <ul class="sign_upA" style="margin-top: 8px;">
+                    <li id="index"><p>비밀번호 확인</p></li>
+                    <li ><input type="password" name="pwCheck" class="pw" id="pwCheck"  minlength="6" maxlength="16"></li>
+                    <li id="pw_wrong_msg"  style="display:inline;margin-left: 124px;font-size: 14px; color: red; display: none">비밀번호가 일치하지 않습니다.</li>
+                    <li id="pw_right_msg"  style="display:inline; font-size: 14px; color: green; display: none">비밀번호가 일치합니다.</li>
+                </ul>
+                <ul class="sign_upA" style="margin-top: 8px;">
+                    <li id="index"><p>주민번호</p></li>
+                    <li ><input style="width: 127.5px;" type="text" name="identidication1" id="identification1" placeholder="주민번호 앞 자리 입력" minlength="6" maxlength="6">
+                    <input style="width: 127.5px;" type="password" name="identidication2" id="identification2" placeholder="주민번호 뒷 자리 입력" minlength="7" maxlength="7"></li>
+                </ul>
+                <ul class="sign_upA" style="margin-top: 8px;">
+                    <li id="index"><p>이메일</p></li>
+                    <li ><input type="text" name="email" id="email"></li>                    
+       			    <li>
+                   <div class="check_font" id="emailCheck"></div>
+                </li>
+                </ul>
+                <ul class="sign_upA" style="margin-top: 8px;">
+                    <li id="index" ><p>연락처</p></li>
+                    <li id="subindex" style="margin-left: 124px;">휴대전화</li>
+                    <li  id="subindex" style="margin-left: 124px;">                
+                    <select name="firstNum1" id="firstNum" >
                         <option value="010">010</option>
                         <option value="011">011</option>
                         <option value="022">022</option>
                     </select>    
-                    </td>                
-                    <td ><input type="tel" id="userPhone1" name="userPhone1" minlength="4" maxlength="4"></td>
-                    <td ><input type="tel" id="userPhone2" name="userPhone2" minlength="4" maxlength="4"></td>
-                </tr>
-                <tr>                 
-                      
-                    <td id="subindex" style="font-size: 14px; padding-left: 25px;"> 일반전화                
-                    <select name="firstNum2" id="firstNum">
+                    </li>                
+                    <li ><input type="tel" id="userPhone1" name="userPhone1" minlength="4" maxlength="4"  style="width: 92px;">
+                    <input type="tel" id="userPhone2" name="userPhone2" minlength="4" maxlength="4" style="width: 92px;"></li>
+                </ul>
+                <ul class="sign_upA" style="margin-top: 8px;">                
+                    <li id="subindex" style="margin-left: 124px;">일반전화</li>
+                    <li id="subindex" style="margin-left: 124px;">                
+                    <select name="firstNum2" id="firstNum" >
                         <option value="031">031</option>
                         <option value="032">032</option>
                         <option value="033">033</option>
                     </select>    
-                </td>                
-                    <td ><input type="tel" id="userPhone3" name="userPhone3"  minlength="4" maxlength="4"></td>
-                    <td ><input type="tel" id="userPhone4" name="userPhone4"  minlength="4" maxlength="4"></td>
-                </tr>
-                <tr>
-                    <td id="index" rowspan="3"  id="address"><p>주소</p></td>
-                    <td id="subindex" style="font-size: 14px; padding-left: 25px;">우편번호</td>  
-                    <td ><input type="text" id="zipNo" name="zipNo"></td>
-                    <td><button type="button" class="findaddr" onClick="goPopup();" >주소 찾기</button></td>
-                 <input type="hidden" id="address2" value="주소찾기">
-                </tr>
-                <tr>
-                    <td style="font-size: 14px; padding-left: 25px;">주소</td>
-                    <td id="addrInput"><input type="text" id="roadAddrPart1"  name="roadAddrPart1" ></td>
-                </tr>                
-                <tr>
-                    <td style="font-size: 14px; padding-left: 25px;">상세주소</td>
-                    <td colspan="2" id="addrInput"><input type="text" id="addrDetail"  name="addrDetail"></td>
-                </tr>                
-        
-            </table>
-        </div> 
+                	</li>                
+                    <li ><input style="width: 92px;" type="tel" id="userPhone3" name="userPhone3"  minlength="4" maxlength="4">
+                   <input style="width: 92px;" type="tel" id="userPhone4" name="userPhone4"  minlength="4" maxlength="4"></li>
+                </ul>
+                <ul class="sign_upA" style="margin-top: 8px;">
+                    <li id="index"   id="address"><p>주소</p></li>
+                    <li id="subindex" style="margin-left: 124px;">우편번호</li>  
+                    <li ><input type="text" id="zipNo" name="zipNo" style="margin-left: 124px;">
+                    <button type="button" id="addrfind" class="findaddr" onClick="goPopup();" style="width: 108px;">주소 찾기</button></li>
+                 <input type="hidden" id="address2" value="주소찾기" />
+                </ul>
+                <ul class="sign_upA" style="margin-top: 8px;">
+                    <li style="margin-left: 124px;">주소</li>
+                    <li id="addrInput"><input style="margin-left: 124px; width: 268px;" type="text" id="roadAddrPart1"  name="roadAddrPart1" ></li>
+                </ul>                
+                <ul class="sign_upA" style="margin-top: 8px;">
+                    <li style="margin-left: 124px;">상세주소</li>
+                    <li  id="addrInput"><input style="margin-left: 124px; width: 268px;" type="text" id="addrDetail"  name="addrDetail"></li>
+                </ul>
+       		</div>
             <div id="click">
-            <button id="submit1" type="button" onclick="check()" >제출하기</button>
+            <button id="submit1" type="button" onclick="check();" >제출하기</button>
             <button id="reset" type="reset">다시쓰기</button>            
-            </div>            
-        </div> 
+            </div>   
         </form> 
         <!-- 회원가입부분 끝!-->   
     </section>
