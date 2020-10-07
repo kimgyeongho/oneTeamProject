@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.service.MailSendService;
 import com.knk.home_alone.service.MainService;
 
 import lombok.extern.log4j.Log4j;
@@ -33,8 +34,13 @@ public class MainController {
 	@Autowired // 비밀번호 암호화
 	private PasswordEncoder pwencoder;
 
-	@Autowired // 이메일 보내기
+	@Autowired // 이메일 보내기 
 	private JavaMailSender mailSender;
+	 
+	@Autowired // 이메일 보내기 회원가입 
+	private MailSendService mailsender;
+
+
 	
 	// 메인화면 창
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -69,20 +75,30 @@ public class MainController {
 
 	// 회원가입 post
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String postjoin(MainVO VO) throws Exception {
+	public String postjoin(MainVO VO ,HttpServletRequest request) throws Exception {
 		log.info("==========================");
 		log.info("POST join");
-		int IdCheck = service.oneteam_idCHeck(VO);
+	/*	int IdCheck = service.oneteam_idCHeck(VO);
 		if(IdCheck==1) {
 		return "redirect:/signup.do";
-		}else if(IdCheck==0){
+		}else if(IdCheck==0){*/
 			String passwordSecurity = VO.getUserPW();
 			String password = pwencoder.encode(passwordSecurity);
 			VO.setUserPW(password);
 			service.userInsert(VO);
-		}
+			mailsender.mailKey(VO.getEmail(), VO.getUserID(), request);
+		
 		return "redirect:/";
+
 	}
+	//회원가입 성공후 이메일 인증 완료
+	@RequestMapping(value = "/key_alter", method = RequestMethod.GET)
+	public String key_alterConfirm(@RequestParam("userID") String userID, @RequestParam("user_key") String key) {
+
+	mailsender.alterKeyService(userID, key); // mailsender의 경우 @Autowired
+
+	return "signupSuccess";
+			}	
 	
 	//로그인 get
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
@@ -96,6 +112,7 @@ public class MainController {
 		log.info("==========================");
 		log.info("post login");
 		HttpSession session = HSR.getSession();
+		try {
 		MainVO login = service.oneteam_login(VO);
 		
 		boolean PwMapping = pwencoder.matches(VO.getUserPW(),login.getUserPW());
@@ -105,6 +122,9 @@ public class MainController {
 		session.setAttribute("user", null);
 		//	RA.addFlashAttribute("message", false); 메시지를 전달 할 것이라면  사용하기 일단 보류 
 		return "redirect:/login.do";}*/
+		}catch(NullPointerException e){
+			return "redirect:/login.do";
+		}
 		return "redirect:/";
 	}
 	 //로그아웃 GET
@@ -165,15 +185,7 @@ public class MainController {
 	 @ResponseBody
 	 @RequestMapping(value="/passwordCheck", method = RequestMethod.POST)
 	 public boolean passwordCheck(MainVO VO) throws Exception {
-	 MainVO login = service.oneteam_login(VO);
-	 boolean PwMapping = pwencoder.matches(VO.getUserPW(),login.getUserPW());
-	 return PwMapping;
-	 }
-	 // 패스워드 확인
-	 @ResponseBody
-	 @RequestMapping(value="/passwordCheck2", method = RequestMethod.POST)
-	 public boolean passwordCheck2(MainVO VO) throws Exception {
-	 MainVO login = service.oneteam_passwordCheck(VO);
+	 MainVO login = service.oneteam_password_LoginCheck(VO);
 	 boolean PwMapping = pwencoder.matches(VO.getUserPW(),login.getUserPW());
 	 return PwMapping;
 	 }
@@ -184,6 +196,14 @@ public class MainController {
 	 int IdCheck = service.oneteam_idCHeck(VO);
      return IdCheck;
 	 }
+	 // 이메일 중복
+	 @ResponseBody
+	 @RequestMapping(value="/emailCheck", method = RequestMethod.POST)
+	 public int emailCheck(MainVO VO) throws Exception {
+	 int emailCheck = service.oneteam_emailCheck(VO);
+     return emailCheck;
+	 }
+
 	 //아이디 찾기 페이지 GET
 	 @RequestMapping(value="/find_id.do", method = RequestMethod.GET)
 	 public void getFind_id() throws Exception{
@@ -205,13 +225,15 @@ public class MainController {
 	log.info("GET find_pw");
 		 }
 	
-	  @RequestMapping(value = "mailSending.do")
-		public String mailSending(HttpServletRequest request) {
+	
+	//고객상담 이메일 보내기 
+	@RequestMapping(value = "mailSending.do")
+	public String mailSending(HttpServletRequest request) {
 	    
-			String setfrom = "apdlvmf1562@gmail.com";
-			String tomail = request.getParameter("tomail"); // 받는 사람 이메일
-			String title = request.getParameter("title"); // 제목
-			String content = request.getParameter("content"); // 내용
+	String setfrom = "apdlvmf1562@gmail.com";
+	String tomail = request.getParameter("tomail"); // 받는 사람 이메일
+	String title = request.getParameter("title"); // 제목
+	String content = request.getParameter("content"); // 내용
 			try {
 
 				MimeMessage message = mailSender.createMimeMessage();
@@ -234,13 +256,32 @@ public class MainController {
 		}
 		
 		// mailForm
-			  @RequestMapping(value = "/mailForm")
-			  public String mailForm() {
+		@RequestMapping(value = "/mailForm")
+		public String mailForm() {
 			   
-			    return "/mailForm";
-			  }  
-		
-		
-		
-		
+		return "/mailForm";
+		}  
+				
+		 // 이메일 중복
+		 @ResponseBody
+		 @RequestMapping(value="/Email_Success_Check", method = RequestMethod.POST)
+		 public int Email_Success_Check(MainVO VO) throws Exception {
+		 int emailCheck = service.oneteam_email_Success_Check(VO);
+	     return emailCheck;
+		 }
+		 
+		// 비밀번호 찾기
+			@RequestMapping(value = "/find_identification_pw", method = RequestMethod.GET)
+			@ResponseBody
+			public String passwordSearch(@RequestParam("userName")String userName,
+					@RequestParam("userID")String userID,
+					@RequestParam("email")String email,
+					HttpServletRequest request , Model md ,HttpServletResponse response) throws Exception {
+
+				mailsender.mailPassword(userName, userID, email, request);
+				md.addAttribute("name", service.oneteam_findName(response, userName, userID,email));
+
+				return "login";
+			}
+
 }

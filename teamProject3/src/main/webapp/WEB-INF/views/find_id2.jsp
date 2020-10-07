@@ -74,10 +74,10 @@
             <table class="find_id_table">
                 <h3>아이디 찾기 검색결과</h3>
 			</div>
-			<div>
 				<h5>
 					${ id }
 				</h5>
+	
             </table>
             <div class="find_identification_btn">
             <button type="submit" style="height: 24px;">확인</button>

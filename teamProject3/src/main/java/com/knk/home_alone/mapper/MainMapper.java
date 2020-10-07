@@ -2,7 +2,6 @@ package com.knk.home_alone.mapper;
 
 
 import org.apache.ibatis.annotations.Param;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.knk.home_alone.domain.MainVO;
 
@@ -31,11 +30,32 @@ public interface MainMapper {
 	//비밀번호 확인
 	public MainVO oneteam_passwordCheck(MainVO VO) throws Exception;
 	
+	//로그인 할때 비밀번호 확인
+	public MainVO oneteam_password_LoginCheck(MainVO VO) throws Exception;
+		
 	//아이디 중복
 	public int oneteam_idCHeck(MainVO VO) throws Exception;
     
+	//이메일 중복
+	public int oneteam_emailCheck(MainVO vO) throws Exception;
+	
 	//아이디 찾기
     public String oneteam_findId(@Param("email") String email, @Param("userName") String userName) throws Exception;
+    
+	//회원 인증키(난수) 생성 
+	public void getKey(String userID, String key);
+	
+	//회원 인증키(난수) Certified로 변경 
+	public int alter_userKey(String userID, String key);
+
+	//로그인 이메일 인증 성공했는지 체크
+	public int oneteam_email_Success_Check(MainVO VO) throws Exception;
+	    
+    //임시 비밀번호
+	public int temporary_password(String userName, String userID , String email, String key) throws Exception;
+	
+	//아이디로 유저이름 찾기 
+	public MainVO oneteam_userName(String userName, String userID, String email) throws Exception;
 
 
 }

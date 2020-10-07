@@ -13,7 +13,6 @@
     <script src="resources/jquery/jstyle.js"></script>
 </head>
 <script>
-
 $(document).ready(function(){
 	  $("#idCheck").on("click", function(){
 		  if($("#userID").val()==""){
@@ -28,10 +27,12 @@ $(document).ready(function(){
 				alert('아이디와 비밀번호를 입력해주세요');
 				return false;
 			}
-			 if($("#userID2").val()=="아이디체크완료" && $("#userPW2").val()=="비밀번호체크완료"){
+			 if($("#userID2").val()=="아이디체크완료" && $("#userPW2").val()=="비밀번호체크완료"
+					 && $("#email").val()=="이메일인증완료"){
 				$("#loginForm").submit();
 				return false;
 			}
+				
 			$.ajax({
 				url : "/IdCheck",
 				type : "post",
@@ -44,10 +45,23 @@ $(document).ready(function(){
 						$("#userID2").attr("value", "아이디체크완료");
 					}
 				}
-			}) 
+			}); 
+			$.ajax({
+				url : "/Email_Success_Check",
+				type : "post",
+				dataType : "json",
+				data : {"userID" : $("#userID").val()},
+				success : function(data){
+					if(data == 0 && $("#userID2").val()=="아이디체크완료" && $("#userPW2").val()=="비밀번호체크완료"){
+						alert("이메일 인증 후 로그인 할 수 있습니다.");			
+					}else if(data == 1){
+						$("#email").attr("value", "이메일인증완료");
+					}
+				}
+			}); 
 			$.ajax({
 						url : "/passwordCheck",
-						type : "POST",
+						type : "post",
 						dateType : "json",
 						data : $("#loginForm").serializeArray(),
 						success: function(data){
@@ -58,12 +72,9 @@ $(document).ready(function(){
 								$("#userPW2").attr("value", "비밀번호체크완료");
 							}
 						}		
-					})
-});
-})  
-/* function idCheck1(){
-
-	} */
+					});
+		});	
+});  
 </script>
 <body>
     <header>
@@ -128,6 +139,8 @@ $(document).ready(function(){
                 <td><h2 class="h2">아이디</h2></td>
                 <td><input type="text" id="userID" name="userID" placeholder="id"></td>
                 <input type="hidden" id="userID2" value="아이디">
+                <input type="hidden" id="email" value="이메일인증">
+                
             </tr>
             <tr id="PW">
                 <td><h2 class="h2">비밀번호</h2></td>
@@ -136,7 +149,7 @@ $(document).ready(function(){
             </tr>        
         </table>
         <div class="loginbutton">
-        <a><button type="button" class="log" id="idCheck" onclick="idCheck1();">로그인</button></a>
+        <a><button type="button" class="log" id="idCheck" onclick="idCheck1()">로그인</button></a>
         <a href="authentication.do"><button type="submit" class="sign">회원가입</button></a>
         </div>
         </form>

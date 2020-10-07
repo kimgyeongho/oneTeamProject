@@ -24,7 +24,26 @@ function goPopup(){
           document.form.addrDetail.value = addrDetail;
 }    
     $(document).ready(function(){
-			$("#submit1").on("click", function(){
+    	$("#email").blur(function() {
+	    	$.ajax({
+	    		url : '/emailCheck',
+				type : 'post',
+				dataType : "json",
+				data : {"email" : $("#email").val()},
+				success : function(data) {
+					console.log("사용주인 이메일이라면 데이터에 값이 나옵니다: "+ data);							
+					if (data == 1 ) {
+						$("#emailCheck").text("사용중인 이메일입니다 ");
+						$("#emailCheck").css("color", "red");
+						$("#submit1").attr("disabled", true);
+					}else if(data == 0){
+						$("#emailCheck").text("");
+						$("#submit1").attr("disabled", false);
+					}
+				}
+			}); 
+	    });
+    	$("#submit1").on("click", function(){
 					var name = /^[가-힣]+$/;        
 			    	var pw = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,16}$/;
 
@@ -56,21 +75,11 @@ function goPopup(){
 			    	if(!/^[0-9]{7}$/.test($("#identification2").val())){
 					alert('주민번호 뒷자리 숫자 7자로 입력해주시길 바랍니다.');
 					return false;
-					}
-			    	
-	if( !/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test($("#email").val())){
+					}			    	
+					if( !/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test($("#email").val())){
 					alert('이메일 형식에 맞게 입력해주시길 바랍니다.');
 					return false;
 					}
-/* 			    	if( !/^@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test($("#emailAddr").val()) &&
-					$("#emailOpt").val()==""){
-					alert('이메일 형식에 맞게 입력해주시길 바랍니다.');
-					return false;
-					}
-					if(addr != "" && Opt != ""){
-					alert('이메일 형식에 맞게 입력해주시길 바랍니다.');
-					return false;
-					} */
 					if(!/^[0-9]{4}$/.test($("#userPhone1").val())){
 					alert('핸드폰 번호 앞자리  입력해주시길 바랍니다.');
 					return false;
@@ -106,12 +115,11 @@ function goPopup(){
 				    var idCheckVal = $("#idCheck").val();
 				    if(idCheckVal == "중복확인"){
 					alert("중복확인 버튼을 눌러주세요.");
-				    }else if(idCheckVal == "사용가능"){
+				    }else if(idCheckVal == "사용가능" && $("#emailCheck").val() == "" ){
 					$("#form").submit();
 				}
 			});
-		})
-		
+		});
 		function idCheck1(){
     	$.ajax({
 				url : "/IdCheck",
@@ -131,6 +139,19 @@ function goPopup(){
 				}
 			})
 		}
+		    function check() {
+		         if (true) {
+		            console.log("클릭됨");
+		            click = false;
+			        $('#submit1').attr('disabled', true);		            
+
+		            // 타이밍 추가
+		            setTimeout(function () {
+		                click = true;
+				        $('#submit1').attr('disabled', false);		            
+		            }, 5000)
+		         } 
+		    }
 </script>
 <body>
 
@@ -225,15 +246,9 @@ function goPopup(){
                 </tr>
                 <tr>
                     <td id="index"><p>이메일</p></td>
-                    <td ><input type="text" name="email" id="email"></td>                    
-             <!--        <td ><input type="text" name="emailAddr" id="emailAddr"></td>                  
-                    <td><select name="emailOpt" id="emailOpt">
-                        <option value="">@직접입력</option>
-                        <option value="@google.com">@google.com</option>
-                        <option value="@daum.net">@daum.net</option>
-                        <option value="@naver.com">@naver.com</option>
-                    </select>    
-                </td>     -->  
+                    <td ><input type="text" name="email" id="email">
+                    </td>
+                   <td><div class="check_font" id="emailCheck"></div></td>
                 </tr>
                 <tr>
                     <td id="index" rowspan="2"><p>연락처</p></td>
@@ -278,7 +293,7 @@ function goPopup(){
             </table>
         </div> 
             <div id="click">
-            <button id="submit1" type="button" onclick="check()">제출하기</button>
+            <button id="submit1" type="button" onclick="check()" >제출하기</button>
             <button id="reset" type="reset">다시쓰기</button>            
             </div>            
         </div> 

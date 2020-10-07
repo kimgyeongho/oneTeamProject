@@ -95,10 +95,19 @@ public class MainServiceImpl implements MainService {
 		return IdCheck;
 	}
 
+	@Override
+	public int oneteam_emailCheck(MainVO VO) throws Exception {
+		log.info("oneteam_emailCheck");
+		int  emailCheck= mainMapper.oneteam_emailCheck(VO);
+		return emailCheck;
+	}
+	
+	
 
 	@Override
 	public String oneteam_findId(HttpServletResponse response, String email, String userName) throws Exception {
-		
+		log.info("oneteam_findId");
+
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String id = mainMapper.oneteam_findId(email, userName);
@@ -107,7 +116,6 @@ public class MainServiceImpl implements MainService {
 		if (id == null) {
 			out.println("<script>");
 			out.println("alert('가입된 아이디가 없습니다.');");
-			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
 			return null;
@@ -117,4 +125,44 @@ public class MainServiceImpl implements MainService {
 		
 	}
 
+
+
+	@Override
+	public MainVO oneteam_password_LoginCheck(MainVO VO) throws Exception {
+		log.info("oneteam_password_LoginCheck"+VO);
+		MainVO  passwordCheck2= mainMapper.oneteam_password_LoginCheck(VO);
+		return passwordCheck2;
+	}
+
+
+
+	@Override
+	public int oneteam_email_Success_Check(MainVO VO) throws Exception {
+		log.info("oneteam_email_Success_Check"+VO);
+		int  emailCheck= mainMapper.oneteam_email_Success_Check(VO);
+
+		return emailCheck;
+	}
+
+
+
+	@Override
+	public String oneteam_findName(HttpServletResponse response, String userName, String userID ,String email ) throws Exception {
+			
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			MainVO vo = mainMapper.oneteam_userName(userName,userID,email);
+			String name = vo.getUserName();
+			
+			if (name == null) {
+				out.println("<script>");
+				out.println("alert('가입된 아이디가 없습니다.');");
+				out.println("</script>");
+				out.close();
+				return null;
+			} else {
+				return name;
+			}
+		}
+	
 	}

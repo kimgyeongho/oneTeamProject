@@ -70,7 +70,7 @@
     </header> 
     <section class="all_body_section">  
         <section class="all_body_section">  
-            <form id="find_identification_pw" action="#">
+            <form id="find_identification_pw" action="find_identification_pw" method="GET">
                 <h3>비밀번호 찾기</h3>
                 <table class="find_id_table">
                     <tr>
@@ -87,10 +87,10 @@
                     </tr>      
                 </table>
                 <div class="find_identification_btn">
-                <button type="button" id="findBtn" style="height: 24px;">확인</button>
+                <button type="submit" id="findBtn" style="height: 24px;">확인</button>
                 </div>
             </form> 
         </section>
-        </section>
+        	${name}
 </body>
 </html>

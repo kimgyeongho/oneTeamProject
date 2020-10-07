@@ -20,9 +20,17 @@ public interface MainService {
 
 	public MainVO oneteam_passwordCheck(MainVO VO) throws Exception;
 
-	public int oneteam_idCHeck(MainVO VO) throws Exception;
+	public MainVO oneteam_password_LoginCheck(MainVO VO) throws Exception;
 
+	public int oneteam_idCHeck(MainVO VO) throws Exception;
+    
+	public int oneteam_emailCheck(MainVO vO) throws Exception;
+ 
     public String oneteam_findId(HttpServletResponse response, String email, String userName) throws Exception;
 
+	public int oneteam_email_Success_Check(MainVO VO) throws Exception;
+
+	public String oneteam_findName(HttpServletResponse response, String userName, String userID, String email) 
+	throws Exception;
 	
 }

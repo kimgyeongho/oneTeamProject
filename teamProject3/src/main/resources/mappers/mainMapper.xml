@@ -12,8 +12,6 @@
 				identidication1,
 				identidication2,
 				email,
-				<!-- emailAddr,
-				emailOpt, -->
 				firstNum1,
 				userPhone1,
 				userPhone2,
@@ -26,26 +24,30 @@
 			)
 		values(
 		#{userName},#{userID},#{userPW},#{identidication1},#{identidication2},
-		#{email},<!-- #{emailAddr},#{emailOpt}, -->#{firstNum1},#{userPhone1},#{userPhone2},
+		#{email},#{firstNum1},#{userPhone1},#{userPhone2},
 		#{firstNum2},#{userPhone3},#{userPhone4},#{zipNo},#{roadAddrPart1},#{addrDetail})
 	</insert>
 
 	<!-- 로그인 -->
 	<select id="oneteam_login" resultType="MainVO">
-	SELECT userID, userPW ,userName ,email ,<!-- emailAddr , emailOpt, --> zipNo, roadAddrPart1, addrDetail
+	SELECT userID, userPW ,userName ,email ,zipNo, roadAddrPart1, addrDetail
 	, firstNum1, userPhone1, userPhone2
 		  FROM oneteam_join
-		 WHERE userID = #{userID}
-
+		 WHERE userID = #{userID} and user_key = 'Certified' 
 	</select>
 	
 	<!-- 회원탈퇴 -->
 	<delete id="oneteam_userDelete">
 	DELETE FROM oneteam_join
 	WHERE userID = #{userID}
-	
-	
 	</delete>
+	
+	<!--패스워드 확인-->
+	<select id="oneteam_password_LoginCheck" resultType="MainVO">
+	SELECT userPW FROM oneteam_join
+	WHERE userID = #{userID}
+	</select>
+	
 	
 	<!--패스워드 확인-->
 	<select id="oneteam_passwordCheck" resultType="int">
@@ -58,7 +60,11 @@
 	SELECT COUNT(*) FROM oneteam_join
 	WHERE userID = #{userID}
 	</select>
-	
+	<!-- 이메일 중복 -->
+	<select id="oneteam_emailCheck" parameterType="String" resultType="int">
+	SELECT COUNT(*) FROM oneteam_join
+	WHERE email = #{email}
+	</select>
 	<!--주소 정보 수정 -->
 	<update id="oneteam_Update" >
 		UPDATE oneteam_join SET zipNo = #{zipNo}, roadAddrPart1 = #{roadAddrPart1}, 
@@ -81,6 +87,33 @@
 	<select id="oneteam_findId" parameterType="map" resultType="String">
 		select userID from oneteam_join where email = #{email} and  userName= #{userName}
 	</select>
+
+	<!-- 회원 인증키(난수) 생성 -->
+	<insert id="getKey" parameterType="Map">
+		update oneteam_join set user_key = #{param2} where userID = #{param1}
+	</insert>
+	<!-- 회원 인증키(난수) Certified로 변경 -->
+	<update id="alter_userKey" parameterType="Map">
+		update oneteam_join set user_key = 'Certified' where userID = #{param1} and user_key = #{param2}
+	</update>
+	<!-- 로그인 이메일 인증 완료 체크-->
+	<select id="oneteam_email_Success_Check" parameterType="String" resultType="int">
+	SELECT COUNT(*) FROM oneteam_join
+	WHERE userID = #{userID} and user_key = 'Certified'
+	</select>
+    
+	<!-- 아이디로 유저이름 찾기 -->
+	<select id="oneteam_userName" parameterType="MainVO">
+	  select userName from oneteam_join where userName= #{userName} and 
+	  userID= #{userID} and email= #{email}
+	</select>
 	
+	<!-- 임시 비밀번호-->
+	<update id="temporary_password" parameterType="Map">
+		update oneteam_join set userPW = #{param4}
+		where userName = #{param1} and userID = #{param2}
+		and email = #{param3}
+	</update>
+
 	
 </mapper>
