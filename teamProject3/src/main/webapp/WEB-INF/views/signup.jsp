@@ -108,8 +108,12 @@ function goPopup(){
 				    if(idCheckVal == "중복확인"){
 					alert("중복확인 버튼을 눌러주세요.");
 				    }else if(idCheckVal == "사용가능" && $("#emailCheck").val() == "" ){
-					$("#form").submit();
-				}
+				    $("#form").submit();
+			        $('#submit1').attr('disabled', true);
+					alert('이메일 인증 메일을 보냈습니다 인증 후 로그인 해주시길 바랍니다.');
+					setTimeout(function () {                
+				        }, 9000)
+				    }
 			});
 		});
 		function idCheck1(){
@@ -148,7 +152,7 @@ function check() {
 				}
 			}
 		});
-	if (true) {
+/* 	if (true) {
         console.log("클릭됨");
         click = false;
         $('#submit1').attr('disabled', true);		            
@@ -157,8 +161,8 @@ function check() {
         setTimeout(function () {
             click = true;
 	        $('#submit1').attr('disabled', false);		            
-        }, 8000)
-     } 
+        }, 12000)
+     }  */
 }
 </script>
 <body>

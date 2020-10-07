@@ -24,27 +24,16 @@ function check() {
 			if(data == 0){
 				alert("가입 하신 정보가 안맞습니다.");
 				return false;
-			}else{
-				$("#find_identification_pw").submit();
-				alert("잠시 후 이메일로 임시 비밀번호가 전송 됩니다.");
+			}else{		       
+			console.log("클릭됨");
+			$("#find_identification_pw").submit();
+	        $('#findBtn').attr('disabled', true);
+	        alert("잠시 후 이메일로 임시 비밀번호가 전송 됩니다.로딩중이오니 잠시만 기달려주세요");
 				setTimeout(function () {
-			        console.log("클릭됨");
-					$('#findBtn').attr('disabled', false);		            
-		        }, 12000)
+		        }, 9000)				
 			}
 		}
 	})
-	/* if (true) {
-        console.log("클릭됨");
-        click = false;
-        $('#findBtn').attr('disabled', true);		            
-
-        // 타이밍 추가
-        setTimeout(function () {
-            click = true;
-	        $('#findBtn').attr('disabled', false);		            
-        }, 3000)
-     }   */
 }
 </script>
 <body>
