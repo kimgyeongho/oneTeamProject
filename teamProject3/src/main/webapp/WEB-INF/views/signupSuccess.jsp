@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>환영합니다 나 홀로 집에입니다!!</title>
 </head>
 <body>
 <div style="margin: 100px;">

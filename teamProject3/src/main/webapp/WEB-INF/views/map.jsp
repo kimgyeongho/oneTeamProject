@@ -11,11 +11,6 @@
     <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/jstyle.js"></script>
-    <!-- <script src="jquery/jmap.js"></script> -->
-<!--     <script src="resources/jquery/fullsdk.js"></script>
-    <script src="resources/jquery/map_service.js"></script> -->
-    
-
 </head>
 <body>
     <header>

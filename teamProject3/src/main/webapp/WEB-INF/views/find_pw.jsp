@@ -11,31 +11,9 @@
     <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/jstyle.js"></script>
+    <script src="resources/jquery/login_findPw.js"></script>
+    
 </head>
-<script>
-function check() {
-	$.ajax({
-		url : "/userCheck",
-		type : "post",
-		dataType : "json",
-		data : {"email" : $("#email").val()
-			,"userID" : $("#userID").val(),"userName" : $("#userName").val()},
-		success : function(data){
-			if(data == 0){
-				alert("가입 하신 정보가 안맞습니다.");
-				return false;
-			}else{		       
-			console.log("클릭됨");
-			$("#find_identification_pw").submit();
-	        $('#findBtn').attr('disabled', true);
-	        alert("잠시 후 이메일로 임시 비밀번호가 전송 됩니다.로딩중이오니 잠시만 기달려주세요");
-				setTimeout(function () {
-		        }, 9000)				
-			}
-		}
-	})
-}
-</script>
 <body>
     <header>
         <div class="header_container">

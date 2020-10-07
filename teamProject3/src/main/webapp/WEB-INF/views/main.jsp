@@ -13,14 +13,8 @@
     <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/jstyle.js"></script>
+    <script src="resources/jquery/main_sugnup.js"></script>
 </head>
-<script>
-function logout(){
-if(confirm("로그아웃하시겠습니까?")){
-	location.href = "logout.do";
-}
-}
-</script>
 <body>   
     <header>
         <div class="header_container">
