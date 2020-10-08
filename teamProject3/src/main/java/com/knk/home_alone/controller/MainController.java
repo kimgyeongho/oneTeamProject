@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.knk.home_alone.api.NaverLoginBO;
 import com.knk.home_alone.domain.MainVO;
 import com.knk.home_alone.service.MailSendService;
 import com.knk.home_alone.service.MainService;
@@ -39,9 +40,15 @@ public class MainController {
 	 
 	@Autowired // 이메일 보내기 회원가입 
 	private MailSendService mailsender;
+  
+	/* NaverLoginBO */
+    private NaverLoginBO naverLoginBO;
 
-
-	
+    @Autowired
+    private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
+        this.naverLoginBO = naverLoginBO;
+    }
+    
 	// 메인화면 창
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main() {
@@ -75,9 +82,13 @@ public class MainController {
 
 	
 	//로그인 get
-	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
-	public void main2() throws Exception {
+	@RequestMapping(value = "/login.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String login(Model model,HttpSession session) throws Exception {
 		log.info("GET main 로그인 된 메인페이지");
+        String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+        System.out.println("네이버:" + naverAuthUrl);
+        model.addAttribute("url", naverAuthUrl);
+        return "login";
 	}	
 		
 	 //로그아웃 GET
@@ -305,6 +316,7 @@ public class MainController {
 		 @RequestMapping(value = "/boardWrite.do")
 		 public void boardWrite() {
 			 
-		 }   
-		 
+		 }
+
+	
 }

@@ -11,6 +11,7 @@
     <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/login_findPw.js"></script>    
+    
 </head>
 <body>
     <header>
@@ -96,6 +97,7 @@
     </section>
     <section class="panel">
     </section>
-   
+   <div id="naver_id_login" style="text-align:center"><a href="${url}">
+<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
 </body>
 </html>

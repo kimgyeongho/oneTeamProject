@@ -81,5 +81,9 @@
 			</props>
 		</property>
 	</bean>
+	
+	<!--naver-->
+	<bean id = "naverLoginBO" class="com.knk.home_alone.api.NaverLoginBO"/>
+	
   
 </beans>
