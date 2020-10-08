@@ -35,8 +35,8 @@
             <ul class="nav_ul">
                 <li><p>회원관리</p> 
                 <ul class="nav_ul_b">
-                    <a href="authentication.html"><li>회원가입</li></a>
-                    <a href="login.html"><li>로그인</li></a>
+                    <a href="authentication.do"><li>회원가입</li></a>
+                    <a href="login.do"><li>로그인</li></a>
                 </ul>
                 </li>
             </ul>
@@ -45,9 +45,9 @@
             <ul class="nav_ul"> 
                 <li><p>부동산</p> 
                 <ul class="nav_ul_b">
-                    <a href="map.html"><li>지도보기</li></a>
-                    <a href="board_all.html"><li>게시판</li></a>
-                    <a href="boardWrite.html"><li>글쓰기</li></a>
+                    <a href="map.do"><li>지도보기</li></a>
+                    <a href="board_all.do"><li>게시판</li></a>
+                    <a href="boardWrite.do"><li>글쓰기</li></a>
                 </ul>
                 </li>
             </ul>
@@ -56,21 +56,21 @@
             <ul class="nav_ul">
                 <li><p>서비스</p> 
                 <ul class="nav_ul_b">
-                    <a href="tips.html"><li>팁</li></a>
+                    <a href="tips.do"><li>팁</li></a>
                     <a href=""><li>언어 / Language</li></a>
                 </ul>
                 </li>
             </ul>
         </nav> 
         </div>  
-        <div class="div_allow">
-            <img id="nav_left_arrow" src="img/arrow_left_w.png" alt="왼쪽화살표">
-            <img id="nav_right_arrow"src="img/arrow_right_w.png" alt="오른쪽화살표">
-        </div>    
+         <div class="div_allow">
+            <img id="nav_left_arrow" src="resources/img/arrow_left_w.png" alt="왼쪽화살표">
+            <img id="nav_right_arrow"src="resources/img/arrow_right_w.png" alt="오른쪽화살표">
+        </div>      
     </header>    
     <section class="all_body_section">    
         <div class="page_name" style=" background-image: url(img/map.png);"><h1>지도</h1></div>  
-        <p id="map_distance_show">
+        <p id="map_distance_show" >
             지도를 마우스로 클릭하면 선 그리기가 시작되고<br>오른쪽 마우스를 클릭하면 선 그리기가 종료됩니다
         </p>
         <p id="map_cata_show">
@@ -142,6 +142,7 @@
            
     </section> 
     <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eebca8bc6ea1c503c7974e25d7381936"></script> -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eebca8bc6ea1c503c7974e25d7381936&libraries&libraries=clusterer"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eebca8bc6ea1c503c7974e25d7381936&libraries=services,clusterer,drawing"></script>  
     <!-- <script type="text/javascript" src="jquery/map_service.js"></script>   -->
     <!-- <script type="text/javascript" src="jquery/cluster.js"></script>   -->
@@ -162,7 +163,7 @@ var marker; //마커 정보를 담을 변수
 var latlng; //마커에 위치정보를 담을 변수(위도, 경도)
 var drawingFlag; // 선이 그려지고 있는 상태를 가지고 있을 변수입니다
 var moveLine; // 선이 그려지고 있을때 마우스 움직임에 따라 그려질 선 객체 입니다
-var clickLine // 마우스로 클릭한 좌표로 그려질 선 객체입니다
+var clickLine; // 마우스로 클릭한 좌표로 그려질 선 객체입니다
 var distanceOverlay; // 선의 거리정보를 표시할 커스텀오버레이 입니다
 var dots; // 선이 그려지고 있을때 클릭할 때마다 클릭 지점과 거리를 표시하는 커스텀 오버레이 배열입니다.
 var clickPosition;// 마우스로 클릭한 위치입니다 
@@ -209,7 +210,7 @@ var psd;
     mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-        level: 5 // 지도의 확대 레벨
+        level:7 // 지도의 확대 레벨
     };
 
 map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -290,6 +291,8 @@ marker = new kakao.maps.Marker({
 // // 지도에 마커를 표시합니다
 // marker.setMap(map);
 
+function function_dis(){   //565 끝;	
+
 // 지도에 클릭 이벤트를 등록합니다
 // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
@@ -305,6 +308,7 @@ dots = {}; // 선이 그려지고 있을때 클릭할 때마다 클릭 지점과
 
 // 지도에 클릭 이벤트를 등록합니다
 // 지도를 클릭하면 선 그리기가 시작됩니다 그려진 선이 있으면 지우고 다시 그립니다
+
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     // 마우스로 클릭한 위치입니다 
     clickPosition = mouseEvent.latLng;
@@ -559,7 +563,7 @@ function getTimeHTML(distance) {
 
     return content;
 }
-
+};
 // 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
     // 클릭한 위치에 마커를 표시합니다 
@@ -1072,6 +1076,28 @@ function changeCategoryClass(el) {
         el.className = 'onA';
     } 
 } 
+
+/* //마커 클러스터러를 생성합니다 
+var clusterer = new kakao.maps.MarkerClusterer({
+    map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
+    averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
+    minLevel: 4 // 클러스터 할 최소 지도 레벨 
+});
+
+// 데이터를 가져오기 위해 jQuery를 사용합니다
+// 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
+$.get("/home.json", function(data) {
+    // 데이터에서 좌표 값을 가지고 마커를 표시합니다
+    // 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
+    var markers = $(data.positions).map(function(i, position) {
+        return new kakao.maps.Marker({
+            position : new kakao.maps.LatLng(position.lat, position.lng)
+        });
+    });
+
+    // 클러스터러에 마커들을 추가합니다
+    clusterer.addMarkers(markers);
+}); */
 </script> 
     
 </body>

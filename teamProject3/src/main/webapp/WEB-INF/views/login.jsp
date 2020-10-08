@@ -91,14 +91,16 @@
         <a href="authentication.do"><button type="submit" class="sign">회원가입</button></a>
         </div>
         </form>
+        <div id="naver_id_login" style="text-align:center"><a href="${url}">
+		<img style="width:300px; margin-top: 12px;box-shadow: rgba(0, 0, 0, .2) 3px 3px 2px 2px;" src="resources/img/naverLogin.png"/>
+		</a></div>
         <div class="login_find">
         <a href="find_id.do"><p>아이디 찾기</p></a>
-        <a href="find_pw.do"><p>비밀번호 찾기</p></a>
+        <a href="find_pw.do"><p> 비밀번호 찾기</p></a>
         </div>
     </section>
     <section class="panel">
     </section>
-   <div id="naver_id_login" style="text-align:center"><a href="${url}">
-<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
+   
 </body>
 </html>

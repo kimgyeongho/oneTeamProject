@@ -80,7 +80,7 @@ button:hover{opacity: .7;}
 #PW>td>h3{width: 150px;}
 #PW>td>#userPW{width: 150px; height: 20px;}
 .loginbutton{width: 306px; margin-top: 36px;}
-.loginbutton>a>button{box-shadow: rgba(0, 0, 0, .2) 5px 5px 4px 4px;border: none; border-radius: 5px; width: 150px; height: 30px;font-weight: bolder;  font-size: 18px;}
+.loginbutton>a>button{box-shadow: rgba(0, 0, 0, .2) 3px 3px 2px 2px;border: none; border-radius: 5px; width: 150px; height: 30px;font-weight: bolder;  font-size: 18px;}
 .login_find{width: 240px; background-color: rgb(243, 243, 243);margin-top: 10px;}
 .login_find>a{text-decoration: none; color: black;}
 .login_find>a>p{float: left; width: 120px;margin-top: 20px;}
@@ -94,7 +94,7 @@ button:hover{opacity: .7;}
 .board_div>.board_btn_cata{float: left;width: 100px; height: 35px;border: 1px solid rgb(206, 206, 206); border-top-left-radius: 5px; border-top-right-radius: 15px;font-weight: bold; color:white; font-size: 14px;}
 .board_div>.board_btn_cata:hover{opacity: 0.6;}
 
-.board_section{background:linear-gradient(rgb(255, 255, 255),white,rgb(250, 255, 249),rgb(239, 243, 234));border: 2px solid rgb(206, 206, 206); background-color: white; box-shadow: rgba(0, 0, 0, .2) 8px 8px 7px 7px; border-radius: 5px; width: 60%; height: 600px;  overflow-y: scroll;}
+.board_section{border: 2px solid rgb(206, 206, 206); background-color: white; box-shadow: rgba(0, 0, 0, .2) 5px 5px 4px 4px; border-radius: 5px; width: 60%; height: 600px;  overflow-y: scroll;}
 .board_section::-webkit-scrollbar{display: none;}
 .board_contentA{margin-top: 20px;margin-left: 15px; width: 58%; border-collapse: collapse; position: absolute; }
 .contentA_index>td{height: 20px; border: solid 1px rgb(206, 206, 206); text-align: center;}
@@ -111,7 +111,7 @@ button:hover{opacity: .7;}
 /* 게시판 작성페이지 */
 
 .board_table{width: 50%; margin-top: 150px;}
-.boardWrite_table{border: 2px rgb(226, 226, 226) solid; padding: 15px; border-radius: 10px; background:linear-gradient(rgb(255, 255, 255),white,rgb(250, 255, 249),rgb(239, 243, 234)); box-shadow: rgba(0, 0, 0, .2) 8px 8px 7px 7px;}
+.boardWrite_table{border: 2px rgb(226, 226, 226) solid; padding: 15px; border-radius: 5px; background:linear-gradient(rgb(255, 255, 255),white,rgb(250, 255, 249),rgb(239, 243, 234)); box-shadow: rgba(0, 0, 0, .2)5px 5px 4px 4px;}
 .boardWrite_index{font-size: 16px; font-weight: bold; border-radius: 5px; width: 150px; border-bottom: 1px solid rgb(192, 192, 192); border-collapse: collapse; text-align: center; background-color: rgb(255, 255, 255);}
 #content_character{padding-left:10px;margin-left: 10px; font-size: 14px; border-radius: 5px; width:150px; height: 25px; background-color: rgb(255, 255, 255);}
 #content_character>option{color: rgb(131, 131, 131); font-size: 16px;}
@@ -122,13 +122,12 @@ button:hover{opacity: .7;}
 .boardWrite_textarea:hover{background-color: white;}
 .boardWrite_textarea::-webkit-scrollbar{display: none;}
 
-.board_write_container{margin-top: 30px; margin-bottom: 50px; width: 720px;}
-.img_file_container{position: relative; }
-#add_fileA{margin-left: 20px; width: 600px;}
-#add_fileB{margin-top: 15px; margin-left: 20px;}
+.board_write_container{margin-top: 24px; margin-bottom: 50px;width:60px;}
+.img_file_container{}
+#add_fileB{margin-top: 15px;}
 
 /* 게시판 작성페이지 버튼 */
-.boardWrite_btn_container{width:400px; margin-top: 18px; margin-bottom: 50px; float: left;}
+.boardWrite_btn_container{width:320px; margin-top: 12px; margin-bottom: 50px; float: right; margin-right: 150px;}
 .board_search_btn{width: 100px; height: 30px; font-size: 16px; font-weight: bold;}
 .board_fix_btn{width: 100px; height: 30px;font-size: 16px; font-weight: bold;}
 .board_delete_btn{width: 100px; height: 30px;font-size: 16px; font-weight: bold;}

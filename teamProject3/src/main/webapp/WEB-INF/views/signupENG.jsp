@@ -37,8 +37,8 @@
             <ul class="nav_ul">
                 <li><p>Member</p> 
                 <ul class="nav_ul_b">
-                    <a href="authentication.html"><li>Sign up</li></a>
-                    <a href="login.html"><li>login</li></a>
+                    <a href="authentication.do"><li>Sign up</li></a>
+                    <a href="login.do"><li>login</li></a>
                 </ul>
                 </li>
             </ul>
@@ -47,9 +47,9 @@
             <ul class="nav_ul"> 
                 <li><p>Property</p> 
                 <ul class="nav_ul_b">
-                    <a href="map.html"><li>map</li></a>
-                    <a href="board_all.html"><li>board</li></a>
-                    <a href="boardWrite.html"><li>write</li></a>
+                    <a href="map.do"><li>map</li></a>
+                    <a href="board_all.do"><li>board</li></a>
+                    <a href="boardWrite.do"><li>write</li></a>
                 </ul>
                 </li>
             </ul>
@@ -58,7 +58,7 @@
             <ul class="nav_ul">
                 <li><p>Services</p> 
                 <ul class="nav_ul_b">
-                    <a href="tips.html"><li>tip</li></a>
+                    <a href="tips.do"><li>tip</li></a>
                     <a href=""><li>Language</li></a>
                 </ul>
                 </li>

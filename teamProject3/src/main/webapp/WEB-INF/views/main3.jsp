@@ -114,7 +114,7 @@
                 <img src="resources/img/main_3_img.png" alt="지도 홍보">
             </div>
             <div class="img_slide">
-                <!-- <a href="map.html" style="position: absolute; left: 1580px; top: 250px;">
+                <!-- <a href="map.do" style="position: absolute; left: 1580px; top: 250px;">
                     <button style="background: rgb(90, 92, 91); height: 60px; font-size: 24px; width: 180px;">지도 보러가기</button>
                 </a> -->
                 <img src="resources/img/main_4_img.png" alt="지도 홍보">

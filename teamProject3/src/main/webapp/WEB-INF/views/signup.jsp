@@ -37,8 +37,8 @@
             <ul class="nav_ul">
                 <li><p>회원관리</p> 
                 <ul class="nav_ul_b">
-                    <a href="authentication.html"><li>회원가입</li></a>
-                    <a href="login.html"><li>로그인</li></a>
+                    <a href="authentication.do"><li>회원가입</li></a>
+                    <a href="login.do"><li>로그인</li></a>
                 </ul>
                 </li>
             </ul>
@@ -47,9 +47,9 @@
             <ul class="nav_ul"> 
                 <li><p>부동산</p> 
                 <ul class="nav_ul_b">
-                    <a href="map.html"><li>지도보기</li></a>
-                    <a href="board_all.html"><li>게시판</li></a>
-                    <a href="boardWrite.html"><li>글쓰기</li></a>
+                    <a href="map.do"><li>지도보기</li></a>
+                    <a href="board_all.do"><li>게시판</li></a>
+                    <a href="boardWrite.do"><li>글쓰기</li></a>
                 </ul>
                 </li>
             </ul>
@@ -58,7 +58,7 @@
             <ul class="nav_ul">
                 <li><p>서비스</p> 
                 <ul class="nav_ul_b">
-                    <a href="tips.html"><li>팁</li></a>
+                    <a href="tips.do"><li>팁</li></a>
                     <a href=""><li>언어 / Language</li></a>
                 </ul>
                 </li>

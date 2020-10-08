@@ -15,22 +15,11 @@
 <body>
      <header>
         <div class="header_container">
-       <a href="/">
+        <a href="/">
             <div class="header_logo">
-            <!-- <img src="img/logo.png" alt="로고"> f-->
+            <!-- <img src="img/logo.png" alt="로고"> -->
             </div>
         </a>   
-        <div class="user_information">
-           <c:if test="${user != null}">        
-           <a href="mypage.do">           
-           <h3>${user.userID}님 마이페이지</h3>
-           
-           </a> 
-           </c:if>
-           <c:if test="${user == null}">
-           <h3></h3>
-           </c:if>
-        </div>
         <nav class="ul_nav">
             <ul class="nav_ul">
                 <li><p>소개</p> 
@@ -47,13 +36,7 @@
                 <li><p>회원관리</p> 
                 <ul class="nav_ul_b">
                     <a href="authentication.do"><li>회원가입</li></a>
-                     <c:if test="${user == null}">
                     <a href="login.do"><li>로그인</li></a>
-                     </c:if> 
-                      <c:if test="${user != null}">
-                    <a href="logout.do"><li>로그아웃</li></a>
-                     </c:if>           
-                     
                 </ul>
                 </li>
             </ul>
@@ -84,14 +67,14 @@
             <img id="nav_left_arrow" src="resources/img/arrow_left_w.png" alt="왼쪽화살표">
             <img id="nav_right_arrow"src="resources/img/arrow_right_w.png" alt="오른쪽화살표">
         </div>    
-    </header>    
+    </header>     
     <section class="all_body_section">
         <div class="board_div">
             <button class="board_btn_all">전체 게시판</button>
             <button class="board_btn_cata">카테고리</button>
         </div>
         <div class="board_go_boardWrite">
-            <a href="boardWrite.html"><button class="btn_go_boardWrite">글쓰기</button></a>        
+            <a href="boardWrite.do"><button class="btn_go_boardWrite">글쓰기</button></a>        
         </div>
     <section class="board_section">
         
