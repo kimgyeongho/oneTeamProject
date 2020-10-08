@@ -123,16 +123,16 @@
           </table>
           <table class="board_contentB">            
             <tr class="contentB_index">
-              <a href="#"><td><img src="img/study.jpg" alt="면학의"></td></a>
-              <a href="#"><td><img src="img/calm.jpg" alt="조용한"></td></a>                           
+              <a href="#"><td><img src="resources/img/study.jpg" alt="면학의"></td></a>
+              <a href="#"><td><img src="resources/img/calm.jpg" alt="조용한"></td></a>                           
             </tr>    
             <tr class="contentB_index">
-                <a href="#"><td><img src="img/wolabel.jpg" alt="면학의"></td></a>
-                <a href="#"><td><img src="img/young.jpg" alt="조용한"></td></a>                           
+                <a href="#"><td><img src="resources/img/wolabel.jpg" alt="면학의"></td></a>
+                <a href="#"><td><img src="resources/img/young.jpg" alt="조용한"></td></a>                           
               </tr> 
               <tr class="contentB_index">
-                <a href="#"><td><img src="img/wolabel.jpg" alt="면학의"></td></a>
-                <a href="#"><td><img src="img/wolabel.jpg" alt="조용한"></td></a>                           
+                <a href="#"><td><img src="resources/img/wolabel.jpg" alt="면학의"></td></a>
+                <a href="#"><td><img src="resources/img/wolabel.jpg" alt="조용한"></td></a>                           
               </tr>       
           </table>  
     </section>

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나 홀로 집에</title>
-    <link rel="stylesheet" href="resources/style.css">
+    <link rel="stylesheet" href="resources/css/style.css">
     <script src="resources/jquery/jquery-3.5.1.min.js"></script>
     <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
     <script src="resources/jquery/jquery-ui.min.js"></script>
@@ -68,8 +68,8 @@
         </nav> 
         </div>  
         <div class="div_allow">
-            <img id="nav_left_arrow" src="img/arrow_left_w.png" alt="왼쪽화살표">
-            <img id="nav_right_arrow"src="img/arrow_right_w.png" alt="오른쪽화살표">
+            <img id="nav_left_arrow" src="resources/img/arrow_left_w.png" alt="왼쪽화살표">
+            <img id="nav_right_arrow"src="resources/img/arrow_right_w.png" alt="오른쪽화살표">
         </div>    
     </header>      
     <section class="all_body_section">
@@ -95,7 +95,7 @@
             </tr>
             <tr class="boardWrite_table_tr">
                 <td class="boardWrite_index">아이디</td>
-                <td><input type="text" placeholder="아이디를 입력하세요"></input></td>
+                <td>${user.userID}</td>
             </tr>                     
             <tr class="boardWrite_table_tr">
                 <td class="boardWrite_index">내용</td>

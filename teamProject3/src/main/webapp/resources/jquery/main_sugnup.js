@@ -45,7 +45,7 @@ function goPopup(){
     	$("#submit1").on("click", function(){
 			
      // 두가지에 방식으로 만들었음 하나는 변수에 담아서 하나는 집적 값을 비교해서		
-    		var name = /^[가-힣]+$/;        
+			var name = /^[가-힣]{2,6}$/;        
 			var pw = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,16}$/;
 
 			var pwCh = $("#userPW").val();

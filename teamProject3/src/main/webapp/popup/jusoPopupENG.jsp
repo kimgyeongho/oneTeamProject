@@ -17,7 +17,7 @@
 <script language="javascript">
 function init(){
 	var url = location.href;
-	var confmKey = "devU01TX0FVVEgyMDIwMDkyMDAzMzczNDExMDIxMTI=";
+	var confmKey = "devU01TX0FVVEgyMDIwMTAwODAwNTEzNjExMDI2NzI=";
 	var resultType = "4"; // 도로명주소 검색결과 화면 출력유형, 1 : 도로명, 2 : 도로명+지번
 	var inputYn= "<%=inputYn%>";
 	if(inputYn != "Y"){

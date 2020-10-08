@@ -1,8 +1,8 @@
 //---------------------------sigupENG.js------------------------
 // 한글 버전과 같은 스크립트  한글 버전 참고
 function goPopup(){
-   var pop = window.open("popup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
-	   $("#address2").atul("value", "주소체크");
+   var pop = window.open("popup/jusoPopupENG.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
+	   $("#address2").attr("value", "주소체크");
 }
       function jusoCallBack(zipNo,roadAddrPart1,addrDetail){
           document.form.zipNo.value = zipNo;
@@ -10,8 +10,27 @@ function goPopup(){
           document.form.addrDetail.value = addrDetail;
 }    
     $(document).ready(function(){
-			$("#submit1").on("click", function(){
-					var name = /^[가-힣]+$/;        
+    	$("#email").blur(function() {
+	    	$.ajax({
+	    		url : '/emailCheck',
+				type : 'post',
+				dataType : "json",
+				data : {"email" : $("#email").val()},
+				success : function(data) {
+					console.log("사용주인 이메일이라면 데이터에 값이 나옵니다: "+ data);							
+					if (data == 1 ) {
+						$("#emailCheck").text("Email in use");
+						$("#emailCheck").css("color", "red");
+						$("#submit1").attr("disabled", true);
+					}else if(data == 0){
+						$("#emailCheck").text("");
+						$("#submit1").attr("disabled", false);
+					}
+				}
+			}); 
+	    });
+    	$("#submit1").on("click", function(){
+    				var name = /^[a-zA-Z]{3,10}$/;        
 			    	var pw = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,16}$/;
 
 			    	var pwCh = $("#userPW").val();
@@ -54,15 +73,7 @@ function goPopup(){
 					if(!/^[0-9]{4}$/.test($("#userPhone2").val())){
 					alert('Please write your lasr mobile phone number');
 					return false;
-					}userPhone3
-					if(!/^[0-9]{4}$/.test($("#userPhone3").val())){
-					alert('Please write your first tel number');
-					return false;
 					}
-					if(!/^[0-9]{4}$/.test($("#userPhone4").val())){
-					alert('Please write your last tel number');
-					return false;
-					} 
 			        var address2 = $("#address2").val();
 				 	if(address2 == "주소찾기"){
 					alert("Please click find button");
@@ -79,14 +90,18 @@ function goPopup(){
 					alert("Please click find button");
 					return false;
 					}  
-				    var idCheckVal = $("#idCheck").val();
-				    if(idCheckVal == "중복확인"){
-					alert("Please click id check button");
-				    }else if(idCheckVal == "사용가능"){
+					var idCheckVal = $("#idCheck").val();
+					if(idCheckVal == "중복확인"){
+					alert("Please press the two OK buttons");
+					}else if(idCheckVal == "사용가능" && $("#emailCheck").val() == "" ){
 					$("#form").submit();
-				}
-			});
-		})
+					$('#submit1').attr('disabled', true);
+					alert('Email verification email has been sent Please log in after verification');
+					setTimeout(function () {                
+					  }, 9000)
+					}
+					});
+				});
 		
 		function idCheck1(){
     	$.ajax({
@@ -101,11 +116,26 @@ function goPopup(){
 					if(!/^[a-zA-Z0-9]{6,16}$/.test($("#userID").val())){
 						alert('You can use text(english), number, simbol from 6 to 16.');
 						return false;
-					}$("#idCheck").atul("value", "사용가능");
+					}$("#idCheck").attr("value", "사용가능");
 					alert("This id is available.");
 					}
 				}
 			})
+		}
+		function check() {
+			$.ajax({
+				url : '/emailCheck',
+				type : 'post',
+				dataType : "json",
+				data : {"email" : $("#email").val()},
+				success : function(data) {
+					console.log("사용주인 이메일이라면 데이터에 값이 나옵니다2: "+ data);							
+					if (data == 1 ){
+						alert("This email is a duplicate.");
+						location.href="signup.do"
+						}
+					}
+				});
 		}
 //---------------------------------------------------------------------
     

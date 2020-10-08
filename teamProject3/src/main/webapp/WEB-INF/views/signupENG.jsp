@@ -102,19 +102,13 @@
                 <ul class="sign_upA" style="margin-top: 8px;">
                     <li id="index"><p>Identified Number</p></li>
                     <li ><input style="width: 127.5px;" type="text" name="identidication1" id="identification1" placeholder="first" minlength="6" maxlength="6">
-                    <input style="width: 127.5px; type="password" name="identidication2" id="identification2" placeholder="last" minlength="7" maxlength="7"></li>
+                    <input style="width: 127.5px;" type="password" name="identidication2" id="identification2" placeholder="last" minlength="7" maxlength="7"></li>
                 </ul>
                 <ul class="sign_upA" style="margin-top: 8px;">
                     <li id="index"><p>Email</p></li>
-                    <li ><input type="text" name="email" id="email"  style="width: 268px;style="margin-left: 124px;""></li>                    
-             <!--        <li ><input type="text" name="emailAddr" id="emailAddr"></li>                  
-                    <li><select name="emailOpt" id="emailOpt">
-                        <option value="">@직접입력</option>
-                        <option value="@google.com">@google.com</option>
-                        <option value="@daum.net">@daum.net</option>
-                        <option value="@naver.com">@naver.com</option>
-                    </select>    
-                </li>     -->  
+               <li ><input type="text" name="email" id="email"></li>                    
+       			    <li>
+                   <div class="check_font" id="emailCheck"></div>
                 </ul>
                 <ul class="sign_upA" style="margin-top: 8px;">
                     <li id="index" ><p>Phone</p></li>

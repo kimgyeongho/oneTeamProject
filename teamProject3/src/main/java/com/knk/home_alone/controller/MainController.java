@@ -301,4 +301,10 @@ public class MainController {
 		 public void map() {
 			 
 		 }   
+		//임시적인 창 띄우기
+		 @RequestMapping(value = "/boardWrite.do")
+		 public void boardWrite() {
+			 
+		 }   
+		 
 }
