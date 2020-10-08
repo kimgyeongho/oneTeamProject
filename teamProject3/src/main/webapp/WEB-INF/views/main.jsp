@@ -15,6 +15,17 @@
     <script src="resources/jquery/jstyle.js"></script>
     <script src="resources/jquery/main_sugnup.js"></script>
 </head>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var name = ${result}.response.name;
+    var email = ${result}.response.email;
+    var birthday = ${result}.response.birthday;
+    $("#name").html("환영합니다. "+name+"님");
+
+
+    });
+  //location.href = "${pageContext.request.contextPath}/";
+</script>
 <body>   
     <header>
         <div class="header_container">
@@ -27,7 +38,12 @@
            <c:if test="${user != null}">        
            <a href="mypage.do">           
            <h3>${user.userID}님 마이페이지</h3>
-           </a> 
+           </a>            
+           </c:if>
+           <c:if test="${result != null}">        
+           <a href="mypage.do">           
+           <h3 id=name></h3>
+           </a>            
            </c:if>
         </div>
         <nav class="ul_nav">
