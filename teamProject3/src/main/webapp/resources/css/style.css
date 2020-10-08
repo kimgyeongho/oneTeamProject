@@ -17,7 +17,7 @@ header{width: 350px;float: left; position: fixed; z-index: 3;}
 .nav_ul_b>a>li{font-size:18px; margin-bottom: 12px;} 
 .nav_ul_b>a>li:hover{opacity: .5;} 
 
-.div_allow{float: left; width: 70px;}
+.div_allow{float: left; width: 70px; z-index: 3;}
 .div_allow>img{margin-top: 117px; width: 15%; position: absolute;  background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
 .div_allow>img:hover{cursor: pointer; box-shadow: rgba(0, 0, 0, .2) 2px 2px 1px 1px;}
 
@@ -61,7 +61,6 @@ article{margin-top: 200px; width: 350px; height: 350px; background-color: white;
 #index{display:inline;}
 #index>p{float:left; width: 124px;}
 .sign_upA{float:left; list-style: none; width: 500px;}
-#idCheck{ width: 108px;}
 #sign_upA>li{display:inline; width: 84px;}
 button{width: 150px; height: 20px; color: white; background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); font-size: 14px;border-radius: 5px; border: none;}
 #addrInput>input{width: 150px;}

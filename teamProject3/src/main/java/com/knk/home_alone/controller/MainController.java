@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.knk.home_alone.api.NaverLoginBO;
+//import com.knk.home_alone.api.NaverLoginBO;
 import com.knk.home_alone.domain.MainVO;
 import com.knk.home_alone.service.MailSendService;
 import com.knk.home_alone.service.MainService;
