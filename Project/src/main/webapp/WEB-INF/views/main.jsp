@@ -79,7 +79,10 @@
                 <ul class="nav_ul_b">
                     <a href="map.do"><li>지도보기</li></a>
                     <a href="board_all.do"><li>게시판</li></a>
+ <c:if test="${user != null}">        
                     <a href="boardWrite.do"><li>글쓰기</li></a>
+                               </c:if>
+                    
                 </ul>
                 </li>
             </ul>
