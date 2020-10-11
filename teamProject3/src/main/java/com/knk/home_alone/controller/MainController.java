@@ -239,7 +239,7 @@ public class MainController {
 			 return emailCheck;
 		 }
 		 //고객상담 이메일 보내기 
-		 @RequestMapping(value = "mailSending.do")
+		 @RequestMapping(value = "/sample/mailSending.do")
 		 public String mailSending(HttpServletRequest request) {
 			 log.info("mailSending");
 			 String setfrom = "apdlvmf1562@gmail.com";
@@ -264,14 +264,14 @@ public class MainController {
 				 System.out.println(e);
 			 }
 			 
-			 return "mailForm";
+			 return "sample/mailForm";
 		 }
 		 
 		 // mailForm
-		 @RequestMapping(value = "/mailForm")
+		 @RequestMapping(value = "/sample/mailForm")
 		 public String mailForm() {
 			 
-			 return "/mailForm";
+			 return "sample/mailForm";
 		 }  
 		 
 		 // 이메일 중복

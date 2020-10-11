@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.knk.home_alone.domain.MainVO;
 import com.knk.home_alone.mapper.MainMapper;
 
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 
@@ -19,8 +20,7 @@ import lombok.extern.log4j.Log4j;
 @Service("MainService")
 public class MainServiceImpl implements MainService {
 
-/*	@Setter(onMethod_ = @Autowired)*/	// 둘다 똑같은 방법
-	@Autowired
+	@Setter(onMethod_ = @Autowired)	
 	private MainMapper mainMapper;
 	//회원가입
 	@Override
