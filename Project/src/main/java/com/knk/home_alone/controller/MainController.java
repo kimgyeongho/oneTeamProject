@@ -57,23 +57,7 @@ public class MainController {
 		return "main";
 	}
 
-	// 회원가입 get
-	@RequestMapping(value = "/authentication.do", method = RequestMethod.GET)
-	public void authentication() throws Exception {
-		log.info("GET authentication");
-	}
 
-	// 회원가입 get 국내
-	@RequestMapping(value = "/signup.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public void getsignup() throws Exception {
-		log.info("GET signup");
-	}
-
-	// 회원가입 get 국외
-	@RequestMapping(value = "/signupENG.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public void getsignupENG() throws Exception {
-		log.info("GET signupENG");
-	}
 
 	// 도로명 셈플 테스트
 	@RequestMapping(value = "/sample.do", method = RequestMethod.GET)
@@ -92,41 +76,11 @@ public class MainController {
         return "login";
 	}	
 		
-	 //로그아웃 GET
-	 @RequestMapping(value = "/logout.do", method = RequestMethod.GET)
-	 public String logout(HttpSession session) throws Exception{
-		 log.info("GET logout");
 
-		 session.invalidate();
-		
-		 return "redirect:/";
-	 }	 
-	 //마이페이지 GET
-	 @RequestMapping(value="/mypage.do", method = RequestMethod.GET)
-	 public void mypage() throws Exception{
-		 log.info("GET mypage");
-		 }
 
-	 //아이디 찾기 페이지 GET
-	 @RequestMapping(value="/find_id.do", method = RequestMethod.GET)
-	 public void getFind_id() throws Exception{
-	 log.info("GET find_id");
-	 }
+	
 	 
-	 // 아이디 찾기
-	 @RequestMapping(value = "/find_id", method = RequestMethod.POST)
-	 public String find_id(HttpServletResponse response, @RequestParam("email") String email, Model md
-	 ,@RequestParam("userName") String userName) throws Exception{
-	 md.addAttribute("id", service.oneteam_findId(response, email, userName));
-	 
-	 return "find_id2";
-		}
-	 
-	  //비밀번호  찾기 페이지 GET
-	   @RequestMapping(value="/find_pw.do", method = RequestMethod.GET)
-	   public void getFind_pw() throws Exception{
-	   log.info("GET find_pw");
-		 }
+
 		 // 회원가입 post
 		 @RequestMapping(value = "/join", method = RequestMethod.POST)
 		 public String postjoin(MainVO VO ,HttpServletRequest request) throws Exception {
@@ -303,21 +257,7 @@ public class MainController {
 			 return userCheck;
 		 }
 		 
-		 //임시적인 창 띄우기
-		 @RequestMapping(value = "/board_all.do")
-		 public void board_all() {
-			 
-		 }  
-		 //임시적인 창 띄우기
-		 @RequestMapping(value = "/map.do")
-		 public void map() {
-			 
-		 }   
-		//임시적인 창 띄우기
-		 @RequestMapping(value = "/boardWrite.do")
-		 public void boardWrite() {
-			 
-		 }
+	
 
 	
 }

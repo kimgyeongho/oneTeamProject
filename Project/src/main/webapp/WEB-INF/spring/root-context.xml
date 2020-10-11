@@ -27,7 +27,7 @@
 		<property name="jdbcUrl"
 			value="jdbc:mariadb://localhost:3306/one_team"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="mariadb"></property>
+		<property name="password" value="akfldkdb"></property>
 	</bean>
 	<!-- 커넥션 풀 -->
 	<!-- HikariCP configuration -->
