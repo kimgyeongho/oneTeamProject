@@ -823,8 +823,8 @@ function removeAllChildNods(el) {
 // 주소-좌표 변환 객체를 생성합니다
 geocoder = new kakao.maps.services.Geocoder();
 
-// 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
-searchAddrFromCoords(map.getCenter(), displayCenterInfo());
+/* // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
+searchAddrFromCoords(map.getCenter(), displayCenterInfo()); */
 
 // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
   
@@ -852,10 +852,10 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     });
 });
 
-// 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
+/* // 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
 kakao.maps.event.addListener(map, 'idle', function() {
     searchAddrFromCoords(map.getCenter(), displayCenterInfo);
-});
+}); */
 
 function searchAddrFromCoords(coords, callback) {
     // 좌표로 행정동 주소 정보를 요청합니다
@@ -884,6 +884,7 @@ function searchDetailAddrFromCoords(coords, callback) {
 
 // //편의점 등 클릭시 보이게 하는 알고리즘@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
+function function_cata(){
 var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
     contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다   
     currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
@@ -907,7 +908,23 @@ placeOverlay.setContent(contentNode);
 
 // // 각 카테고리에 클릭 이벤트를 등록합니다
 addCategoryClickEvent();
+//카테고리를 클릭했을 때 호출되는 함수입니다
+function onClickCategory() {
+    var id = this.id,
+        className = this.className;
 
+    placeOverlay.setMap(null);
+
+    if (className === 'onA') {
+        currCategory = '';
+        changeCategoryClass();
+        removeMarker();
+    } else {
+        currCategory = id;
+        changeCategoryClass(this);
+        searchPlacesA();
+    }
+}
 // // 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
 function addEventHandle(target, type, callback) {
     if (target.addEventListener) {
@@ -1038,24 +1055,8 @@ function addCategoryClickEvent() {
     }
 }
 
-// 카테고리를 클릭했을 때 호출되는 함수입니다
-function onClickCategory() {
-    var id = this.id,
-        className = this.className;
 
-    placeOverlay.setMap(null);
-
-    if (className === 'onA') {
-        currCategory = '';
-        changeCategoryClass();
-        removeMarker();
-    } else {
-        currCategory = id;
-        changeCategoryClass(this);
-        searchPlacesA();
-    }
 }
-
 // // 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
 function changeCategoryClass(el) {
     var category = document.getElementById('category'),
