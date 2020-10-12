@@ -11,7 +11,7 @@
     <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
     <script src="resources/jquery/jquery-ui.min.js"></script>
     <script src="resources/jquery/jstyle.js"></script>
-    <script src="resources/jquery/main_sugnup.js"></script>
+    <script src="/resources/jquery/main_sugnup.js"></script>
 </head>
 <body>
 
