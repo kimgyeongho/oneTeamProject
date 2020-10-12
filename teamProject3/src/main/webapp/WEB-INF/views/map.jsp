@@ -140,15 +140,9 @@
         </p>    
        
            
-    </section> 
-    <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eebca8bc6ea1c503c7974e25d7381936"></script> -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eebca8bc6ea1c503c7974e25d7381936&libraries&libraries=clusterer"></script>
+    </section>    
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eebca8bc6ea1c503c7974e25d7381936&libraries=services,clusterer,drawing"></script>  
-    <!-- <script type="text/javascript" src="jquery/map_service.js"></script>   -->
-    <!-- <script type="text/javascript" src="jquery/cluster.js"></script>   -->
-    <!-- <script type="text/javascript" src="jquery/drawing.js"></script>   -->
-    <!-- <script type="text/javascript" src="jquery/main_kakao.js"></script>   -->
-    
+  
     <!-- 지도를 구성하는 스크립트문(쿼리x) -->
     
 <script>
@@ -874,19 +868,19 @@ function searchDetailAddrFromCoords(coords, callback) {
 }
 
 // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
-function displayCenterInfo(result, status) {
+/* function displayCenterInfo(result, status) {
     if (status === kakao.maps.services.Status.OK) {
         var infoDiv = document.getElementById('centerAddr');
 
         for(var i = 0; i < result.length; i++) {
             // 행정동의 region_type 값은 'H' 이므로
             if (result[i].region_type === 'H') {
-                infoDiv.innerHTML = result[i].address_name;
+                infoDiv.innerHTML = result[i].addrss.address_name;
                 break;
             }
         }
     }    
-}
+} */
 
 // //편의점 등 클릭시 보이게 하는 알고리즘@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
@@ -1077,7 +1071,7 @@ function changeCategoryClass(el) {
     } 
 } 
 
-/* //마커 클러스터러를 생성합니다 
+//마커 클러스터러를 생성합니다 
 var clusterer = new kakao.maps.MarkerClusterer({
     map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
     averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
@@ -1086,6 +1080,9 @@ var clusterer = new kakao.maps.MarkerClusterer({
 
 // 데이터를 가져오기 위해 jQuery를 사용합니다
 // 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
+$(function() {
+	
+
 $.get("/home.json", function(data) {
     // 데이터에서 좌표 값을 가지고 마커를 표시합니다
     // 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
@@ -1097,7 +1094,8 @@ $.get("/home.json", function(data) {
 
     // 클러스터러에 마커들을 추가합니다
     clusterer.addMarkers(markers);
-}); */
+}); 
+});
 </script> 
     
 </body>
