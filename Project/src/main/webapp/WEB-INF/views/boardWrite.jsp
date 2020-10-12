@@ -70,7 +70,7 @@
 	<section class="all_body_section">
 		<!-- 게시판 작성 부분 -->
 		<div class="board_table">
-			<form action="#">
+			<form action="#" name="pp2" id="pp2">
 				<table class="boardWrite_table">
 					<tr class="boardWrite_table_tr">
 						<td class="boardWrite_index">제목</td>
@@ -97,8 +97,8 @@
 					</tr>
 					<tr class="boardWrite_table_tr">
 						<td class="boardWrite_index">주소</td>
-						<td><input type="text"></td>
-						<td><button type="button" onClick="goPopup();">주소
+						<td><input type="text" name="roadAddrPart1" id="roadAddrPart1" >
+						<button type="button" onClick="gop();">주소
 								찾기</button></td>
 						</li>
 					</tr>

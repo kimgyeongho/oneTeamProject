@@ -131,12 +131,12 @@ var a3=$(".clear").click(function(){
    
 });
 
-function goPopup() {
-    var pop = window.open("popup/jusoPopup.jsp", "pop",
+function gop() {
+    var pop = window.open("popup/jusoPopup2.jsp", "pop",
           "width=570,height=420, scrollbars=yes, resizable=yes");
  };
- function jusoCallBack(roadFullAddr) {
-    document.form.roadFullAddr.value = roadFullAddr;
+function gopCallBack(roadAddrPart1) {
+          document.pp2.roadAddrPart1.value = roadAddrPart1;
  };
 //서비스 이용 안내페이지==================================================================
 $(function(){

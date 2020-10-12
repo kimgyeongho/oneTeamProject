@@ -11,13 +11,9 @@
 	//request.setCharacterEncoding("UTF-8");  //한글깨지면 주석제거
 //request.setCharacterEncoding("EUC-KR");  //해당시스템의 인코딩타입이 EUC-KR일경우에
 String inputYn = request.getParameter("inputYn");
-System.out.println(inputYn + "inputYn");
-String zipNo = request.getParameter("zipNo");
-System.out.println(zipNo + "zipNo");
-String roadAddrPart1 = request.getParameter("roadAddrPart1");
-System.out.println(roadAddrPart1 + "roadAddrPart1");
-String addrDetail = request.getParameter("addrDetail");
-System.out.println(addrDetail + "addrDetail");
+System.out.println(inputYn+"Yn 와이엔");
+String roadAddrPart1 =request.getParameter("roadAddrPart1")+request.getParameter("addrDetail");
+System.out.println(roadAddrPart1 + "roadAddrPart투투투");
 %>
 </head>
 <script language="javascript">
@@ -32,7 +28,7 @@ System.out.println(addrDetail + "addrDetail");
 function init(){
 	var url = location.href;
 	var confmKey = "devU01TX0FVVEgyMDIwMDgyNzAzMTkxMTExMDExMTQ=";
-	var resultType = "4"; // 도로명주소 검색결과 화면 출력내용, 1 : 도로명, 2 : 도로명+지번, 3 : 도로명+상세건물명, 4 : 도로명+지번+상세건물명
+	var resultType = "3"; // 도로명주소 검색결과 화면 출력내용, 1 : 도로명, 2 : 도로명+지번, 3 : 도로명+상세건물명, 4 : 도로명+지번+상세건물명
 	var inputYn= "<%=inputYn%>";
 	if(inputYn != "Y"){
 		document.form.confmKey.value = confmKey;
@@ -42,9 +38,8 @@ function init(){
 		//document.form.action="http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do"; //모바일 웹인 경우, 인터넷망
 		document.form.submit();
 	}else{
-		opener.jusoCallBack("<%=zipNo%>","<%=roadAddrPart1%>","<%=addrDetail%>");
-		window.close();
-		window.alert("기모띠")
+		opener.gopCallBack("<%=roadAddrPart1%>");
+			window.close();
 		}
 	}
 </script>
