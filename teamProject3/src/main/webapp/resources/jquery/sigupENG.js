@@ -1,4 +1,4 @@
-//---------------------------sigupENG.js------------------------
+//-------------------------ㅊ--sigupENG.js------------------------
 // 한글 버전과 같은 스크립트  한글 버전 참고
 function goPopup(){
    var pop = window.open("popup/jusoPopupENG.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
