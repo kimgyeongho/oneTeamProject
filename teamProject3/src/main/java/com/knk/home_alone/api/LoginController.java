@@ -24,7 +24,7 @@ public class LoginController {
     private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
         this.naverLoginBO = naverLoginBO;
     }
-
+    //ffffffffffffffffffffffff
     //로그인 첫 화면 요청 메소드
     @RequestMapping(value = "/naver/naverLogin", method = { RequestMethod.GET, RequestMethod.POST })
     public String login(Model model, HttpSession session) {

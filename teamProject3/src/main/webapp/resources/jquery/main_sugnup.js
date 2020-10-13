@@ -8,7 +8,7 @@ if(confirm("로그아웃하시겠습니까?")){
 }
 //------------------------------------------------
 
-//------------------signup.jsp---------------------
+//------------------signup.jsp-----------------------
 //도로명 주소 창 띄우기 회원가입 할때에 사용
 function goPopup(){
    var pop = window.open("popup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
