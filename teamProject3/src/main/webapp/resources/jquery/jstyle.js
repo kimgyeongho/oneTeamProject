@@ -178,7 +178,13 @@ $(function(){
         }); 
         $("#btn_search_distance").mouseout(function(){
             $("#map_distance_show").hide();
-            });    
+            });  
+    $("#btn_search_marker").mouseover(function(){
+        $("#map_marker_show").show();
+        }); 
+        $("#btn_search_marker").mouseout(function(){
+            $("#map_marker_show").hide();
+            });
 });
 //아이디 비밀번호 찾기 팝업 알고리즘
 $(function(){
