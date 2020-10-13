@@ -69,7 +69,7 @@
         </div>      
     </header>    
     <section class="all_body_section">    
-        <div class="page_name" style=" background-image: url(img/map.png);"><h1>지도</h1></div>  
+        <div class="page_name" style=" background-image: url(/resources/img/map.png);"><h1>지도</h1></div>  
         <p id="map_distance_show" >
             지도를 마우스로 클릭하면 선 그리기가 시작되고<br>오른쪽 마우스를 클릭하면 선 그리기가 종료됩니다
         </p>
@@ -80,7 +80,7 @@
             위치를 검색할 수 있는 창이 열립니다
         </p>        
         <div class="map_control_btn" id="map_controller">
-            <button onclick="function_loc('location')" class="btn_search"id="btn_search_loc">위치 검색하기</button>
+            <button onclick="searchPlaces('location')" class="btn_search"id="btn_search_loc">위치 검색하기</button>
             <button onclick="function_cata('catagory')" class="btn_search" id="btn_search_cata">카테고리 검색하기</button>
             <button onclick="function_dis('distance')" class="btn_search" id="btn_search_distance">거리 측정하기</button>
         </div>
@@ -165,7 +165,6 @@ var path;
 var distance;
 var mousePosition; 
 var movepath;// 마우스 클릭으로 그려진 마지막 좌표와 마우스 커서 위치의 좌표로 선을 표시합니다
-var distance;
 var content;  
 
 // 지도에 이동 시간을 구하는 함수는 지역 변수로 남겨 놓음
@@ -204,7 +203,7 @@ var psd;
     mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-        level:7 // 지도의 확대 레벨
+        level:14// 지도의 확대 레벨
     };
 
 map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -285,7 +284,24 @@ marker = new kakao.maps.Marker({
 // // 지도에 마커를 표시합니다
 // marker.setMap(map);
 
-function function_dis(){   //565 끝;	
+// 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
+/* function displayCenterInfo(result, status) {
+    if (status === kakao.maps.services.Status.OK) {
+        var infoDiv = document.getElementById('centerAddr');
+
+        for(var i = 0; i < result.length; i++) {
+            // 행정동의 region_type 값은 'H' 이므로
+            if (result[i].region_type === 'H') {
+                infoDiv.innerHTML = result[i].addrss.address_name;
+                break;
+            }
+        }
+    }    
+} 
+// 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
+searchAddrFromCoords(map.getCenter(), displayCenterInfo()); */
+
+function function_dis(){   //565 끝;	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 // 지도에 클릭 이벤트를 등록합니다
 // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
@@ -557,6 +573,7 @@ function getTimeHTML(distance) {
 
     return content;
 }
+
 };
 // 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
@@ -611,7 +628,7 @@ roadviewClient.getNearestPanoId(positionRoad, 50, function(panoId) {
 });
 
 
-// //위치를 검색하는 알고리즘@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 // // 장소 검색 객체를 생성합니다
 ps = new kakao.maps.services.Places();  
 psd = new kakao.maps.services.Places();  
@@ -624,6 +641,9 @@ infowindow = new kakao.maps.InfoWindow({zIndex:1});
 searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
+// //위치를 검색하는 알고리즘      839 끝@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+/* function function_loc(){ */
 function searchPlaces() {
 
     keyword = document.getElementById('keyword').value;
@@ -818,13 +838,14 @@ function removeAllChildNods(el) {
         el.removeChild (el.lastChild);
     }
 }
+/* } */
+
 
 //주소를 보여주는 알고리즘
 // 주소-좌표 변환 객체를 생성합니다
 geocoder = new kakao.maps.services.Geocoder();
 
-/* // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
-searchAddrFromCoords(map.getCenter(), displayCenterInfo()); */
+
 
 // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
   
@@ -867,20 +888,7 @@ function searchDetailAddrFromCoords(coords, callback) {
     geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
 }
 
-// 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
-/* function displayCenterInfo(result, status) {
-    if (status === kakao.maps.services.Status.OK) {
-        var infoDiv = document.getElementById('centerAddr');
 
-        for(var i = 0; i < result.length; i++) {
-            // 행정동의 region_type 값은 'H' 이므로
-            if (result[i].region_type === 'H') {
-                infoDiv.innerHTML = result[i].addrss.address_name;
-                break;
-            }
-        }
-    }    
-} */
 
 // //편의점 등 클릭시 보이게 하는 알고리즘@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
@@ -1072,19 +1080,19 @@ function changeCategoryClass(el) {
     } 
 } 
 
-//마커 클러스터러를 생성합니다 
+//마커 클러스터러를 생성합니다 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var clusterer = new kakao.maps.MarkerClusterer({
     map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
     averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
-    minLevel: 4 // 클러스터 할 최소 지도 레벨 
+    minLevel: 10// 클러스터 할 최소 지도 레벨 
 });
 
-// 데이터를 가져오기 위해 jQuery를 사용합니다
+// 데이터를 가져오기 위해 jQuery를 사용합니다jijl/vkhlvkcihc
 // 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
 $(function() {
 	
 
-$.get("/home.json", function(data) {
+	$.get("/resources/json/my.json", function(data) {
     // 데이터에서 좌표 값을 가지고 마커를 표시합니다
     // 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
     var markers = $(data.positions).map(function(i, position) {
@@ -1096,8 +1104,7 @@ $.get("/home.json", function(data) {
     // 클러스터러에 마커들을 추가합니다
     clusterer.addMarkers(markers);
 }); 
-});
-</script> 
-    
+});//@@@@@@@@@@@@@@@@@@
+</script>     
 </body>
 </html>
