@@ -35,5 +35,4 @@ public class JSONMaker {
 	
 	}
 
-*/
-//github.com/kimgyeongho/oneTeamProject.git
+*///test
