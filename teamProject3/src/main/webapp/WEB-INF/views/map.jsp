@@ -966,7 +966,7 @@ function addEventHandle(target, type, callback) {
     }
 }
 
-// // 카테고리 검색을 요청하는 함수입니다
+// 카테고리 검색을 요청하는 함수입니다
 function searchPlacesA() {
     if (!currCategory) {
         return;
@@ -996,7 +996,7 @@ function placesSearchCB(data, status, pagination) {
     }
 }
 
-// // 지도에 마커를 표출하는 함수입니다
+// 지도에 마커를 표출하는 함수입니다
 function displayPlacesA(places) {
 
     // 몇번째 카테고리가 선택되어 있는지 얻어옵니다
