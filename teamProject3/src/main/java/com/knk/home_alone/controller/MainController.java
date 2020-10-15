@@ -78,7 +78,7 @@ public class MainController {
 	// 도로명 셈플 테스트
 	@RequestMapping(value = "/sample.do", method = RequestMethod.GET)
 	public void sample() throws Exception {
-		log.info("GET authentication");
+		log.info("GET sample");
 	}
 
 	
