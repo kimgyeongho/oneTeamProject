@@ -4,6 +4,7 @@ package com.knk.home_alone.mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.domain.addressTESt;
 
 
 
@@ -43,6 +44,11 @@ public interface MainMapper {
 	public MainVO oneteam_userName(@Param("userName") String userName,@Param("userID") String userID,@Param("email") String email) throws Exception;
 	//비밀번호 찾기 유저정보 체크하기 
 	public int oneteam_userCHeck(MainVO vO) throws Exception;
+	
+	// 위도경도 테스트중 
+	public void insertTest(@Param("lat") String lat,@Param("lng") String lng) throws Exception;
 
+	public addressTESt selecTest() throws Exception;
+	public void insertTest(addressTESt a);
 
 }

@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.knk.home_alone.api.JSONMaker;
 import com.knk.home_alone.api.NaverLoginBO;
 //import com.knk.home_alone.api.NaverLoginBO;
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.domain.addressTESt;
 import com.knk.home_alone.service.MailSendService;
 import com.knk.home_alone.service.MainService;
 
@@ -44,6 +46,14 @@ public class MainController {
   
 	/* NaverLoginBO */
     private NaverLoginBO naverLoginBO;
+  
+ 
+    private JSONMaker JSONMaker1;
+    
+    @Autowired
+    private void setJSONMaker1(JSONMaker JSONMaker1) {
+        this.JSONMaker1 = JSONMaker1;
+    }
 
     @Autowired
     private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
@@ -318,6 +328,19 @@ public class MainController {
 		 public void boardWrite() {
 			 
 		 }
-
+		 
+		 //위도경도 테스스
+		 @RequestMapping(value = "/sand", method = RequestMethod.POST)
+		 public String address(addressTESt a,
+				 HttpServletRequest request) throws Exception{
+			 log.info("===========test===============");
+			 service.insertTest(a);
+		 JSONMaker1.sand();
+		 
+			 
+			return "main";
 	
+		 
+
+   }
 }

@@ -134,8 +134,18 @@
 		resultType="int">
 		SELECT COUNT(*) FROM oneteam_join
 		where
-		userName= #{userName} and
 		userID= #{userID} and email= #{email}
 	</select>
  
+   <!-- 위도,경도 입력  test중입니다-->
+   <insert id="insertTest" >
+		insert into insertTest (lat , lng)
+		values (#{lat}, #{lng})
+	</insert>
+    <!-- 위도,경도 찾기  test중입니다-->
+   <select id="selecTest" parameterType="map"
+		resultType="addressTESt">
+		SELECT * FROM insertTest
+		
+	</select>
 </mapper>

@@ -85,5 +85,5 @@
 	<!--naver-->
 	<bean id = "naverLoginBO" class="com.knk.home_alone.api.NaverLoginBO"/>
 	
-  
+  <bean id = "JSONMaker1" class="com.knk.home_alone.api.JSONMaker"/>
 </beans>

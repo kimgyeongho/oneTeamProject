@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.domain.addressTESt;
 import com.knk.home_alone.mapper.MainMapper;
 
 import lombok.Setter;
@@ -128,4 +129,24 @@ public class MainServiceImpl implements MainService {
 		int  userCheck= mainMapper.oneteam_userCHeck(VO);
 		return userCheck;
 	}
+	
+	
+	
+	
+	//테스트 위도 경도 
+
+	@Override
+	public addressTESt selecTest() throws Exception {
+		// TODO Auto-generated method stub
+		return mainMapper.selecTest();
+	}
+	@Override
+	public void insertTest(addressTESt a) {
+		// TODO Auto-generated method stub
+		mainMapper.insertTest(a);
+
+	}
+
+	
+	
 }
