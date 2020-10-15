@@ -25,7 +25,7 @@
 		<property name="driverClassName"
 			value="org.mariadb.jdbc.Driver"></property>
 		<property name="jdbcUrl"
-			value="jdbc:mariadb://localhost:3306/one_team"></property>
+			value="jdbc:mariadb://localhost:3306/mydb"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="akfldkdb"></property>
 	</bean>

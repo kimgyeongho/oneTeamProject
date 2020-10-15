@@ -142,7 +142,7 @@ public class MainServiceImpl implements MainService {
 
 	@Override
 	public List<boardVO> getboardList(boardVO vo) throws Exception{
-		
+		System.out.println("1");
 		return mainMapper.getboardList(vo);
 		
 	}
