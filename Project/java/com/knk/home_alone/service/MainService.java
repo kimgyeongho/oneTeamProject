@@ -1,8 +1,11 @@
 package com.knk.home_alone.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.domain.boardVO;
 
 public interface MainService {
     //회원가입 
@@ -31,6 +34,7 @@ public interface MainService {
 	public int oneteam_email_Success_Check(MainVO VO) throws Exception;
 	//비밀번호 찾기 유저정보 체크하기 
 	public int oneteam_userCHeck(MainVO VO) throws Exception;
+	public List<boardVO> getboardList(boardVO vo) throws Exception;
 
 	
 }

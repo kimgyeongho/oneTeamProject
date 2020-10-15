@@ -1,13 +1,11 @@
 package com.knk.home_alone.controller;
 
-import javax.mail.internet.MimeMessage;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.knk.home_alone.api.NaverLoginBO;
 //import com.knk.home_alone.api.NaverLoginBO;
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.domain.boardVO;
 import com.knk.home_alone.service.MailSendService;
 import com.knk.home_alone.service.MainService;
 
@@ -45,6 +44,7 @@ public class MainController {
 	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
 		this.naverLoginBO = naverLoginBO;
 	}
+	
 
 	// 도로명 셈플 테스트
 	@RequestMapping(value = "/sample.do", method = RequestMethod.GET)
@@ -135,6 +135,15 @@ public class MainController {
 		log.info("POST Email_Success_Check");
 		int emailCheck = service.oneteam_email_Success_Check(VO);
 		return emailCheck;
+	}
+
+	@RequestMapping("/getBoardList.do")
+	public String getBoardList(boardVO vo, Model mav) throws Exception {
+		if (vo.getSerchKeyword() == null)
+			vo.setSerchKeyword("");
+		System.out.println(vo.getSerchKeyword());
+		mav.addAttribute("boardList", service.getboardList(vo));
+		return "board_all";
 	}
 
 }

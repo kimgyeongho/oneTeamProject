@@ -1,9 +1,12 @@
 package com.knk.home_alone.mapper;
 
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.domain.boardVO;
 
 
 
@@ -43,6 +46,6 @@ public interface MainMapper {
 	public MainVO oneteam_userName(@Param("userName") String userName,@Param("userID") String userID,@Param("email") String email) throws Exception;
 	//비밀번호 찾기 유저정보 체크하기 
 	public int oneteam_userCHeck(MainVO vO) throws Exception;
-
+	public List<boardVO> getboardList(boardVO vo)throws Exception;
 
 }
