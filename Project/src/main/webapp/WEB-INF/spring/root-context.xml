@@ -66,12 +66,12 @@
 	<mybatis-spring:scan
 		base-package="com.knk.home_alone.mapper" />
 
-   <!-- 메세지 -->
-   <bean id="mailSender"
+	<!-- 메세지 -->
+	<bean id="mailSender"
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
- 		<property name="username" value="apdlvmf1562@gmail.com" />
+		<property name="username" value="apdlvmf1562@gmail.com" />
 		<property name="password" value="oneteam123" />
 		<property name="javaMailProperties">
 			<props>
@@ -81,9 +81,10 @@
 			</props>
 		</property>
 	</bean>
-	
-	<!--naver-->
-	<bean id = "naverLoginBO" class="com.knk.home_alone.api.NaverLoginBO"/>
-	
-  
+
+	<!--naver -->
+	<bean id="naverLoginBO"
+		class="com.knk.home_alone.api.NaverLoginBO" />
+
+
 </beans>

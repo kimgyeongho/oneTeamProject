@@ -159,12 +159,13 @@
 		userID= #{userID} and email= #{email}
 	</select>
 	<select id="getBoardList" resultMap="boardResult">
-	<![CDATA[
+	
 		SELECT * 
 		FROM BOARD
 		WHERE title LIKE #{serchKeyword}
 		ORDER BY SEQ DESC
-		]]>
+		
 	</select>
+
 
 </mapper>

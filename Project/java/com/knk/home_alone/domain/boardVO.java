@@ -26,7 +26,6 @@ public class boardVO {
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
 	}
-	@JsonIgnore
 	public String getSerchKeyword() {
 		return serchKeyword;
 	}

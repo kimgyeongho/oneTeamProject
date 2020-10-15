@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:sql-map-config.xml"/>
+	</bean>
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession"></constructor-arg>
+	</bean>
+	<!-- 이거 치환해서 데이타소스 만들어오기 -->
+	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mariadb://localhost:3306/mydb"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="akfldkdb"></property>
+	</bean>  -->
+	
+	<!-- 아래 context:property-placeholder 는 외부에서 컨텍스트 파일 찾아서 사용하겠다고 등록 -->
+	
+	<context:property-placeholder location="classpath:config/database.properties"/>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.pw}"></property>
+	</bean>
+	<!-- jdbc 템플릿 bean 등록 -->
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSource"></constructor-arg>
+	</bean> -->
+	<!-- transaction(트랜잭션) 설정 -->
+	<!-- <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean> -->
+	<!--어드바이스 설정 tx 매니저는 위에 트랜잭션 설정해놓은것으로 작동
+	tx 메소드 get 으로 시작하는것은 read only 리드온니 읽기 전용으로 트랜잭션관리에서 제외된다.그리고 나머지 * 모든것은 관리포함-->
+	<!-- <tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="txPointcut" expression="execution(* com.springbook.biz..*(..))" />
+		<aop:advisor pointcut-ref="txPointcut"
+		advice-ref="txAdvice"/>
+	</aop:config>
+	 -->
+	
+	<!-- 
+	이건 유저 서비스 를 만들고 유저 dao 를 ref userdao 로 채운다 -property 
+	<bean id="userService" class="com.springbook.biz.user.impl.userServiceImpl">
+		<property name="userdao" ref="userDAO"></property>
+	</bean>   
+		<bean id="userDAO" class="com.springbook.biz.user.impl.userDAO"></bean> -->
+		
+		
+		
+		<!-- 이것은 log 를 tt란 아이디로 빈으로 객체로 만들고 포인트 컷을 등록한후 
+		around 로 포인트컷 메소드가 실행될때 log 메서드를  실행 한다. -->
+		<!-- <bean id="tt" class="com.springbook.biz.common.test"></bean>
+		<aop:config>
+			<aop:pointcut id="allPointcut"
+						expression="execution(* com.springbook.biz..*impl.*(..))"/>
+			<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*impl.get*(..))"/>
+			
+			<aop:aspect ref="tt">
+				<aop:around pointcut-ref="allPointcut" method="Log"/>
+			</aop:aspect>
+		</aop:config> -->
+		
+		
+		<!-- <bean id="before" class="com.springbook.biz.common.BeforeAdvice"></bean>
+		<aop:config>
+			<aop:pointcut id="allPointcut"
+						expression="execution(* com.springbook.biz..*impl.*(..))"/>
+			<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*impl.get*(..))"/>
+			
+			<aop:aspect ref="before">
+				<aop:before pointcut-ref="allPointcut" method="beforLog"/>
+			</aop:aspect>
+		</aop:config>
+		<bean id="afterReturning" class="com.springbook.biz.common.AfterReturningAdvice"></bean>
+		<aop:config>
+			<aop:pointcut id="allPointcut"
+						expression="execution(* com.springbook.biz..*impl.*(..))"/>
+			<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*impl.get*(..))"/>
+			
+			<aop:aspect ref="afterReturning">
+				<aop:after-returning pointcut-ref="getPointcut" method="afterLog" returning="returnObj"/>
+			</aop:aspect>
+		</aop:config> -->
+</beans>

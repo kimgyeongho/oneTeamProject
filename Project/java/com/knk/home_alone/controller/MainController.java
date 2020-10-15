@@ -139,8 +139,7 @@ public class MainController {
 
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(boardVO vo, Model mav) throws Exception {
-		if (vo.getSerchKeyword() == null)
-			vo.setSerchKeyword("");
+		if (vo.getSerchKeyword() == null) vo.setSerchKeyword("");
 		System.out.println(vo.getSerchKeyword());
 		mav.addAttribute("boardList", service.getboardList(vo));
 		return "board_all";

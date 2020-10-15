@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+<!-- bean 등록 어노테이션 -->
+<context:component-scan base-package="com.springbook.view"></context:component-scan>
+<!-- 파일 업로더 설정 -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="maxUploadSize" value="100000"/>
+</bean>
+<!-- 어노테이션 기반 예외처리 -->
+<mvc:annotation-driven></mvc:annotation-driven>
+
+<!-- 예외처리 설정 -->
+<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<property name="exceptionMappings">
+		<props>
+			<prop key="java.lang.ArithmeticException">
+				common/arithmeticError.jsp
+			</prop>
+			<prop key="java.lang.NullPointerException">
+				common/nullPointerError.jsp
+			</prop>
+		</props>
+	</property>
+	<property name="defaultErrorView" value="common/error.jsp"/>
+</bean>
+
+<!-- MessageSource 등록 -->
+<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	<property name="basenames">
+		<list>
+			<value>message.messageSource</value>
+		</list>
+	</property>
+</bean>
+
+<!-- LocaleResolver 등록 -->
+<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+
+<!-- LocaleChangeInterceptor 등록 -->
+<mvc:interceptors>
+	<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="lang"/>
+	</bean>
+</mvc:interceptors>
+
+
+
+
+<!-- 아래 쫙 과정 위에 어노테이션으로 바꾸려고 주석처리 -->
+<!-- HandlerMapping 핸들러맵핑-->
+<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<property name="mappings">
+		<props>
+			<prop key="/login.do">login</prop>
+			<prop key="/getBoardList.do">boardList</prop>
+			<prop key="/getBoard.do">board</prop>
+			<prop key="/insertBoard.do">insert</prop>
+			<prop key="/updateBoard.do">update</prop>
+			<prop key="/deleteBoard.do">delete</prop>
+			<prop key="/logout.do">logout</prop>
+		</props>
+	</property>
+</bean>
+Controller 등록 
+<bean id="login" class="com.springbook.view.user.LoginController"></bean>
+<bean id="boardList" class="com.springbook.view.board.GetBoardListController"></bean>
+<bean id="board" class="com.springbook.view.board.GetBoardController"></bean>
+<bean id="insert" class="com.springbook.view.board.InsertBoardController"></bean>
+<bean id="update" class="com.springbook.view.board.UpdateBoardController"></bean>
+<bean id="delete" class="com.springbook.view.board.DeleteBoardController"></bean>
+<bean id="logout" class="com.springbook.view.user.LogoutController"></bean>
+ViewResolver 등록
+<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/WEB-INF/board/"></property>
+	<property name="suffix" value=".jsp"></property>
+</bean> -->
+
+</beans>

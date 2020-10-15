@@ -107,7 +107,7 @@
 	<form action="getBoardList.do">
 		<div class="div_search">
 			<div class="search_container">
-				<input type="search" name="SerchKeyword" placeholder="검색어를 입력하세요">
+				<input type="text" name="serchKeyword" placeholder="검색어를 입력하세요">
 				<button type="submit">
 					<img src="resources/img/search_w.png" alt="검색">
 				</button>
