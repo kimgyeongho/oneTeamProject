@@ -26,8 +26,8 @@
             <ul class="nav_ul">
                 <li><p>About us</p> 
                 <ul class="nav_ul_b">
-                    <a href="#"><li>our goal</li></a>
-                    <a href="#"><li>services</li></a>
+                    <a href="perpose.do"><li>our goal</li></a>
+                    <a href="service_info.do"><li>services</li></a>
                     <a href="#"><li>designed by</li></a>
                 </ul>
                 </li>

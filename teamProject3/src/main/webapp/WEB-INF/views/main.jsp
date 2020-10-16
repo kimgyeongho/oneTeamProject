@@ -22,7 +22,7 @@
     var birthday = ${result}.response.birthday;
     $("#name").html("환영합니다. "+name+"님");
 
-
+  }
     });
   //location.href = "${pageContext.request.contextPath}/";
 </script>
@@ -50,8 +50,8 @@
             <ul class="nav_ul">
                 <li><p>소개</p> 
                 <ul class="nav_ul_b">
-                    <a href="#"><li>목표</li></a>
-                    <a href="#"><li>서비스 소개</li></a>
+                    <a href="perpose.do"><li>목표</li></a>
+                    <a href="service_info.do"><li>서비스 소개</li></a>
                     <a href="#"><li>만든이</li></a>
                 </ul>
                 </li>
@@ -136,7 +136,7 @@
                 <!-- <a href="map.html" style="position: absolute; left: 1580px; top: 250px;">
                     <button style="background: rgb(90, 92, 91); height: 60px; font-size: 24px; width: 180px;">지도 보러가기</button>
                 </a> -->
-                <img src="resources/img/main_4_img.png" alt="지도 홍보">
+                <img src="resources/img/main2.png" alt="지도 홍보">
             </div>
          
         </div>        

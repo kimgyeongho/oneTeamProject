@@ -24,8 +24,8 @@
             <ul class="nav_ul">
                 <li><p>소개</p> 
                 <ul class="nav_ul_b">
-                    <a href="#"><li>목표</li></a>
-                    <a href="#"><li>서비스 소개</li></a>
+                    <a href="perpose.do"><li>목표</li></a>
+                    <a href="service_info.do"><li>서비스 소개</li></a>
                     <a href="#"><li>만든이</li></a>
                 </ul>
                 </li>
@@ -76,35 +76,84 @@
         <div class="board_go_boardWrite">
             <a href="boardWrite.do"><button class="btn_go_boardWrite">글쓰기</button></a>        
         </div>
-    <section class="board_section">
-        
-          <table class="board_contentA">                          
+    <section class="board_section">        
+          <table class="board_contentA" >             
+          <tbody style="height: 400px; overflow: scroll;">             
             <tr class="contentA_index">
-              <td><h3>제목</h3></td>
-              <td><h3>아이디</h3></td>
-              <td><h3>내용</h3></td>
-              <td><h3>게시일</h3></td>
+              <td><h4>번호</h4></td>
+              <td><h4>제목</h4></td>
+              <td><h4>아이디</h4></td>
+              <td><h4>내용</h4></td>
+              <td><h4>게시일</h4></td>
+              <td><h4>조회수</h4></td>
             </tr>
             <tr class="contentA_index">
-                <td>##</td>
-                <td>###</td>
-                <td>#######################</td>
-                <td>####-##-##</td>
-              </tr>
-              <tr class="contentA_index">
-                <td>##</td>
-                <td>###</td>
-                <td>#######################</td>
-                <td>####-##-##</td>
-              </tr>
-              <tr class="contentA_index">
-                <td>##</td>
-                <td>###</td>
-                <td>#######################</td>
-                <td>####-##-##</td>
-              </tr>
+            	<td>8</td>
+                <td>안녕하세요</td>
+                <td>네 안녕하세요</td>
+                <td>혼자 오셨나요?</td>
+                <td>2020-10-16</td>
+                <td>245</td>
+              </tr>                       
+            <tr class="contentA_index">
+            <td>7</td>
+                <td>네 혼자 왔습니다</td>
+                <td>찾는</td>
+                <td>매물 있으시면 말씀해주세요</td>
+                <td>2020-10-6</td>
+                <td>9</td>
+              </tr>                       
+            <tr class="contentA_index">
+            <td>6</td>
+                <td>혼자 살기 좋은 집</td>
+                <td>구하고</td>
+                <td>싶은데 혹시 어떻게 하면 좋을까요?</td>
+                <td>2020-09-22</td>
+                <td>2</td>
+              </tr>                       
+            <tr class="contentA_index">
+            <td>5</td>
+                <td>잘 모를땐</td>
+                <td>써보세요</td>
+                <td>혼자살기 좋은 집 찾을 때에는</td>
+                <td>2020-09-16</td>
+                <td>2</td>
+              </tr>                       
+            <tr class="contentA_index">
+            <td>4</td>
+                <td>나홀로</td>
+                <td>집에</td>
+                <td>감사합니다</td>
+                <td>2020-09-16</td>
+                <td>5</td>
+              </tr>                       
+            <tr class="contentA_index">
+            <td>3</td>
+                <td>혼자 살기 좋은 집</td>
+                <td>두집살림</td>
+                <td>구로디지털단지 인근 혼자 살기 좋은 집입니다.</td>
+                <td>2020-09-16</td>
+                <td>38</td>
+              </tr>                       
+            <tr class="contentA_index">
+            <td>2</td>
+                <td>둘이 살기 좋은 집</td>
+                <td>세집살림</td>
+                <td>구로디지털단지 인근 둘이 살기 좋은 집입니다.</td>
+                <td>2020-09-16</td>
+                <td>75</td>
+              </tr>                       
+            <tr class="contentA_index">
+            <td>1</td>
+                <td>야경 좋은 집</td>
+                <td>야근각</td>
+                <td>인근 야근하는 사람이 많아 야경이 훌륭합니다</td>
+                <td>2020-09-16</td>
+                <td>33</td>
+              </tr>          
+                   </tbody>               
           </table>
-          <table class="board_contentB">            
+            <table class="board_contentB">            
             <tr class="contentB_index">
               <a href="#"><td><img src="resources/img/study.jpg" alt="면학의"></td></a>
               <a href="#"><td><img src="resources/img/calm.jpg" alt="조용한"></td></a>                           

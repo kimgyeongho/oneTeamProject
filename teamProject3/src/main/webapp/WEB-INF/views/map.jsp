@@ -24,8 +24,8 @@
             <ul class="nav_ul">
                 <li><p>소개</p> 
                 <ul class="nav_ul_b">
-                    <a href="#d"><li>목표</li></a>
-                    <a href="#"><li>서비스 소개</li></a>
+                    <a href="perpose.do"><li>목표</li></a>
+                    <a href="service_info.do"><li>서비스 소개</li></a>
                     <a href="#"><li>만든이</li></a>
                 </ul>
                 </li>
@@ -301,7 +301,7 @@ var marker = new kakao.maps.Marker({
 
 }
 // // 지도에 마커를 표시합니다
-// marker.setMap(map);
+/*  marker.setMap(map); */
 
 // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
 /* function displayCenterInfo(result, status) {

@@ -82,6 +82,7 @@ $(function(){
    
    
 });
+
 //$(function(){
 //	  $(".pw").focusout(function(){
 //	        var pwd3 = $("#userPW").val();

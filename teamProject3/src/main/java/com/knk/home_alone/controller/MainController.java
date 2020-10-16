@@ -84,12 +84,23 @@ public class MainController {
 	public void getsignupENG() throws Exception {
 		log.info("GET signupENG");
 	}
+	//서비스 페이지 get
+		@RequestMapping(value = "/service_info.do", method = { RequestMethod.GET, RequestMethod.POST })
+		public void getservice_info() throws Exception {
+			log.info("GET service_info");
+		}
+	//서비스 페이지 get
+			@RequestMapping(value = "/perpose.do", method = { RequestMethod.GET, RequestMethod.POST })
+			public void getperpose() throws Exception {
+				log.info("GET service_info");
+		}		
 
 	// 도로명 셈플 테스트
 	@RequestMapping(value = "/sample.do", method = RequestMethod.GET)
 	public void sample() throws Exception {
 		log.info("GET sample");
 	}
+	
 
 	
 	//로그인 get
