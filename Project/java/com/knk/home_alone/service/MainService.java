@@ -34,7 +34,8 @@ public interface MainService {
 	public int oneteam_email_Success_Check(MainVO VO) throws Exception;
 	//비밀번호 찾기 유저정보 체크하기 
 	public int oneteam_userCHeck(MainVO VO) throws Exception;
-	public List<boardVO> getboardList(boardVO vo) throws Exception;
+	public List<boardVO> getBoardList(boardVO vo) throws Exception;
+	public boardVO getBoard(boardVO vo);
 
 	
 }

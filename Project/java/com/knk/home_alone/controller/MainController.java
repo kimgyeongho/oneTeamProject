@@ -44,7 +44,6 @@ public class MainController {
 	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
 		this.naverLoginBO = naverLoginBO;
 	}
-	
 
 	// 도로명 셈플 테스트
 	@RequestMapping(value = "/sample.do", method = RequestMethod.GET)
@@ -137,12 +136,21 @@ public class MainController {
 		return emailCheck;
 	}
 
-	@RequestMapping("/getBoardList.do")
+	@RequestMapping("/board_all.do")
 	public String getBoardList(boardVO vo, Model mav) throws Exception {
-		if (vo.getSerchKeyword() == null) vo.setSerchKeyword("");
+		if (vo.getSerchKeyword() == null)
+			vo.setSerchKeyword("");
 		System.out.println(vo.getSerchKeyword());
-		mav.addAttribute("boardList", service.getboardList(vo));
+		mav.addAttribute("boardList", service.getBoardList(vo));
+
 		return "board_all";
+	}
+	@RequestMapping("/getBoard.do")
+	public String getBoard(boardVO vo, Model mav) {
+		System.out.println("글 상세조회 처리");
+
+		mav.addAttribute("board", service.getBoard(vo));
+		return "board";
 	}
 
 }

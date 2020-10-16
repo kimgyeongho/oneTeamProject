@@ -47,5 +47,6 @@ public interface MainMapper {
 	//비밀번호 찾기 유저정보 체크하기 
 	public int oneteam_userCHeck(MainVO vO) throws Exception;
 	public List<boardVO> getboardList(boardVO vo)throws Exception;
-
+	public boardVO getBoard(boardVO vo);
+	public void  bodercot(boardVO vo);
 }

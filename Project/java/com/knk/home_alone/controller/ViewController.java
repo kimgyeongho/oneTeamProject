@@ -34,11 +34,7 @@ public class ViewController {
 		log.info("GET find_pw");
 	}
 
-	// 임시적인 창 띄우기 게시판
-	@RequestMapping(value = "/board_all.do")
-	public void board_all() {
-
-	}
+	
 	@RequestMapping(value = "/boardWrite.do")
 	public void boardWrite() {
 		

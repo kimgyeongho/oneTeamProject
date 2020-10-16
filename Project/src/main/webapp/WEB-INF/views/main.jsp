@@ -104,7 +104,7 @@
 	<div class="main_logo">
 		<!-- <img id="main_logo" src="img/main_logo.png" alt="메인로고'나홀로집에'"> -->
 	</div>
-	<form action="getBoardList.do">
+	<form action="board_all.do">
 		<div class="div_search">
 			<div class="search_container">
 				<input type="text" name="serchKeyword" placeholder="검색어를 입력하세요">

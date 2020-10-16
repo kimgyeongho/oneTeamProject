@@ -158,14 +158,28 @@
 		and
 		userID= #{userID} and email= #{email}
 	</select>
-	<select id="getBoardList" resultMap="boardResult">
+	<select id="getboardList" resultMap="boardResult">
 	
 		SELECT * 
 		FROM BOARD
-		WHERE title LIKE #{serchKeyword}
+		WHERE title LIKE #{serchKeyword} OR
+		writer LIKE  #{serchKeyword} OR
+		content LIKE #{serchKeyword}
 		ORDER BY SEQ DESC
 		
 	</select>
-
+	<select id="getBoard" resultType="boardVO">
+	<![CDATA[
+		SELECT * 
+		FROM BOARD 
+		WHERE SEQ=#{seq}
+	]]>
+	</select>
+	<update id="bodercot">
+		update board set cnt =cnt+1
+		where seq=#{seq}
+	</update>
+	
+	
 
 </mapper>

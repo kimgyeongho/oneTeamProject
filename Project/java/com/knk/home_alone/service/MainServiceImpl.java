@@ -33,7 +33,6 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public MainVO oneteam_login(MainVO VO) throws Exception {
 		log.info("oneteam_login" + VO);
-
 		return mainMapper.oneteam_login(VO);
 	}
 
@@ -141,9 +140,20 @@ public class MainServiceImpl implements MainService {
 	}
 
 	@Override
-	public List<boardVO> getboardList(boardVO vo) throws Exception{
-		System.out.println("1");
+	public List<boardVO> getBoardList(boardVO vo) throws Exception{
+		for(boardVO sd:mainMapper.getboardList(vo)) {
+			System.out.println(sd);
+		}
+		
 		return mainMapper.getboardList(vo);
 		
 	}
+
+	@Override
+	public boardVO getBoard(boardVO vo) {
+		mainMapper.bodercot(vo);
+		return mainMapper.getBoard(vo);
+	}
+	
 }
+
