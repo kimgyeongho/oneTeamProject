@@ -1,10 +1,12 @@
 package com.knk.home_alone.mapper;
 
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.knk.home_alone.domain.MainVO;
-import com.knk.home_alone.domain.addressTESt;
+import com.knk.home_alone.domain.addressDTO;
 
 
 
@@ -43,12 +45,14 @@ public interface MainMapper {
 	//아이디로 유저이름 찾기  MailSendService.java
 	public MainVO oneteam_userName(@Param("userName") String userName,@Param("userID") String userID,@Param("email") String email) throws Exception;
 	//비밀번호 찾기 유저정보 체크하기 
-	public int oneteam_userCHeck(MainVO vO) throws Exception;
+	public int oneteam_userCHeck(MainVO VO) throws Exception;
 	
 	// 위도경도 테스트중 
-	public void insertTest(@Param("lat") String lat,@Param("lng") String lng) throws Exception;
 
-	public addressTESt selecTest() throws Exception;
-	public void insertTest(addressTESt a);
+	public List<String> selec_lat() throws Exception;
+	
+	public List<String> selec_lng() throws Exception;
+
+	public void insert_address(addressDTO DTO);
 
 }

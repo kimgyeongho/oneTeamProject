@@ -138,14 +138,19 @@
 	</select>
  
    <!-- 위도,경도 입력  test중입니다-->
-   <insert id="insertTest" >
+   <insert id="insert_address" >
 		insert into insertTest (lat , lng)
 		values (#{lat}, #{lng})
 	</insert>
     <!-- 위도,경도 찾기  test중입니다-->
-   <select id="selecTest" parameterType="map"
-		resultType="addressTESt">
-		SELECT * FROM insertTest
+   <select id="selec_lat" 
+		resultType="String">
+		SELECT lat FROM insertTest
 		
+	</select>
+	 <!-- 위도,경도 찾기  test중입니다-->
+   <select id="selec_lng" 
+		resultType="String">
+		SELECT lng FROM insertTest
 	</select>
 </mapper>

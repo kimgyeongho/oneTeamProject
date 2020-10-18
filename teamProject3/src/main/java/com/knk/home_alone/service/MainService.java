@@ -3,7 +3,7 @@ package com.knk.home_alone.service;
 import javax.servlet.http.HttpServletResponse;
 
 import com.knk.home_alone.domain.MainVO;
-import com.knk.home_alone.domain.addressTESt;
+import com.knk.home_alone.domain.addressDTO;
 
 public interface MainService {
     //회원가입 
@@ -32,12 +32,8 @@ public interface MainService {
 	public int oneteam_email_Success_Check(MainVO VO) throws Exception;
 	//비밀번호 찾기 유저정보 체크하기 
 	public int oneteam_userCHeck(MainVO VO) throws Exception;
-
 	
 	// 위도경도 테스트중 
-	public void insertTest(addressTESt a);
+	public void insert_address(addressDTO DTO);
 
-	// 위도경도 테스트중 
-	public addressTESt selecTest() throws Exception;
-	
 }

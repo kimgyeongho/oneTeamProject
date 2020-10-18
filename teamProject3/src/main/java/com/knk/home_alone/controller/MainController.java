@@ -22,7 +22,7 @@ import com.knk.home_alone.api.JSONMaker;
 import com.knk.home_alone.api.NaverLoginBO;
 //import com.knk.home_alone.api.NaverLoginBO;
 import com.knk.home_alone.domain.MainVO;
-import com.knk.home_alone.domain.addressTESt;
+import com.knk.home_alone.domain.addressDTO;
 import com.knk.home_alone.service.MailSendService;
 import com.knk.home_alone.service.MainService;
 
@@ -342,10 +342,10 @@ public class MainController {
 		 
 		 //위도경도 테스스
 		 @RequestMapping(value = "/sand", method = RequestMethod.POST)
-		 public String address(addressTESt a,
+		 public String address(addressDTO DTO,
 				 HttpServletRequest request) throws Exception{
 			 log.info("===========test===============");
-			 service.insertTest(a);
+			 service.insert_address(DTO);
 		 JSONMaker1.sand();
 		 
 			 
