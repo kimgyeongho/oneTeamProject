@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.domain.addressDTO;
 import com.knk.home_alone.domain.boardVO;
 
 public interface MainService {
@@ -36,6 +37,7 @@ public interface MainService {
 	public int oneteam_userCHeck(MainVO VO) throws Exception;
 	public List<boardVO> getBoardList(boardVO vo) throws Exception;
 	public boardVO getBoard(boardVO vo);
+	public void insert_address(addressDTO dto);
 
 	
 }

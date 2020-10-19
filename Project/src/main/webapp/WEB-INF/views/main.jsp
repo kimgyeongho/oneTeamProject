@@ -17,7 +17,7 @@
 </head>
 <script type="text/javascript">
   $(document).ready(function() {
-    var name = ${result}.response.name;
+    var name = ${result}.response.name;z
     var email = ${result}.response.email;
     var birthday = ${result}.response.birthday;
     $("#name").html("환영합니다. "+name+"님");

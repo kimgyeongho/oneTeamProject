@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.domain.addressDTO;
 import com.knk.home_alone.domain.boardVO;
 import com.knk.home_alone.mapper.MainMapper;
 
@@ -153,6 +154,12 @@ public class MainServiceImpl implements MainService {
 	public boardVO getBoard(boardVO vo) {
 		mainMapper.bodercot(vo);
 		return mainMapper.getBoard(vo);
+	}
+
+	@Override
+	public void insert_address(addressDTO dto) {
+		mainMapper.insert_address(dto);
+		
 	}
 	
 }

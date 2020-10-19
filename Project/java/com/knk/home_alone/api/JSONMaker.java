@@ -14,19 +14,19 @@ public class JSONMaker {
 	@Autowired //구글 아이디 값 
 	private MainMapper mainMapper;
 
-			public void sand() throws Exception {
+			public static void sand() throws Exception {
 				
-				ArrayList<String> lat= (ArrayList<String>) mainMapper.selec_lat();
-				ArrayList<String> lng= (ArrayList<String>) mainMapper.selec_lng();
+//				ArrayList<String> lat= (ArrayList<String>) mainMapper.selec_lat();
+//				ArrayList<String> lng= (ArrayList<String>) mainMapper.selec_lng();
 
 		        JSONObject myjson = new JSONObject();	
 		        JSONArray positionsArray = new JSONArray();
     
 		        int i=0;
-		        while(i<lat.size()) {
+		        while(i<i) {
 			        JSONObject positionsInfo = new JSONObject();
-		        	positionsInfo.put("lat",lat.get(i));
-		        	positionsInfo.put("lng",lng.get(i));
+//		        	positionsInfo.put("lat",lat.get(i));
+//		        	positionsInfo.put("lng",lng.get(i));
 		        	positionsArray.add(positionsInfo);
 				    ++i;
 		        } 		       

@@ -113,7 +113,7 @@
 			</div>
 			<!-- 보드 검색창 버튼 부분 -->
 			<div class="boardWrite_btn_container">
-				<button type="submit" class="board_search_btn" name="insert">올리기</button>
+				<button type="submit" class="board_search_btn" name="insert" onclick="">올리기</button>
 				<a href="board.do"><button class="board_fix_btn" name="update">수정하기</button></a>
 				<button class="board_delete_btn" name="delete">삭제하기</button>
 				</a>

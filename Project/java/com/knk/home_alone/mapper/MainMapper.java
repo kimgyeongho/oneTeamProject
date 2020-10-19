@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.domain.addressDTO;
 import com.knk.home_alone.domain.boardVO;
 
 
@@ -49,4 +50,5 @@ public interface MainMapper {
 	public List<boardVO> getboardList(boardVO vo)throws Exception;
 	public boardVO getBoard(boardVO vo);
 	public void  bodercot(boardVO vo);
+	public void insert_address(addressDTO dto);
 }

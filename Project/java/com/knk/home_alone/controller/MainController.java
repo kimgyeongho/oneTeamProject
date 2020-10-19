@@ -1,7 +1,5 @@
 package com.knk.home_alone.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -15,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.knk.home_alone.api.JSONMaker;
 import com.knk.home_alone.api.NaverLoginBO;
 //import com.knk.home_alone.api.NaverLoginBO;
 import com.knk.home_alone.domain.MainVO;
+import com.knk.home_alone.domain.addressDTO;
 import com.knk.home_alone.domain.boardVO;
 import com.knk.home_alone.service.MailSendService;
 import com.knk.home_alone.service.MainService;
@@ -152,5 +152,21 @@ public class MainController {
 		mav.addAttribute("board", service.getBoard(vo));
 		return "board";
 	}
+	@RequestMapping("/zzzz.do")
+	public String zzzz() {
 
+		return "zzzz";
+	}
+	 //위도경도 테스스
+	 @RequestMapping(value = "/sand", method = RequestMethod.POST)
+	 public String address(addressDTO DTO,
+			 HttpServletRequest request) throws Exception{
+		 log.info("===========test===============");
+		 service.insert_address(DTO);
+	  JSONMaker.sand();
+	 
+		 
+		return "main";
+
+	 }
 }
