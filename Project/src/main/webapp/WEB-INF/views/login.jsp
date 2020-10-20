@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="resources/css/style.css">
     <script src="resources/jquery/jquery-3.5.1.min.js"></script>
     <script src="resources/jquery/jquery-migrate-1.4.1.min.js"></script>
-    <script src="resources/jquery/jquery-ui.min.js"></script>
-    <script src="resources/jquery/login_findPw.js"></script>    
-    <script src="resources/jquery/jstyle.js"></script>    
+    <script src="/resources/jquery/jquery-ui.min.js"></script>
+    <script src="/resources/jquery/login_findPw.js"></script>    
+    <script src="/resources/jquery/jstyle.js"></script>    
     
 </head>
 <body>
@@ -87,7 +87,7 @@
             </tr>        
         </table>
         <div class="loginbutton">
-        <a><button type="button" class="log" id="idCheck" onclick="idCheck1()">로그인</button></a>
+        <a><button type="button" class="log" id="idCheck">로그인</button></a>
         <a href="authentication.do"><button type="submit" class="sign">회원가입</button></a>
         </div>
         </form>
