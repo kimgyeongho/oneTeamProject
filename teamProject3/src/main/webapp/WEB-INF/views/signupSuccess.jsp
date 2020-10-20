@@ -10,7 +10,7 @@
 <div style="margin: 100px;">
 		<a><img src="<%-- ${pageContext.request.contextPath} --%>resources/img/logo.png"	style="height: 80px; margin-left: 10px;" /></a> <br>
 		<br>
-		<h1>안녕하세요, ${param.user_id} 님</h1>
+		<h1>안녕하세요, ${param.userID} 님</h1>
 		<br>
 		<p>환영합니다! 나 홀로집에입니다.</p>
 		<br>

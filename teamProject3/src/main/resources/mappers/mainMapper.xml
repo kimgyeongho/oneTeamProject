@@ -28,6 +28,7 @@
 		#{firstNum2},#{userPhone3},#{userPhone4},#{zipNo},#{roadAddrPart1},#{addrDetail})
 	</insert>
 
+	
 	<!-- 로그인 -->
 	<select id="oneteam_login" resultType="MainVO">
 		SELECT userID, userPW ,userName ,email ,zipNo, roadAddrPart1, addrDetail
@@ -35,7 +36,9 @@
 		FROM oneteam_join
 		WHERE userID = #{userID} and user_key = 'Certified'
 	</select>
-
+	
+	
+	
 	<!-- 회원탈퇴 -->
 	<delete id="oneteam_userDelete">
 		DELETE FROM oneteam_join
@@ -49,11 +52,6 @@
 	</select>
 
 
-	<!--패스워드 확인 -->
-	<select id="oneteam_passwordCheck" resultType="int">
-		SELECT COUNT(*) FROM oneteam_join
-		WHERE userPW = #{userPW}
-	</select>
 
 	<!-- 아이디 중복 -->
 	<select id="oneteam_idCHeck" parameterType="String"

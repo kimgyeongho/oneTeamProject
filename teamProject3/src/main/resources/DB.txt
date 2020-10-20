@@ -21,3 +21,12 @@ CREATE TABLE `oneteam_join` (
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 ;
+
+// 위도,경도 json 파일 만들기 위한 데이터베이스 
+CREATE TABLE `inserttest` (
+	`lat` VARCHAR(100) NULL DEFAULT 'lat' COLLATE 'latin1_swedish_ci',
+	`lng` VARCHAR(100) NULL DEFAULT 'lng' COLLATE 'latin1_swedish_ci'
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;

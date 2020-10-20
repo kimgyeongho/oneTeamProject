@@ -64,7 +64,7 @@ public class MailSendService {
 		String key = getKey(false, 10);
 		mainMapper.getKey(userID, key); 
 		MimeMessage mail = mailSender.createMimeMessage();
-		String htmlStr = "<h2>안녕하세요   나 홀로집에입니다!</h2><br><br>" 
+		String htmlStr = "<h1>안녕하세요   나 홀로집에입니다!</h1><br>" 
 				+ "<h3>" + userID + "님</h3>" + "<p>인증 버튼을 누르시면 로그인을 하실 수 있습니다 : " 
 				+ "<a href='http://localhost:8080" + request.getContextPath() + "/key_alter?userID="+ userID +"&user_key="+key+"'>인증</a></p>"
 				+ "(잘못 전달된 메일이라면 이 이메일을 무시하셔도 됩니다)";
@@ -94,8 +94,8 @@ public class MailSendService {
 			String name = vo.getUserName();
 					
 			MimeMessage mail = mailSender.createMimeMessage();
-			String htmlStr = "<h2>안녕하세요 '"+ name +"' 님</h2><br><br>" 
-					+ "<p>비밀번호 찾기를 신청해주셔서 임시 비밀번호를 발급해드렸습니다.</p>"
+			String htmlStr = "<h1>안녕하세요 '"+ name +"' 님</h1><br><br>" 
+					+ "<h4>비밀번호 찾기를 신청해주셔서 임시 비밀번호를 발급해드렸습니다.</h4>"
 					+ "<p>임시로 발급 드린 비밀번호는 <h2 style='color : blue'>'" + key +"'</h2>이며 로그인 후 마이페이지에서 비밀번호를 변경해주시면 됩니다.</p><br>"
 					+ "<h3><a href='http://localhost:8080/login.do'> 로그인 페이지 접속하기</a></h3><br><br>"
 					+ "(잘못 전달된 메일이라면 이 이메일을 무시하셔도 됩니다)";

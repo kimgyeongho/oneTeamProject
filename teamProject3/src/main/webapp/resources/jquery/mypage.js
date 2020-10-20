@@ -21,7 +21,7 @@ function goPopup(){
         			}
     	 //비밀번호 확인 회원탈퇴
         			$.ajax({
-					url : "/PassswordChange",
+					url : "/passwordCheck",
 					type : "POST",
 					dateType : "json",
 					data : $("#delete").serializeArray(),

@@ -13,7 +13,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -27,8 +26,6 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -39,9 +36,9 @@ import net.coobird.thumbnailator.Thumbnailator;
 
 @Controller
 @Log4j
-public class UploadController {
+public class ImageUploadController {
 	
-	
+ 
 	@GetMapping("/uploadForm")
 	public void uploadForm() {
 
@@ -71,7 +68,7 @@ public class UploadController {
 	
 	@GetMapping("/uploadAjax")
 	public void uploadAjax() {
-
+		
 		log.info("upload ajax");
 	}
 	

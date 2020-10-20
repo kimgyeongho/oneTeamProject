@@ -29,7 +29,8 @@
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
-  <!--업로드 파일 사이즈 설정  -->
+		
+      <!--업로드 파일 사이즈 설정  -->
 		<multipart-config>
 			<location>C:\\upload\\temp</location>
 			<max-file-size>20971520</max-file-size> <!--1MB * 20  파일에 최대 크키 설정-->  

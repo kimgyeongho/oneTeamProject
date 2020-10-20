@@ -71,7 +71,7 @@
         </div>    
     </header>     
     <section class="all_body_section">  
-        <form action="login" class="formlogin"  method="post" id="loginForm">
+        <form action="login" class="formlogin"  method="post" id="formlogin">
         <table class="logintable">           
             <tr id="ID">
                 <td><h2 class="h2">아이디</h2></td>
@@ -87,7 +87,7 @@
             </tr>        
         </table>
         <div class="loginbutton">
-        <a><button type="button" class="log" id="idCheck" onclick="idCheck1()">로그인</button></a>
+        <a><button type="button" class="log" id="idCheck">로그인</button></a>
         <a href="authentication.do"><button type="submit" class="sign">회원가입</button></a>
         </div>
         </form>

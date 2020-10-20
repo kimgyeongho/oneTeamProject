@@ -42,7 +42,6 @@
 		<constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory"></constructor-arg>
 	</bean>
-
 	<!-- DAO를 사용하기 위한 -->
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -85,5 +84,6 @@
 	<!--naver-->
 	<bean id = "naverLoginBO" class="com.knk.home_alone.api.NaverLoginBO"/>
 	
-  <bean id = "JSONMaker1" class="com.knk.home_alone.api.JSONMaker"/>
+	<!--jsonService-->
+    <bean id = "jsonService" class="com.knk.home_alone.service.JSONservice"/>
 </beans>

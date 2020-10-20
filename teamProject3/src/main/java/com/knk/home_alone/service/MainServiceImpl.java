@@ -29,6 +29,9 @@ public class MainServiceImpl implements MainService {
 		log.info("userInsert" + VO);
 		mainMapper.oneteam_join(VO);
 	}
+	
+	
+	
 	//로그인
 	@Override
 	public MainVO oneteam_login(MainVO VO) throws Exception{
@@ -36,50 +39,48 @@ public class MainServiceImpl implements MainService {
 		
 		return mainMapper.oneteam_login(VO);
 	}
-	//주소 회원정보 수정
+	
+	
+	
+	//마이페이지 주소 회원정보 수정
 	@Override
 	public void oneteam_Update(MainVO VO) throws Exception {
 		log.info("oneteam_Update"+VO);
 
 		mainMapper.oneteam_Update(VO);
 	}
-	//주소 회원정보 수정
+	 //마이페이지  폰 번호 수정 
 	@Override
 	public void oneteam_NumberUpdate(MainVO VO) throws Exception {
 		log.info("oneteam_NumberUpdate"+VO);
 
 		mainMapper.oneteam_NumberUpdate(VO);
 	}
-	//비밀번호 회원정보 수정
+	//마이페이지 비밀번호 회원정보 수정
 	@Override
 	public void oneteam_PasswordUpdate(MainVO VO) throws Exception {
 		log.info("oneteam_PasswordUpdate"+VO);
 
 		mainMapper.oneteam_PasswordUpdate(VO);
 	}
-	//회원탈퇴
+	//마이페이지 회원탈퇴
 	@Override
 	public void oneteam_userDelete(MainVO VO) throws Exception {
 		log.info("userDelete"+VO);
 
 		mainMapper.oneteam_userDelete(VO);
 	}
-	//비밀번호 확인
-	@Override
-	public MainVO oneteam_passwordCheck(MainVO VO) throws Exception {
-		log.info("oneteam_passwordCheck"+VO);
-		MainVO  passwordCheck= mainMapper.oneteam_passwordCheck(VO);
-		return passwordCheck;
-
-	}
-	//아이디 중복
+	
+	
+	
+	//로그인페이지,회원가입페이지 아이디 중복
 	@Override
 	public int oneteam_idCHeck(MainVO VO) throws Exception {
 		log.info("oneteam_idCHeck"+VO);
 		int  IdCheck= mainMapper.oneteam_idCHeck(VO);
 		return IdCheck;
 	}
-	//이메일 중복
+	//회원가입페이지 이메일 중복
 	@Override
 	public int oneteam_emailCheck(MainVO VO) throws Exception {
 		log.info("oneteam_emailCheck");
@@ -87,6 +88,9 @@ public class MainServiceImpl implements MainService {
 		return emailCheck;
 		
 	}
+	
+	
+	
 	//아이디 찾기 
 	@Override
 	public String oneteam_findId(HttpServletResponse response, String email, String userName) throws Exception {
@@ -108,6 +112,15 @@ public class MainServiceImpl implements MainService {
 		}
 		
 	}
+	//비밀번호 찾기 유저정보 체크하기 
+	@Override
+	public int oneteam_userCHeck(MainVO VO) throws Exception {
+			int  userCheck= mainMapper.oneteam_userCHeck(VO);
+			return userCheck;
+	}
+	
+		
+	
 	//로그인 할때 비밀번호 확인
 	@Override
 	public MainVO oneteam_password_LoginCheck(MainVO VO) throws Exception {
@@ -123,16 +136,12 @@ public class MainServiceImpl implements MainService {
 
 		return emailCheck;
 	}
-	//비밀번호 찾기 유저정보 체크하기 
-	@Override
-	public int oneteam_userCHeck(MainVO VO) throws Exception {
-		int  userCheck= mainMapper.oneteam_userCHeck(VO);
-		return userCheck;
-	}
 	
 	
+	
+	//위도,경도 데이터베이스에 입력
 	@Override
-	public void insert_address(addressDTO DTO) {
+	public void insert_address(addressDTO DTO)throws Exception {
 		// TODO Auto-generated method stub
 		mainMapper.insert_address(DTO);
 

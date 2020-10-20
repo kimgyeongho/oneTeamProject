@@ -1,4 +1,4 @@
-package com.knk.home_alone.api;
+package com.knk.home_alone.controller;
 
 import java.io.IOException;
 
@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
+import com.knk.home_alone.api.NaverLoginBO;
 
 @Controller
-public class LoginController {
+public class NaverLoginController {
 
     /* NaverLoginBO */
     private NaverLoginBO naverLoginBO;
@@ -24,7 +25,6 @@ public class LoginController {
     private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
         this.naverLoginBO = naverLoginBO;
     }
-    //ffffffffffffffffffffffff
     //로그인 첫 화면 요청 메소드
     @RequestMapping(value = "/naver/naverLogin", method = { RequestMethod.GET, RequestMethod.POST })
     public String login(Model model, HttpSession session) {
