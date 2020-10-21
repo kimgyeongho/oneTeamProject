@@ -1,5 +1,8 @@
 package com.knk.home_alone.controller;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.knk.home_alone.api.JSONMaker;
 import com.knk.home_alone.api.NaverLoginBO;
+import com.knk.home_alone.domain.FileVO;
 //import com.knk.home_alone.api.NaverLoginBO;
 import com.knk.home_alone.domain.MainVO;
 import com.knk.home_alone.domain.addressDTO;
@@ -138,9 +143,9 @@ public class MainController {
 
 	@RequestMapping("/board_all.do")
 	public String getBoardList(boardVO vo, Model mav) throws Exception {
-		if (vo.getSerchKeyword() == null)
-			vo.setSerchKeyword("");
-		System.out.println(vo.getSerchKeyword());
+		System.out.println("게시판 전체 가져오기 로직 시작 ");
+		if (vo.getSerchKeyword() == null)vo.setSerchKeyword("");
+		System.out.println(vo.getSerchKeyword()+"키워드가져옵니다");
 		mav.addAttribute("boardList", service.getBoardList(vo));
 
 		return "board_all";
@@ -169,4 +174,18 @@ public class MainController {
 		return "main";
 
 	 }
+	 @RequestMapping("/boardupdate.do")
+		public String boardupdate(boardVO vo,FileVO fvo) throws IllegalStateException, IOException {
+		 log.info("===========boardupdate===============");
+			MultipartFile uploadFile= vo.getUploadFile();
+			if(!uploadFile.isEmpty()) {
+				String filename= uploadFile.getOriginalFilename();
+				uploadFile.transferTo(new File("D:\\나홀로집에/"+filename));
+				fvo.setOriginalFilename(filename);
+			}
+//			service.fileupdate(fvo);
+			service.boardupdate(vo);
+			
+			return "redirect:board_all.do";
+		}
 }

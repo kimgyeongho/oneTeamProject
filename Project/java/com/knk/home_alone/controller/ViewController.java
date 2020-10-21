@@ -34,11 +34,7 @@ public class ViewController {
 		log.info("GET find_pw");
 	}
 
-	
-	@RequestMapping(value = "/boardWrite.do")
-	public void boardWrite() {
-		
-	}
+
 
 	// 임시적인 창 띄우기 지도
 	@RequestMapping(value = "/map.do")
@@ -57,6 +53,10 @@ public class ViewController {
 	}
 	@RequestMapping(value = "/signupENG.do")
 	public void signupENG() {
+
+	}
+	@RequestMapping(value = "/boardWrite.do")
+	public void boardWrite() {
 
 	}
 }

@@ -78,11 +78,11 @@
 					</tr>
 					<tr class="boardWrite_table_tr">
 						<td class="boardWrite_index">카테고리</td>
-						<td>카테고리 나올곳</td>
+						<td>${board.content_character}</td>
 					</tr>
 					<tr class="boardWrite_table_tr">
 						<td class="boardWrite_index">아이디</td>
-						<td>${board.writer}</td>
+						<td>${board.userID}</td>
 					</tr>
 					<tr class="boardWrite_table_tr">
 						<td class="boardWrite_index">내용</td>
@@ -90,7 +90,7 @@
 					</tr>
 					<tr class="boardWrite_table_tr">
 						<td class="boardWrite_index">주소</td>
-						<td>주소나올곳</td>
+						<td>${board.address}</td>
 						</li>
 					</tr>
 				</table>

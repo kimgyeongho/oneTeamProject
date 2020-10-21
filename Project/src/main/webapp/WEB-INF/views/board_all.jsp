@@ -90,7 +90,7 @@
 						<tr class="contentA_index">
 							<td>${board.seq }</td>
 							<td><a href="getBoard.do?seq=${board.seq }">${board.title}</td>
-							<td>${board.writer}</td>
+							<td>${board.userID}</td>
 							<td><a href="getBoard.do?seq=${board.seq }">${board.content}</td>
 							<td>${board.regDate}</td>
 							<td>${board.cnt}</td>

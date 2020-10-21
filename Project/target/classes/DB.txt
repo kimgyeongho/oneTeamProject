@@ -21,3 +21,18 @@ CREATE TABLE `oneteam_join` (
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 ;
+
+//게시판 DB
+create table board(
+seq int not null,
+title varchar(30)not null,
+content_character varchar(30),
+userID varchar(30)not null,
+content varchar(1000)not null,
+address varchar(50)not null,
+regDate date default sysdate(),
+cnt int default 0,
+lat DOUBLE,
+lng DOUBLE,
+primary key (seq,userID));
+

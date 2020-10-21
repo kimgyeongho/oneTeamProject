@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.knk.home_alone.domain.FileVO;
 import com.knk.home_alone.domain.MainVO;
 import com.knk.home_alone.domain.addressDTO;
 import com.knk.home_alone.domain.boardVO;
@@ -143,7 +144,7 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public List<boardVO> getBoardList(boardVO vo) throws Exception{
 		for(boardVO sd:mainMapper.getboardList(vo)) {
-			System.out.println(sd);
+			System.out.println("게시판 정보들:"+sd);
 		}
 		
 		return mainMapper.getboardList(vo);
@@ -159,6 +160,17 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public void insert_address(addressDTO dto) {
 		mainMapper.insert_address(dto);
+		
+	}
+
+	@Override
+	public void boardupdate(boardVO vo) {
+		mainMapper.boardupdate(vo);
+	}
+
+	@Override
+	public void fileupdate(FileVO vo) {
+		mainMapper.fileupdate(vo);
 		
 	}
 	

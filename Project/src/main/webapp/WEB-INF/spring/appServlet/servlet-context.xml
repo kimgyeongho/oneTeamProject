@@ -25,7 +25,8 @@
 			
 			<!-- 첨부파일을 처리하는 빈 -->
 		<beans:bean id="multipartResolver"
-		class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="-1"/>
 	</beans:bean>
 
 </beans:beans>

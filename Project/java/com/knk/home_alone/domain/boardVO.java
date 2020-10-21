@@ -6,22 +6,21 @@ import java.sql.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 public class boardVO {
 	private int seq;
 	private String title;
 	private String content_character;
-	private String writer;
+	private String userID;
 	private String content;
 	private String address;
 	private Date regDate;
 	private int cnt;
 	private String serchKeyword;
 	private MultipartFile uploadFile;
-	private double lat;
-	private double lng;
+	private Double lat;
+	private Double lng;
 	public int getSeq() {
 		return seq;
 	}
@@ -40,11 +39,13 @@ public class boardVO {
 	public void setContent_character(String content_character) {
 		this.content_character = content_character;
 	}
-	public String getWriter() {
-		return writer;
+	
+	
+	public String getUserID() {
+		return userID;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 	public String getContent() {
 		return content;
@@ -74,7 +75,7 @@ public class boardVO {
 		return serchKeyword;
 	}
 	public void setSerchKeyword(String serchKeyword) {
-		this.serchKeyword = serchKeyword;
+		this.serchKeyword = "%"+serchKeyword+"%";
 	}
 	public MultipartFile getUploadFile() {
 		return uploadFile;
@@ -85,19 +86,19 @@ public class boardVO {
 	public double getLat() {
 		return lat;
 	}
-	public void setLat(double lat) {
-		this.lat = lat;
+	public void setLat(Double lat) {
+		this.lat =lat;
 	}
 	public double getLng() {
 		return lng;
 	}
-	public void setLng(double lng) {
+	public void setLng(Double lng) {
 		this.lng = lng;
 	}
 	@Override
 	public String toString() {
 		return "boardVO [seq=" + seq + ", title=" + title + ", content_character=" + content_character + ", writer="
-				+ writer + ", content=" + content + ", address=" + address + ", regDate=" + regDate + ", cnt=" + cnt
+				+ userID + ", content=" + content + ", address=" + address + ", regDate=" + regDate + ", cnt=" + cnt
 				+ ", serchKeyword=" + serchKeyword + ", uploadFile=" + uploadFile + ", lat=" + lat + ", lng=" + lng
 				+ "]";
 	}

@@ -72,15 +72,15 @@
    
       <!-- 게시판 작성 부분 -->
       <div class="board_table">
-         <form action="#" name="pp2" id="pp2">
-            <table class="boardWrite_table">
+         <form action="boardupdate.do" method="post" enctype="multipart/form-data">
+             <table class="boardWrite_table">
                <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">제목</td>
                   <td><input type="text" placeholder="제목을 입력하세요" name="title"></input></td>
                </tr>
-               <tr class="boardWrite_table_tr">
+          <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">카테고리</td>
-                  <td><select name="content_character" id="content_character" value="">
+                  <td><select name="content_character" id="content_character">
                         <option>선택</option>
                         <option>원룸</option>
                         <option>투룸</option>
@@ -88,42 +88,42 @@
                         <option>계약 기간 6개월 미만</option>
                   </select></td>
                </tr>
-               <tr class="boardWrite_table_tr">
+            <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">아이디</td>
-                  <td>${user.userID}</td>
+                  <td><input type="text"name="userID"></td>
                </tr>
-               <tr class="boardWrite_table_tr">
+             <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">내용</td>
                   <td><textarea class="boardWrite_textarea" cols="5" rows="11"
-                        maxlength="15000" name="content">내용을 입력하세요</textarea></td>
+                        maxlength="15000" name="content" placeholder="내용을 입력하세요"></textarea></td>
                </tr>
                <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">주소</td>
                   <td><input type="text" name="address"
                      id="address">
                </tr>
-               <tr style="width: 600px; height:300px;" >
+               <tr>
                   <td colspan="2" id="boardmap" style="width: 600px; height: 300px;">
-                  <input type="hidden" id="lat" name="lat" style="display: none;"/>
-                  <input type="hidden" id="lng" name="lng" style="display: none;"/>
+                  <input type="hidden" id="lat" name="lat" /></td>
+                  <td><input type="hidden" id="lng" name="lng" />
                   </td>
                </tr>
                <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">사진올리기</td>
-                  <td><input type="file" name="uploadFile" id="add_fileA"></input></td>
+                  <td><input type="file" name="uploadFile"></input></td>
                </tr>
                
                
             </table>
-         </form>
 
         
          <!-- 보드 검색창 버튼 부분 -->
          <div class="boardWrite_btn_container">
-            <button type="submit" class="board_search_btn" name="insert">올리기</button>
-            <a href="board.do"><button class="board_fix_btn" name="update">수정하기</button></a>
+            <button type="submit" class="board_search_btn">올리기</button>
+            <a href="board.do"><button class="board_fix_btn" >수정하기</button></a>
          </div>
       </div>
+         </form>
    
 
 
