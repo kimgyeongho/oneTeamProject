@@ -15,17 +15,6 @@
     <script src="resources/jquery/jstyle.js"></script>
     <script src="resources/jquery/main_sugnup.js"></script>
 </head>
-<script type="text/javascript">
-  $(document).ready(function() {
-    var name = ${result}.response.name;
-    var email = ${result}.response.email;
-    var birthday = ${result}.response.birthday;
-    $("#name").html("환영합니다. "+name+"님");
-
-  }
-    });
-  //location.href = "${pageContext.request.contextPath}/";
-</script>
 <body>   
     <header>
         <div class="header_container">
