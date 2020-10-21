@@ -167,7 +167,7 @@ public class PageMove_Emile_GET_Controller {
 		// mailForm 고객상담 이메일 보내기
 		@RequestMapping(value = "/sample/mailForm")
 		public String mailForm() {
-					 
+			 
 		return "sample/mailForm";
 		}  
 		
@@ -193,5 +193,11 @@ public class PageMove_Emile_GET_Controller {
 		@RequestMapping(value = "/boardWrite.do")
 		public void boardWrite() {
 			 
+		}
+		
+		//목표 페이지 이동
+		@RequestMapping(value = "/purpose.do")
+		public void purpose() {
+					 
 		}
 }

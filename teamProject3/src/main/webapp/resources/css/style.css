@@ -43,8 +43,15 @@ header{width: 350px;float: left; position: fixed; z-index: 3;}
 
 
 /*서비스페이지==================================================================================*/
-.perpose_back{width: 100%; height:500px; position:absolute; background-color:black;);}  
-.perpose{margin-top:150px; width:600px; height:400px; position:relative;background-position:center; background-size:cover; background-image:url(/resources/img/perpose_2.gif);}  
+.slide{position:relative; width: 1920px; height: 1080px; overflow: hidden;}
+.slide ul{top:0;left:0; position:absolute; width: 5760px; height: 1080px;}
+.slide ul li{display: inline-block;}
+
+#back{cursor:pointer; width:128px; position: relative; float: left; z-index: 2; }
+#back:hover{opacity: 0.5;}
+#next{cursor:pointer; width:128px;position: relative; float: right;z-index: 2; }
+#next:hover{opacity: 0.5;}
+
 /* 자격검증==================================================================================== */
 /* authentication */
 .authentication_div{width: 100%; margin: 0 auto; height: 300px;}
@@ -115,8 +122,8 @@ button:hover{opacity: .7;}
 
 /* 게시판 작성페이지 */
 
-.board_table{width: 50%; margin-top: 150px;}
-.boardWrite_table{border: 2px rgb(226, 226, 226) solid; padding: 15px; border-radius: 5px; background:linear-gradient(rgb(255, 255, 255),white,rgb(250, 255, 249),rgb(239, 243, 234)); box-shadow: rgba(0, 0, 0, .2)5px 5px 4px 4px;}
+.board_table{width: 50%;margin-top: 150px;}
+.boardWrite_table{ border: 2px rgb(226, 226, 226) solid; padding: 15px; border-radius: 5px; box-shadow: rgba(0, 0, 0, .2)5px 5px 4px 4px;}
 .boardWrite_index{font-size: 16px; font-weight: bold; border-radius: 5px; width: 150px; border-bottom: 1px solid rgb(192, 192, 192); border-collapse: collapse; text-align: center; background-color: rgb(255, 255, 255);}
 #content_character{padding-left:10px;margin-left: 10px; font-size: 14px; border-radius: 5px; width:150px; height: 25px; background-color: rgb(255, 255, 255);}
 #content_character>option{color: rgb(131, 131, 131); font-size: 16px;}

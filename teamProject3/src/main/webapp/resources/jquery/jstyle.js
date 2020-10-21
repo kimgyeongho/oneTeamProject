@@ -196,7 +196,42 @@ $(function(){
         window.open('find_pw.html','info','width = 700px height= 800px top=100 left=455');
     })
 });
+//목표 페이지 이미지 슬라이드
+$(document).ready(function() {
+	var imgs;
+	var img_count;
+	var img_position=1;
+	
+	imgs=$(".slide ul");
+	img_count=imgs.children().length;
+	
+	$("#back").click(function() {
+		back();
+	});
+	$("#next").click(function() {
+		next();
+	});
+	function next() {
+		if(img_count>img_position){
+			imgs.animate({
+				left:'-=1920px'
+			});
+			img_position++;
+		
+		}
+	}
+	function back() {
+		if(1<img_position){
+			imgs.animate({
+				left:'+=1920px'
+			});
+			img_position--;
+		}
+		
+	}
+	
 
+});
 
   
 

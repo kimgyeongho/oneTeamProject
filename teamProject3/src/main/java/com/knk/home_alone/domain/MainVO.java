@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class MainVO {
+	//회원가입,로그인
 	private String userName;
 	private String userID;
 	private String userPW;

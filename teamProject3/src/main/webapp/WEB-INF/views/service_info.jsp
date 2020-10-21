@@ -29,7 +29,7 @@
             <ul class="nav_ul">
                 <li><p>소개</p> 
                 <ul class="nav_ul_b">
-                    <a href="perpose.do"><li>목표</li></a>
+                      <a href="purpose.do"><li>목표</li></a>
                     <a href="service_info.do"><li>서비스 소개</li></a>
                     <a href="#"><li>만든이</li></a>
                 </ul>
@@ -74,8 +74,8 @@
         </div>    
     </header>     
   
-        <section class="service_left" style=" left:-40px; float: left; z-index: 1; position: absolute;">
-             <img src="resources/img/singleE.png" alt="싱글이" id="singleE" style=" left: -250px; top:200px; position: absolute;" >
+        <section class="service_left" style=" float: left; z-index: 1; position: absolute;">
+             <img src="resources/img/singleE.png" alt="싱글이" id="singleE" style="width:500px;  left: 50px; top:250px; position: absolute;" >
         </section>
         <section class="service_right">
           <img src="resources/img/service_page.png" alt="서비스 페이지" id="service_page"style="width: 95%;">
