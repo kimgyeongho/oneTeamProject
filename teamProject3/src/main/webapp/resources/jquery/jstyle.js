@@ -69,16 +69,7 @@ $(function(){
     //      }
     //=========================================================
     });
-    $('.board_div>.board_btn_cata').click(function(){        
-        $(".board_contentB").slideDown();
-        $(".board_section").css({"background":"linear-gradient(rgb(110, 115, 110),rgb(90, 95, 90),rgb(50, 55, 50),rgb(30, 35, 30)"})
-        $(".board_contentA").css({"display":"none"});
-    })
-    $('.board_div>.board_btn_all').click(function(){
-        $(".board_contentA").slideDown();
-        $(".board_section").css({"background":"linear-gradient(rgb(255, 255, 255),white,rgb(250, 255, 249),rgb(239, 243, 234))"})
-        $(".board_contentB").css({"display":"none"});
-    })        
+     
    
    
 });
@@ -99,38 +90,7 @@ $(function(){
 //	  });
 //});
 
-//거래꿀팁 좌우 슬라이드 알고리즘
-$(function(){
-    var ta=$(".tip_all_container")
-    var t1=$(".tip_area_ready")
-    var t2=$(".tip_area_doing")
-    var t3=$(".tip_area_clear")
-    
-    var num=0;
 
-$("#tip_btn_left").click(function(){
-    $(".tip_all_container").hide();
-})
-    
-var a1= $(".ready").click(function(){
-    ta.fadeIn(500);
-    t1.fadeIn(500);    
-        
-})
-var a2=$(".doing").click(function(){    
-    ta.fadeIn(500);
-    t1.hide();
-    t2.fadeIn(500);       
-    t3.hide();
-})
-var a3=$(".clear").click(function(){
-    ta.fadeIn(500);
-    t1.hide();
-    t2.hide();
-    t3.fadeIn(500);      
-})
-   
-});
 
 function goPopup() {
     var pop = window.open("popup/jusoPopup.jsp", "pop",

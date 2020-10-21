@@ -17,7 +17,7 @@
 <body>
     <header>
         <div class="header_container">
-        <a href="main.do">
+        <a href="/">
             <div class="header_logo">
             <!-- <img src="img/logo.png" alt="로고"> -->
             </div>
@@ -26,9 +26,9 @@
             <ul class="nav_ul">
                 <li><p>소개</p> 
                 <ul class="nav_ul_b">
-                     <a href="purpose.do"><li>목표</li></a>
+                 <a href="purpose.do"><li>목표</li></a>
                     <a href="service_info.do"><li>서비스 소개</li></a>
-                    <a href="#"><li>만든이</li></a>
+                    <a href="maker.do"><li>만든이</li></a>
                 </ul>
                 </li>
             </ul>
@@ -69,8 +69,9 @@
             <img id="nav_left_arrow" src="resources/img/arrow_left_w.png" alt="왼쪽화살표">
             <img id="nav_right_arrow"src="resources/img/arrow_right_w.png" alt="오른쪽화살표">
         </div>    
-    </header> 
+    </header>
     <section class="all_body_section">  
+     <div class="page_name" style=" background-image: url(/resources/img/login.png);"><h1>아이디 / 비밀번호 찾기</h1></div>
         <section class="all_body_section">  
             <form id="find_identification_pw" action="find_identification_pw" method="POST">
                 <h3>비밀번호 찾기</h3>

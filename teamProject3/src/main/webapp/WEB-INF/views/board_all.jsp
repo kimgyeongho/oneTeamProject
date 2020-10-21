@@ -24,9 +24,9 @@
             <ul class="nav_ul">
                 <li><p>소개</p> 
                 <ul class="nav_ul_b">
-                    <a href="purpose.do"><li>목표</li></a>
+                 <a href="purpose.do"><li>목표</li></a>
                     <a href="service_info.do"><li>서비스 소개</li></a>
-                    <a href="#"><li>만든이</li></a>
+                    <a href="maker.do"><li>만든이</li></a>
                 </ul>
                 </li>
             </ul>
@@ -67,11 +67,11 @@
             <img id="nav_left_arrow" src="resources/img/arrow_left_w.png" alt="왼쪽화살표">
             <img id="nav_right_arrow"src="resources/img/arrow_right_w.png" alt="오른쪽화살표">
         </div>    
-    </header>     
+    </header>    
     <section class="all_body_section">
+    <div class="page_name" style=" background-image: url(/resources/img/board.png);"><h1>게시판</h1></div>
         <div class="board_div">
             <button class="board_btn_all">전체 게시판</button>
-            <button class="board_btn_cata">카테고리</button>
         </div>
         <div class="board_go_boardWrite">
             <a href="boardWrite.do"><button class="btn_go_boardWrite">글쓰기</button></a>        
@@ -153,20 +153,8 @@
               </tr>          
                    </tbody>               
           </table>
-            <table class="board_contentB">            
-            <tr class="contentB_index">
-              <a href="#"><td><img src="resources/img/study.jpg" alt="면학의"></td></a>
-              <a href="#"><td><img src="resources/img/calm.jpg" alt="조용한"></td></a>                           
-            </tr>    
-            <tr class="contentB_index">
-                <a href="#"><td><img src="resources/img/wolabel.jpg" alt="면학의"></td></a>
-                <a href="#"><td><img src="resources/img/young.jpg" alt="조용한"></td></a>                           
-              </tr> 
-              <tr class="contentB_index">
-                <a href="#"><td><img src="resources/img/wolabel.jpg" alt="면학의"></td></a>
-                <a href="#"><td><img src="resources/img/wolabel.jpg" alt="조용한"></td></a>                           
-              </tr>       
-          </table>  
+           
+    </section>
     </section>
     <!-- <img class="board_img_up" src="/images/arrowUP.png" alt=" 화살표">
     <img class="board_img_down" src="/images/arrowDown.png" alt="아래 화살표">  -->

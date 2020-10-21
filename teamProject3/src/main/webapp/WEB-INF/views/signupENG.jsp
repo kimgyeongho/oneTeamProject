@@ -28,7 +28,7 @@
                 <ul class="nav_ul_b">
                     <a href="purpose.do"><li>our goal</li></a>
                     <a href="service_info.do"><li>services</li></a>
-                    <a href="#"><li>designed by</li></a>
+                    <a href="maker.do"><li>designed by</li></a>
                 </ul>
                 </li>
             </ul>
@@ -71,6 +71,7 @@
         </div>    
     </header>      
     <section class="all_body_section">  
+    <div class="page_name" style=" background-image: url(/resources/img/signup.png);"><h1>sign_up</h1></div>
         <!-- 회원가입부분 -->
         <form action="join" method="post"name="form" id="form" >          
        		<div id="signup" style=" width: 720px; height: 540px;">

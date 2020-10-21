@@ -26,7 +26,7 @@
                 <ul class="nav_ul_b">
                  <a href="purpose.do"><li>목표</li></a>
                     <a href="service_info.do"><li>서비스 소개</li></a>
-                    <a href="#"><li>만든이</li></a>
+                    <a href="maker.do"><li>만든이</li></a>
                 </ul>
                 </li>
             </ul>
@@ -67,8 +67,9 @@
             <img id="nav_left_arrow" src="resources/img/arrow_left_w.png" alt="왼쪽화살표">
             <img id="nav_right_arrow"src="resources/img/arrow_right_w.png" alt="오른쪽화살표">
         </div>    
-    </header>     
-    <section class="all_body_section">   
+    </header>    
+    <section class="all_body_section"> 
+     <div class="page_name" style=" background-image: url(/resources/img/signup.png);"><h1>회원가입</h1></div>    
 <div class="authentication_div">
     <article class="kor">
     <div class="korea">

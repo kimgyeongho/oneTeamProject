@@ -200,4 +200,20 @@ public class PageMove_Emile_GET_Controller {
 		public void purpose() {
 					 
 		}
+		
+		//목표 페이지 이동
+		@RequestMapping(value = "/tips.do")
+		public void tips() {
+							 
+		}
+		//목표 페이지 이동
+		@RequestMapping(value = "/maker.do")
+		public void maker() {
+									 
+		}
+		//목표 페이지 이동
+		@RequestMapping(value = "/service_info.do")
+		public void service_info(){
+											 
+		}
 }

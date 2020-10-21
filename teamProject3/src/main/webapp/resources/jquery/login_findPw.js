@@ -51,7 +51,7 @@
    						url : "/passwordCheck",
    						type : "post",
    						dateType : "JSON",
-   						data : $("#formlogin").serializeArray(),
+   						data : $("#loginForm").serializeArray(),
    						success: function(data){
    							if(data){
    								$("#userPW2").attr("value", "비밀번호체크완료");
@@ -66,7 +66,7 @@
  					    var testInterval = setInterval(function() {
  					    	 if($("#userID2").val()=="아이디체크완료" && $("#userPW2").val()=="비밀번호체크완료"
  			 					 && $("#email").val()=="이메일인증완료"){
- 			 				$("#formlogin").submit();
+ 			 				$("#loginForm").submit();
  			 				return false;
  			 			} 					        },1200);
  					    

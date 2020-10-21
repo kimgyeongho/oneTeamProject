@@ -70,24 +70,9 @@
         </div>    
     </header> 
 	
-	<div class="tips" >
-		<img alt="팁 배경" style="position: absolute; z-index: -1;" src="resources/img/tips.png" />
-		<div class="tip1">
-			<ul>
-				<li>
-					<div class="tip1_1">
-					<a href="board_all.do"><button style="float: left; position:absolute; margin-top:252px; margin-left: 32px; ">게시판 보기</button></a>
-					<a href="map.do"><button style="float: left;position:absolute; margin-top:600px; margin-left:32px;" >지도 보기</button></a>
-					</div>
-				</li>
-				<!-- <li>
-					<img />
-				</li>
-				<li>
-					<img />
-				</li> -->
-			</ul>
-		</div>
+	<div class="maker" >
+		<img alt="팁 배경" style="position: absolute; z-index: -1;" src="resources/img/designer.png" />
+		
 		
 	</div>
 	

@@ -52,7 +52,7 @@
                 <ul class="nav_ul_b">
                      <a href="purpose.do"><li>목표</li></a>
                     <a href="service_info.do"><li>서비스 소개</li></a>
-                    <a href="#"><li>만든이</li></a>
+                    <a href="maker.do"><li>만든이</li></a>
                 </ul>
                 </li>
             </ul>

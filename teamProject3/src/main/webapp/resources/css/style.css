@@ -21,7 +21,7 @@ header{width: 350px;float: left; position: fixed; z-index: 3;}
 .div_allow>img{margin-top: 117px; width: 15%; position: absolute;  background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
 .div_allow>img:hover{cursor: pointer; box-shadow: rgba(0, 0, 0, .2) 2px 2px 1px 1px;}
 
-.page_name{margin-left:64px;width: 100%; height: 64px; background-size: contain; background-repeat: no-repeat; }
+.page_name{margin-left:84px;width: 100%; height: 64px; background-size: contain; background-repeat: no-repeat; }
 .page_name>h1{margin-left: 64px; line-height: 88px; font-size: 36px;}
 /* 메인 로고와 검색 부분========================================================== */
 .main_logo{ margin-top: 264px; width: 100%; height: 200px; position: absolute; background-image:url(/resources/img/main_logo.png); background-size: 200px; background-repeat: no-repeat; background-position: center; z-index: -1;}
@@ -122,7 +122,7 @@ button:hover{opacity: .7;}
 
 /* 게시판 작성페이지 */
 
-.board_table{width: 50%;margin-top: 150px;}
+.board_table{width:50%;}
 .boardWrite_table{ border: 2px rgb(226, 226, 226) solid; padding: 15px; border-radius: 5px; box-shadow: rgba(0, 0, 0, .2)5px 5px 4px 4px;}
 .boardWrite_index{font-size: 16px; font-weight: bold; border-radius: 5px; width: 150px; border-bottom: 1px solid rgb(192, 192, 192); border-collapse: collapse; text-align: center; background-color: rgb(255, 255, 255);}
 #content_character{padding-left:10px;margin-left: 10px; font-size: 14px; border-radius: 5px; width:150px; height: 25px; background-color: rgb(255, 255, 255);}
@@ -144,91 +144,11 @@ button:hover{opacity: .7;}
 .board_fix_btn{width: 100px; height: 30px;font-size: 16px; font-weight: bold;}
 .board_delete_btn{width: 100px; height: 30px;font-size: 16px; font-weight: bold;}
 
+/*팁 ==================================================================================*/
+.tip1{margin-left:210px; position:absolute;  width: 1500px; height: 800px; margin-top: 100px;}
+.tip1>ul{display: inline-block; list-style: none;}
+.tip1_1{width: 1400px; height: 800px; background-image:url("/resources/img/tip1.png"); background-size: cover; }
 
-
-/*팁 페이지/tips.html==================================================================== */
-.tipContainer{position: absolute; left: 130px; width: 80%; background-color: blanchedalmond;}
-.tipContainer>a>img{ margin-top: 100px; box-shadow: rgba(0, 0, 0, .05) 10px 10px; border-radius:165px;}
-.tipContainer>a>.ready{float: left; width: 280px; margin-left: 10px; margin-top: 100px;}
-.tip_ready_container>h1{margin-top: 50px; font-size:20px; font-weight: bolder; margin:20px;}
-.tip_ready_check{list-style: none; width: 1000px; height: 250px; margin-top: 80px;}
-.tip_ready_check>h4{font-size: 22px; font-weight: bold; margin-bottom: 15px;}
-.tip_ready_check>li>input{margin-left: 10px; margin-bottom: 15px;}
-.tip_ready_check>li>a{margin-left:12px; text-decoration: none; font-size: 20px; color: black}
-.tip_ready_check>li>a:hover{opacity: .5;}
-.tip_ready_info{list-style: none; width: 1000px; height: 200px; margin-top: 10px;}
-.tip_ready_info>h4{font-size: 20px; font-weight: bold; margin-bottom: 15px;}
-.tip_ready_info>li{margin-left: 10px; margin-top: 15px; font-size: 18px;}
-
-.tip_doing_container>h1{margin-top: 50px; font-size:20px; font-weight: bolder; margin:20px;}
-.tip_doing_check{list-style: none; width: 1000px; height: 500px; margin-top: 160px;}
-.tip_doing_check>h4{font-size: 20px; font-weight: bold; margin-bottom: 15px;}
-/* .tip_doing_check>li>input{margin-bottom: 15px;} */
-.tip_doing_check>li{margin-left: 10px; margin-top: 15px; font-size: 18px;}
-/* .tip_doing_check>li>a{margin-left:12px; text-decoration: none; font-size: 20px; color: black}
-.tip_doing_check>li>a:hover{opacity: .5;} */
-/* .tip_doing_info{list-style: none; width: 1000px; height: 300px; margin-top: 30px;}
-.tip_doing_info>h4{font-size: 20px; font-weight: bold; margin-bottom: 15px;}
-.tip_doing_info>li>input{margin-bottom: 15px;}
-.tip_doing_info>li>a{margin-left:12px; text-decoration: none; font-size: 20px; color: black} */
-
-.tipContainer>a>.ready:hover{opacity: 0.8; cursor: pointer;}
-.tipContainer>a>.doing{width: 280px; margin-left: 110px; margin-top: 100px;}
-.tipContainer>a>.doing:hover{opacity: 0.8; cursor: pointer;}
-.tipContainer>a>.clear{float: right; width: 280px; margin-top: 100px;}
-.tipContainer>a>.clear:hover{opacity: 0.8; cursor: pointer;}
-.tip_clear_check{list-style: none; width: 1000px; height:500px; margin-top: 50px;}
-.tip_clear_check>li{font-size: 18px;}
-.tip_clear_check>li>input{margin-top: 25px; margin-right: 10px;}
-
-
-.tip_all_container{display: none; position: relative; float: left; width: 1920px; height: 760px; overflow: hidden;}
-.tip_area_ready{ position: relative; float: left; left: 0; top: 10px; width: 1920px; height:750px; background-image: url(images/ready.png);}
-.tip_area_doing{position: relative; float: left; left: 0; top: 10px; width: 1920px; height: 750px; background-image: url(images/doing.png); }
-.tip_area_clear{ position: relative; float: left; left: 0; top: 10px; width: 1920px; height: 750px;background-image: url(images/clear.png); }
-.tip_ready_container{width: 1200px; height: 660px;  margin-top: 45px; border-radius: 10px;}
-.tip_doing_container{width: 1200px; height: 660px;  margin-top: 45px; border-radius: 10px;}
-.tip_clear_container{width: 1200px; height: 660px;  margin-top: 45px; border-radius: 10px;}
-.tip_clear_container>h1{font-size:20px; font-weight: bolder; margin:20px; margin-top: 50px;}
-
-.tip_btn_area{position: absolute; width: 100%;left: 1550px;  margin-top: 40px; z-index: 2;}
-.tip_btn_area>img{width: 100px;}
-#tip_btn_left{width: 50px; float: left; margin-left: 150px;}
-#tip_btn_left:hover{opacity: 0.5; cursor: pointer;}
-/* #tip_btn_right{ float: right;  margin-right: 150px;}
-#tip_btn_right:hover{opacity: 0.5; cursor: pointer;} */
-
-.ready_hidden{display: none; border-radius: 10px; background-color:white; box-shadow: rgba(0, 0, 0, .2) 10px 10px; border: 1px solid rgb(192, 192, 192);  top:75px; left: 740px; height: 350px; position: absolute; width: 850px; }
-.ready_move_table{border: solid 1px rgb(192, 192, 192);margin-top: 25px; width: 840px; height: 320px;}
-.ready_move_tr{height: 20px;}
-.ready_move_tr>td>input{width: 15px; height: 15px; margin-left: 5px;}
-.ready_move_tr>td{border: solid 1px rgb(192, 192, 192);}
-
-.hidden_gray_cross{top: 3px; left: 810px; position: absolute;  width: 20px;}
-.hidden_gray_cross:hover{opacity: 0.3; transition: ease-in-out;}
-
-.ready_hidden2{display: none; border-radius: 10px; background-color:white; box-shadow: rgba(0, 0, 0, .2) 10px 10px; border: 1px solid rgb(192, 192, 192);  top:75px; left: 740px; height: 350px; position: absolute; width: 850px; }
-.ready_move_table2{border: solid 1px rgb(192, 192, 192);margin-top: 17px; width: 840px; height: 330px;}
-.ready_move_tr2{height: 20px;}
-.ready_move_tr2>td>input{width: 25px; height: 15px; margin-left: 5px;}
-.ready_move_tr2>td{border: solid 1px rgb(192, 192, 192);}
-
-.hidden_gray_cross2{top: 3px; left: 810px; position: absolute;  width: 20px;}
-.hidden_gray_cross2:hover{opacity: 0.3; transition: ease-in-out;}
-
-.ready_move_choice2{border-bottom: 2px solid rgb(192, 192, 192); margin-left: 5px; top: 20px; width: 840px;  height: 300px; position: absolute; overflow: scroll;}
-.ready_move_choice2::-webkit-scrollbar{display: none;}
-
-
-.ready_hidden3{display: none; border-radius: 10px; background-color:white; box-shadow: rgba(0, 0, 0, .2) 10px 10px; border: 1px solid rgb(192, 192, 192);  top:75px; left: 740px; height: 350px; position: absolute; width: 850px; }
-.ready_move_table3{border: solid 1px rgb(192, 192, 192);margin-top: 25px; width: 840px; height: 320px;}
-.ready_move_tr3{height: 20px;}
-.ready_move_tr3>td>input{width: 15px; height: 15px; margin-left: 5px;}
-#totalScore{width: 250px;}
-.ready_move_tr3>td{border: solid 1px rgb(192, 192, 192);}
-
-.hidden_gray_cross3{top: 3px; left: 810px; position: absolute;  width: 20px;}
-.hidden_gray_cross3:hover{opacity: 0.3; transition: ease-in-out;}
 
 /* 지도보기============================================================================= */
 .map_top_bar{margin-top: 50px; position: absolute;}
@@ -327,7 +247,7 @@ button:hover{opacity: .7;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 /* =================================================================================================================== */
 
-.map_communicate{width: 480px; height: 720px; background:linear-gradient(rgb(255, 255, 255),white,rgb(250, 255, 249),rgb(239, 243, 234)); border: 2px solid rgb(192, 192, 192); position: relative; float: right; margin-top:100px; margin-right: 36px; padding:3px} 
+
 .map_info{width: 100%; height: 320px; margin-top: 10px; overflow: scroll; border-bottom: 3px solid rgb(131, 131, 131); box-shadow: rgba(0, 0, 0, .2) 5px 5px 4px 4px;}
 .map_info::-webkit-scrollbar{display: none;}
 .map_info_table{border-collapse: collapse; width: 480px; text-align: center;}
@@ -335,6 +255,13 @@ button:hover{opacity: .7;}
 .map_sum_table{border-collapse: collapse; width: 480px; text-align: center;}
 .map_sum{width: 100%; height: 320px; margin-top: 30px; overflow: scroll; border-bottom: 3px solid rgb(131, 131, 131); box-shadow: rgba(0, 0, 0, .2) 5px 5px 4px 4px;}
 .map_sum::-webkit-scrollbar{display: none;}
+
+/*맵 커뮤니케이션 부분============================================================================================*/
+.communication{width: 534px; height: 372px;border: 2px solid rgb(192, 192, 192); position: absolute; float: right; margin-right: 36px; padding:3px;overflow:hidden; overflow-y: scroll; } 
+.communication::-webkit-scrollbar{display: none;}
+.map_com{width: 530px;border: 1px solid black;}
+#map_tr{border: 1px solid black; height: 24px;}
+#map_tr:nth-child(2n){background-color: rgb(220,220,220);}
 
 /* 마이페이지================================================================================================ */
 .mypage_section{margin-top:50px; width: 100%; height: 840px;}
