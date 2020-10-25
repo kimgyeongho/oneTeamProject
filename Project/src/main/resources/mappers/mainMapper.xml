@@ -175,16 +175,12 @@
 	</update>
 	<insert id="boardupdate">
 		<![CDATA[
-		INSERT INTO BOARD (seq, title,content_character ,userID, content ,address ,lat,lng  )
-		VALUES((SELECT IFNULL(MAX(seq+1), 0) FROM board SUBQUERY),#{title},#{content_character},#{userID},#{content},#{address},#{lat},#{lng})
+		INSERT INTO BOARD (seq, title,content_character ,userID, content ,address ,lat,lng,originalfilename,filename)
+		VALUES((SELECT IFNULL(MAX(seq+1), 0) FROM board SUBQUERY)
+		,#{title},#{content_character},#{userID},#{content},#{address},#{lat},#{lng},#{originalFilename},#{filename})
 		]]>
 	</insert>
-	<insert id="fileupdate">
-		<![CDATA[
-		INSERT INTO filename (originalfilename,filename)
-		VALUES(#{originalfilename},#{filename})
-		]]>
-	</insert>
+
 	
 
 </mapper>

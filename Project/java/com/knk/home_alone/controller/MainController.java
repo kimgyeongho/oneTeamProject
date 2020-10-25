@@ -153,8 +153,12 @@ public class MainController {
 	@RequestMapping("/getBoard.do")
 	public String getBoard(boardVO vo, Model mav) {
 		System.out.println("글 상세조회 처리");
+		boardVO boardvo= service.getBoard(vo);
+		File file =new File(boardvo.getFilename());
 
-		mav.addAttribute("board", service.getBoard(vo));
+		mav.addAttribute("board", boardvo);
+		System.out.println("파일네임무엇입니까2"+boardvo.getFilename());
+
 		return "board";
 	}
 	@RequestMapping("/zzzz.do")
@@ -175,17 +179,27 @@ public class MainController {
 
 	 }
 	 @RequestMapping("/boardupdate.do")
-		public String boardupdate(boardVO vo,FileVO fvo) throws IllegalStateException, IOException {
+		public String boardupdate(boardVO vo) throws IllegalStateException, IOException {
 		 log.info("===========boardupdate===============");
 			MultipartFile uploadFile= vo.getUploadFile();
+			System.out.println("파일업로드시작1");
+
 			if(!uploadFile.isEmpty()) {
+				System.out.println("파일업로드시작2");
 				String filename= uploadFile.getOriginalFilename();
-				uploadFile.transferTo(new File("D:\\나홀로집에/"+filename));
-				fvo.setOriginalFilename(filename);
+				String file ="D:/나홀로집에/"+filename;
+				uploadFile.transferTo(new File(file));
+				vo.setOriginalFilename(filename);
+				vo.setFilename(file);
 			}
-//			service.fileupdate(fvo);
+			System.out.println(vo.toString());
 			service.boardupdate(vo);
 			
 			return "redirect:board_all.do";
+		}
+		@RequestMapping("/getfile")
+		public String getfile() {
+
+			return "board";
 		}
 }

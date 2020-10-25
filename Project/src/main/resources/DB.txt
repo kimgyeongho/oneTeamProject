@@ -36,3 +36,7 @@ lat DOUBLE,
 lng DOUBLE,
 primary key (seq,userID));
 
+//추가
+alter table board add column originalfilename varchar(30);
+alter table board add column filename varchar(30);
+

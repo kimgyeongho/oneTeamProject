@@ -21,6 +21,8 @@ public class boardVO {
 	private MultipartFile uploadFile;
 	private Double lat;
 	private Double lng;
+	private String originalFilename;
+	private String filename;
 	public int getSeq() {
 		return seq;
 	}
@@ -95,13 +97,27 @@ public class boardVO {
 	public void setLng(Double lng) {
 		this.lng = lng;
 	}
+	
+	public String getOriginalFilename() {
+		return originalFilename;
+	}
+	public void setOriginalFilename(String originalFilename) {
+		this.originalFilename = originalFilename;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 	@Override
 	public String toString() {
-		return "boardVO [seq=" + seq + ", title=" + title + ", content_character=" + content_character + ", writer="
+		return "boardVO [seq=" + seq + ", title=" + title + ", content_character=" + content_character + ", userID="
 				+ userID + ", content=" + content + ", address=" + address + ", regDate=" + regDate + ", cnt=" + cnt
 				+ ", serchKeyword=" + serchKeyword + ", uploadFile=" + uploadFile + ", lat=" + lat + ", lng=" + lng
-				+ "]";
+				+ ", originalFilename=" + originalFilename + ", filename=" + filename + "]";
 	}
+
 	
 
 }
