@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,73 +78,65 @@
              <table class="boardWrite_table">
                <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">제목</td>
-                  <td><input type="text" placeholder="제목을 입력하세요" name="title"></input></td>
+						<td>${board.title}</td>
                </tr>
           <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">카테고리</td>
-                  <td><select name="content_character" id="content_character">
-                        <option>원룸</option>
-                        <option>투룸</option>
-                  </select></td>
+                 		<td>${board.content_character}</td>
                </tr>
                <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">카테고리</td>
-                  <td><select name="content_character2" id="content_character">                        
-                        <option>계약 기간 6개월 이상</option>
-                        <option>계약 기간 6개월 미만</option>
-                  </select></td>
+                  		<td>${board.content_character2}</td>
                </tr>
             <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">아이디</td>
-                  <td><input type="text"name="userID" value="${user.userID}" readonly></td>
+				  <td>${board.userID}</td>	
+				  	
                </tr>
              <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">내용</td>
-                  <td><textarea class="boardWrite_textarea" cols="5" rows="11"
-                        maxlength="15000" name="content" placeholder="내용을 입력하세요"></textarea></td>
+                  <td>${board.content}</td>
                </tr>
                <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">주소</td>
-                  <td><input type="text" name="address"
-                     id="address">
+                 		<td>${board.address}</td>				
+               </tr>		
+                 <tr class="boardWrite_table_tr">
+                  <td class="boardWrite_index">작성시</td>
+                 	<td>${board.regDate}</td>			
                </tr>
                <tr>
                   <td colspan="2" id="boardmap" style="width: 600px; height: 300px;">
                   <input type="hidden" id="lat" name="lat" /></td>
                   <td><input type="hidden" id="lng" name="lng" />
                   </td>
+                  
+                  <c:forEach var="image" items="${image}">
+					 <tr class="boardWrite_table_tr">
+					<td><img src="data:image/png;base64,${image}"></td>
                </tr>
-               <tr class="boardWrite_table_tr">
-                  <td class="boardWrite_index">사진올리기</td>
-               </tr>
-                 <tr class="boardWrite_table_tr">
-       			<td><input type="file" name="imgFile" accept="image/*" onchange="loadFile(event)"></td>           
-         	    <td><img id="output1" class="output"/></td>
-         	    </tr>
-         	     <tr class="boardWrite_table_tr">
-       			<td><input type="file" name="imgFile2" accept="image/*" onchange="loadFile2(event)"></td>           
-         	    <td><img id="output2" class="output"/></td>
-         	    </tr>
-         	     <tr class="boardWrite_table_tr">
-       			<td><input type="file" name="imgFile3" accept="image/*" onchange="loadFile3(event)"></td>           
-         	    <td><img id="output3" class="output"/></td>
-         	    </tr>
-         
-              
+				</c:forEach>
+               </tr>             
             </table>      
          <!-- 보드 검색창 버튼 부분 -->
          <div class="boardWrite_btn_container">
-            <button type="submit" class="board_search_btn">올리기</button>
-            <a href="board_all.do"><button class="board_fix_btn" >취소</button></a>
+                         
          </div>
       </div>
          </form>
    
 
-
+				  <input id="userID1" type="hidden" value="${board.userID}">
+				  <input id="userID2" type="hidden" value="${user.userID}">
 </body>
 </html>
 <script>
+$(function(){
+		if($("#userID1").val()==$("#userID2").val()){		
+	              $('.boardWrite_btn_container').append('<a href="Bulletin_board_repair.do?seq=${board.seq}"><input type="button" class="board_fix_btn" value="수정하기"/></a>');
+	          }
+		});
+
    var mapContainer = document.getElementById('boardmap'), // 지도를 표시할 div 
    mapOption = {
       center : new kakao.maps.LatLng(37.4860759059799, 126.92448237288), // 지도의 중심좌표
@@ -179,29 +173,4 @@ map.setCenter(coords);
 });
 });
 
-
-var loadFile = function(event) {
-	  var reader = new FileReader();
-	  reader.onload = function(){
-	    var output = document.getElementById('output1');
-	    output.src = reader.result;
-	  };
-	  reader.readAsDataURL(event.target.files[0]);
-	};
-	var loadFile2 = function(event) {
-		    var reader = new FileReader();
-		    reader.onload = function(){
-		      var output = document.getElementById('output2');
-		      output.src = reader.result;
-		    };
-		    reader.readAsDataURL(event.target.files[0]);
-		  };
-		  var loadFile3 = function(event) {
-			    var reader = new FileReader();
-			    reader.onload = function(){
-			      var output = document.getElementById('output3');
-			      output.src = reader.result;
-			    };
-			    reader.readAsDataURL(event.target.files[0]);
-			  };
 </script>

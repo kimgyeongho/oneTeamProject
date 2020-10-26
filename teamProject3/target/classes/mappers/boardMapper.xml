@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.knk.home_alone.mapper.BoardMapper">
+	
+		<!--메인화면 검색창을 통해 게시판 확인 및 게시판 클릭시 게시판 목록 보이기   -->	
+	<select id="getboardList" parameterType="BoardVO" resultType="BoardVO">
+   
+		SELECT * 
+		FROM board
+		WHERE title LIKE #{serchKeyword} OR
+		userID LIKE  #{serchKeyword} OR
+		content LIKE #{serchKeyword}
+		ORDER BY SEQ DESC
+			
+	</select>
+	
+	
+	 <select id="getBoard" resultType="boardVO">
+	<![CDATA[
+		SELECT * 
+		FROM board 
+		WHERE SEQ=#{seq}
+	]]>
+	</select>
+	
+	<update id="boardupdate2">
+		update board set 
+		title = #{title},
+		content_character = #{content_character},
+		content_character = #{content_character2},
+		content = #{content},
+		address = #{address},
+		lat = #{lat},
+		lng = #{lng}
+		where seq=#{seq}
+	</update>
+
+	<update id="bodercot">
+		update board set cnt =cnt+1
+		where seq=#{seq}
+	</update>
+	
+		<!--게시판 글 올리기  -->
+	<insert id="boardupdate">
+		<![CDATA[
+		INSERT INTO board(
+		seq,
+		title,
+		content_character,
+		content_character2,
+		userID, 
+		content,
+		address,
+		lat,
+		lng		
+		)
+		VALUES(
+		(SELECT IFNULL(MAX(seq+1), 0) FROM board SUBQUERY)
+		,#{title}
+		,#{content_character}
+		,#{content_character2}		
+		,#{userID}
+		,#{content}
+		,#{address}
+		,#{lat}
+		,#{lng}
+		)
+		]]>
+	</insert> 
+	
+	<select id="getboardImage" resultType="java.util.Map">
+    SELECT img,img2,img3
+    FROM oneteam_img
+	WHERE SEQ=#{seq}
+    
+    
+</select>
+	
+	<update id="boardImageUpdate" parameterType="java.util.Map">
+		update oneteam_img set 		
+		img = #{img},
+		img2 = #{img2},
+		img3 = #{img3},
+		where seq=#{seq}
+	</update>
+	
+	<!--게시판 이미지 올리기  -->
+	<insert id="boardImage" parameterType="java.util.Map">
+    INSERT INTO oneteam_img(img,img2,img3,seq) VALUES(#{img},#{img2},#{img3},(SELECT IFNULL(MAX(seq+1), 0) FROM board SUBQUERY))   
+</insert>
+</mapper>

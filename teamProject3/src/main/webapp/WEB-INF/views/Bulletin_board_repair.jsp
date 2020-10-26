@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,47 +74,49 @@
    
       <!-- 게시판 작성 부분 -->
       <div class="board_table">
-         <form action="boardupdate.do" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+         <form action="boardupdate2.do" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
              <table class="boardWrite_table">
                <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">제목</td>
-                  <td><input type="text" placeholder="제목을 입력하세요" name="title"></input></td>
+                  <td><input type="text" name="title" value="${board.title}"></input></td>
                </tr>
           <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">카테고리</td>
-                  <td><select name="content_character" id="content_character">
+                    <td><select name="content_character" id="content_character">
+                        <option>${board.content_character}</option>
                         <option>원룸</option>
-                        <option>투룸</option>
+                        <option>투룸</option>             
                   </select></td>
+                 		<td></td>
                </tr>
                <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">카테고리</td>
-                  <td><select name="content_character2" id="content_character">                        
+                        <td><select name="content_character2" id="content_character">                        
+                        <option>${board.content_character2}</option>                      
                         <option>계약 기간 6개월 이상</option>
                         <option>계약 기간 6개월 미만</option>
-                  </select></td>
+                  </select></td>                  		
                </tr>
             <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">아이디</td>
-                  <td><input type="text"name="userID" value="${user.userID}" readonly></td>
+				  <td>${board.userID}</td>		
                </tr>
              <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">내용</td>
                   <td><textarea class="boardWrite_textarea" cols="5" rows="11"
-                        maxlength="15000" name="content" placeholder="내용을 입력하세요"></textarea></td>
+                        maxlength="15000" name="content">${board.content}</textarea></td>
+                 
                </tr>
                <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">주소</td>
-                  <td><input type="text" name="address"
-                     id="address">
-               </tr>
+                  <td><input type="text" name="address" id="address" value="${board.address}"></input><td>              						
+               </tr>		
                <tr>
                   <td colspan="2" id="boardmap" style="width: 600px; height: 300px;">
                   <input type="hidden" id="lat" name="lat" /></td>
                   <td><input type="hidden" id="lng" name="lng" />
-                  </td>
-               </tr>
-               <tr class="boardWrite_table_tr">
+                  </td>                  
+                  <tr class="boardWrite_table_tr">
                   <td class="boardWrite_index">사진올리기</td>
                </tr>
                  <tr class="boardWrite_table_tr">
@@ -127,13 +131,11 @@
        			<td><input type="file" name="imgFile3" accept="image/*" onchange="loadFile3(event)"></td>           
          	    <td><img id="output3" class="output"/></td>
          	    </tr>
-         
-              
+               </tr>             
             </table>      
          <!-- 보드 검색창 버튼 부분 -->
          <div class="boardWrite_btn_container">
-            <button type="submit" class="board_search_btn">올리기</button>
-            <a href="board_all.do"><button class="board_fix_btn" >취소</button></a>
+            <button type="submit" class="board_search_btn">수정 올리기</button>
          </div>
       </div>
          </form>
@@ -178,8 +180,6 @@ map.setCenter(coords);
 });
 });
 });
-
-
 var loadFile = function(event) {
 	  var reader = new FileReader();
 	  reader.onload = function(){

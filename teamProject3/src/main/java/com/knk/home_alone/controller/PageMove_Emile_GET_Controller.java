@@ -173,11 +173,7 @@ public class PageMove_Emile_GET_Controller {
 		
 		
 		
-		//게시판 이동
-		@RequestMapping(value = "/board_all.do")
-		public void board_all() {
-			 
-		}  
+		
 		
 		
 		
@@ -187,13 +183,6 @@ public class PageMove_Emile_GET_Controller {
 			 
 		}   
 		
-		
-		
-		//게시판 글쓰기 이동
-		@RequestMapping(value = "/boardWrite.do")
-		public void boardWrite() {
-			 
-		}
 		
 		//목표 페이지 이동
 		@RequestMapping(value = "/purpose.do")

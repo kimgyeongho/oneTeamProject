@@ -86,4 +86,9 @@
 	
 	<!--jsonService-->
     <bean id = "jsonService" class="com.knk.home_alone.service.JSONservice"/>
+    
+    <bean id="multipartResolver" 
+class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+ 
+ 
 </beans>

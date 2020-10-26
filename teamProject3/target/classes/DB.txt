@@ -30,3 +30,37 @@ CREATE TABLE `inserttest` (
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 ;
+
+// 게시판 테이블
+CREATE TABLE `board` (
+	`seq` INT(11) NOT NULL,
+	`title` VARCHAR(30) NOT NULL COLLATE 'utf8_general_ci',
+	`content_character` VARCHAR(30) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`content_character2` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`userID` VARCHAR(30) NOT NULL COLLATE 'utf8_general_ci',
+	`content` VARCHAR(1000) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`address` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`regDate` DATE NULL DEFAULT sysdate(),
+	`cnt` INT(11) NULL DEFAULT '0',
+	`lat` DOUBLE(22,0) NULL DEFAULT NULL,
+	`lng` DOUBLE(22,0) NULL DEFAULT NULL,
+	PRIMARY KEY (`seq`, `userID`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+
+
+
+
+
+
+//이미지 테이블 
+CREATE TABLE `oneteam_img` (
+	`seq` INT(11) NULL DEFAULT NULL,
+	`img` BLOB NULL DEFAULT NULL
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;

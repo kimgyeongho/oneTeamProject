@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,77 +82,34 @@
           <table class="board_contentA" >             
           <tbody style="height: 400px; overflow: scroll;">             
             <tr class="contentA_index">
+             <c:if test="${boardList == null}"> 			             
               <td><h4>번호</h4></td>
+              </c:if>
               <td><h4>제목</h4></td>
+			  <td><h4>벙 구조</h4></td>
+			  <td><h4>계약기간</h4></td>    
               <td><h4>아이디</h4></td>
               <td><h4>내용</h4></td>
+              <td><h4>주소</h4></td>  
               <td><h4>게시일</h4></td>
               <td><h4>조회수</h4></td>
             </tr>
-            <tr class="contentA_index">
-            	<td>8</td>
-                <td>안녕하세요</td>
-                <td>네 안녕하세요</td>
-                <td>혼자 오셨나요?</td>
-                <td>2020-10-16</td>
-                <td>245</td>
-              </tr>                       
-            <tr class="contentA_index">
-            <td>7</td>
-                <td>네 혼자 왔습니다</td>
-                <td>찾는</td>
-                <td>매물 있으시면 말씀해주세요</td>
-                <td>2020-10-6</td>
-                <td>9</td>
-              </tr>                       
-            <tr class="contentA_index">
-            <td>6</td>
-                <td>혼자 살기 좋은 집</td>
-                <td>구하고</td>
-                <td>싶은데 혹시 어떻게 하면 좋을까요?</td>
-                <td>2020-09-22</td>
-                <td>2</td>
-              </tr>                       
-            <tr class="contentA_index">
-            <td>5</td>
-                <td>잘 모를땐</td>
-                <td>써보세요</td>
-                <td>혼자살기 좋은 집 찾을 때에는</td>
-                <td>2020-09-16</td>
-                <td>2</td>
-              </tr>                       
-            <tr class="contentA_index">
-            <td>4</td>
-                <td>나홀로</td>
-                <td>집에</td>
-                <td>감사합니다</td>
-                <td>2020-09-16</td>
-                <td>5</td>
-              </tr>                       
-            <tr class="contentA_index">
-            <td>3</td>
-                <td>혼자 살기 좋은 집</td>
-                <td>두집살림</td>
-                <td>구로디지털단지 인근 혼자 살기 좋은 집입니다.</td>
-                <td>2020-09-16</td>
-                <td>38</td>
-              </tr>                       
-            <tr class="contentA_index">
-            <td>2</td>
-                <td>둘이 살기 좋은 집</td>
-                <td>세집살림</td>
-                <td>구로디지털단지 인근 둘이 살기 좋은 집입니다.</td>
-                <td>2020-09-16</td>
-                <td>75</td>
-              </tr>                       
-            <tr class="contentA_index">
-            <td>1</td>
-                <td>야경 좋은 집</td>
-                <td>야근각</td>
-                <td>인근 야근하는 사람이 많아 야경이 훌륭합니다</td>
-                <td>2020-09-16</td>
-                <td>33</td>
-              </tr>          
+           <c:forEach items="${boardList}" var="board">
+		<tr class="contentA_index">
+		<c:if test="${boardList == null}"> 			             		
+		<td>${board.seq }</td>
+		</c:if>
+		<td><a href="getBoard.do?seq=${board.seq}">${board.title}</a></td>
+		<td><a href="getBoard.do?seq=${board.seq}">${board.content_character}</a></td>
+		<td><a href="getBoard.do?seq=${board.seq}">${board.content_character2}</a></td>
+		<td><a href="getBoard.do?seq=${board.seq}">${board.userID}</a></td>		
+		<td><a href="getBoard.do?seq=${board.seq}">${board.content}</a></td>
+		<td><a href="getBoard.do?seq=${board.seq}">${board.address}</a></td>				
+		<td><a href="getBoard.do?seq=${board.seq}">${board.regDate}</a></td>
+		<td><a href="getBoard.do?seq=${board.seq}">${board.cnt}</a></td>
+		</tr>
+					</c:forEach>
+
                    </tbody>               
           </table>
            
