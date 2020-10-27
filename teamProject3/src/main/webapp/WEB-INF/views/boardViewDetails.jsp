@@ -107,8 +107,8 @@
                </tr>
                <tr>
                   <td colspan="2" id="boardmap" style="width: 600px; height: 300px;">
-                  <input type="hidden" id="lat" name="lat" /></td>
-                  <td><input type="hidden" id="lng" name="lng" />
+                  <input type="hidden" id="lat" name="lat" value=" ${board.lat}" /></td>
+                  <td><input type="hidden" id="lng" name="lng" value=" ${board.lng}" />
                   </td>
                   
                   <c:forEach var="image" items="${image}">
@@ -143,34 +143,17 @@ $(function(){
       level : 5
    // 지도의 확대 레벨
    };
-
+	var lat= document.getElementById('lat').value;
+	var lng= document.getElementById('lng').value;
    //지도를 생성합니다    
    var map = new kakao.maps.Map(mapContainer, mapOption);
-
+	
    //주소-좌표 변환 객체를 생성합니다
    var geocoder = new kakao.maps.services.Geocoder();
-   var marker = new kakao.maps.Marker();
+   var marker = new kakao.maps.Marker({map: map,position: new kakao.maps.LatLng(lat,lng)});
    var infowindow = new kakao.maps.InfoWindow({content : '<div style="width:150px;text-align:center;padding:6px 0;">우리집</div>'});
+   infowindow.open(map,marker);
+   map.setCenter( new kakao.maps.LatLng(lat,lng));
 
-$(document).ready(function() {
-$("#address").on("propertychange keyup change",function() {
-var address_add = document.getElementById('address').value;
-geocoder.addressSearch(address_add,function(result,status) {
-// 정상적으로 검색이 완료됐으면 
-if (status === kakao.maps.services.Status.OK) {
-var coords = new kakao.maps.LatLng(result[0].y,result[0].x);
-marker.setPosition(coords);
-marker.setMap(map);
-// 결과값으로 받은 위치를 마커로 표시합니다
-document.getElementById('lat').value = result[0].y;
-document.getElementById('lng').value = result[0].x;
-infowindow.close();
-infowindow.open(map,marker);
-// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-map.setCenter(coords);
-}
-});
-});
-});
 
 </script>

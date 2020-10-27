@@ -113,7 +113,7 @@
                   </td>
                </tr>
                <tr class="boardWrite_table_tr">
-                  <td class="boardWrite_index">사진올리기</td>
+                  <td class="boardWrite_index" >사진올리기</td>
                </tr>
                  <tr class="boardWrite_table_tr">
        			<td><input type="file" name="imgFile" accept="image/*" onchange="loadFile(event)"></td>           
