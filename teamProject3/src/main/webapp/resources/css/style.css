@@ -122,8 +122,8 @@ button:hover{opacity: .7;}
 
 /* 게시판 작성페이지 */
 
-.board_table{width:50%;}
-.boardWrite_table{ border: 2px rgb(226, 226, 226) solid; padding: 15px; border-radius: 5px; box-shadow: rgba(0, 0, 0, .2)5px 5px 4px 4px;}
+.board_table{margin-top:75px; width:840px;}
+.boardWrite_table{border: 2px rgb(226, 226, 226) solid; padding: 15px; border-radius: 5px; box-shadow: rgba(0, 0, 0, .2)5px 5px 4px 4px;}
 .boardWrite_index{font-size: 16px; font-weight: bold; border-radius: 5px; width: 150px; border-bottom: 1px solid rgb(192, 192, 192); border-collapse: collapse; text-align: center; background-color: rgb(255, 255, 255);}
 #content_character{padding-left:10px;margin-left: 10px; font-size: 14px; border-radius: 5px; width:150px; height: 25px; background-color: rgb(255, 255, 255);}
 #content_character>option{color: rgb(131, 131, 131); font-size: 16px;}

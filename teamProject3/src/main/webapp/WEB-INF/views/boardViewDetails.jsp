@@ -108,14 +108,19 @@
                </tr>
                <tr>
                   <td colspan="2" id="boardmap" style="width: 600px; height: 300px;">
-                  <input type="hidden" id="lat" name="lat" value="${board.lat}" /></td>
-                  <td><input type="hidden" id="lng" name="lng" value="${board.lng}"/>
+                  <input type="hidden" id="lat" name="lat" value="${board.lat}" />
+                  </td>
+                  <td>
+                  <input type="hidden" id="lng" name="lng" value="${board.lng}"/>
                   </td>
                   					
                   <c:forEach var="image" items="${image}">
-					 <tr class="boardWrite_table_tr">
-					<td><img src="data:image/png;base64,${image}"></td>
-               </tr>
+                  	<tr><td></td></tr>
+				 	<tr class="boardWrite_table_img">
+					<td colspan="2">
+					<img style="width:840px; marhin-top:8px;" src="data:image/png;base64,${image}">
+					</td>
+               		</tr>
 				</c:forEach>
                </tr>             
             </table>      
@@ -123,19 +128,15 @@
          <div class="boardWrite_btn_container">
                          
          </div>
-      </div>
          </form>
-   
-
+      </div>         
 				  <input id="userID1" type="hidden" value="${board.userID}">
 				  <input id="userID2" type="hidden" value="${user.userID}">
-</body>
-</html>
 <script>
 $(function(){
 		if($("#userID1").val()==$("#userID2").val()){		
-	              $('.boardWrite_btn_container').append('<a href="Bulletin_board_repair.do?seq=${board.seq}"><input type="button" class="board_fix_btn" value="수정하기"/></a>');
-	              $('.boardWrite_btn_container').append('<a href="board_Delete.do?seq=${board.seq}"><input type="button" class="board_fix_btn" value="삭제하기"/></a>');
+	              $('.boardWrite_btn_container').append('<a href="Bulletin_board_repair.do?seq=${board.seq}"><input type="button" style="background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); margin-top:8px; border-radius:5px; border:none; color:white;"class="board_fix_btn" value="수정하기"/></a>');
+	              $('.boardWrite_btn_container').append('<a href="board_Delete.do?seq=${board.seq}"><input type="button" style="background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); margin-top:8px; border-radius:5px; border:none; color:white;" class="board_fix_btn" value="삭제하기"/></a>');
 	          }
 		});
 
@@ -157,5 +158,6 @@ var infowindow = new kakao.maps.InfoWindow({content : '<div style="width:150px;t
 infowindow.open(map,marker);
 map.setCenter( new kakao.maps.LatLng(lat,lng));
 
-
 </script>
+</body>
+</html>
