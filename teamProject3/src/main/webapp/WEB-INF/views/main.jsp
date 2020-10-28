@@ -96,11 +96,16 @@
    <div class="main_logo">
     <!-- <img id="main_logo" src="img/main_logo.png" alt="메인로고'나홀로집에'"> -->
     </div>
-    <div class="div_search">
-        <div class="search_container">
-        <input type="search" placeholder="검색어를 입력하세요">
-        <button type="submit"><img src="resources/img/search_w.png" alt="검색"></button>
-        </div>
+    <form action="board_all.do">
+		<div class="div_search">
+			<div class="search_container">
+				<input type="text" name="serchKeyword" placeholder="검색어를 입력하세요">
+				<button type="submit">
+					<img src="resources/img/search_w.png" alt="검색">
+				</button>
+			</div>
+	</form>
+ 
         <div id="page_dot">            
             <div id="dot_div"></div>           
             <!-- <div id="dot_div"></div>           
