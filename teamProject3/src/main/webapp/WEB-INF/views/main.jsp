@@ -104,6 +104,7 @@
 					<img src="resources/img/search_w.png" alt="검색">
 				</button>
 			</div>
+			</div>
 	</form>
  
         <div id="page_dot">            
@@ -111,7 +112,7 @@
             <!-- <div id="dot_div"></div>           
             <div id="dot_div"></div>            -->
     </div> 
-    </div>    
+     
     <section class="main_part2">        
         <div id="imgs_main">            
             <div class="img_slide">
