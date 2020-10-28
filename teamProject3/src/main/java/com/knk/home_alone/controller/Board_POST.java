@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.knk.home_alone.domain.BoardVO;
 import com.knk.home_alone.domain.imageDTO;
 import com.knk.home_alone.service.BoardService;
+import com.knk.home_alone.service.JSONservice;
 
 import lombok.extern.log4j.Log4j;
 
@@ -24,7 +25,8 @@ public class Board_POST {
 
 	@Autowired 
 	private BoardService service;
-	
+	@Autowired //json 파일 위도,경도 값으로 파일 만들기
+	private JSONservice jsonService;
 	
 	@RequestMapping("/board_all.do")
 	public String getBoardList(BoardVO vo, Model mav) throws Exception {
@@ -35,11 +37,20 @@ public class Board_POST {
 
 		return "board_all";
 	}
+	@RequestMapping("/board_Delete.do")
+	public String board_Delete(BoardVO vo) throws Exception {
+		log.info("board_Delete");
+		service.board_Delete(vo);
+		service.board_Delete2(vo);
+		return "redirect:/board_all.do";
 	
+	}
+
 	 @RequestMapping(value ="/boardupdate.do" ,method = RequestMethod.POST)
 		public String boardupdate(BoardVO vo,imageDTO dto) throws IllegalStateException, Exception {
 		 log.info("===========boardUpdate===============");
 			service.boardupdate(vo);
+			 jsonService.sand();
 		 try {
 			 log.info("===========imageUpdate===============");
 		        Map<String, Object> imageMap = new HashMap<String, Object>();
@@ -81,6 +92,7 @@ public class Board_POST {
 					paramList.add(encodedString);
 					paramList.add(encodedString2);
 					paramList.add(encodedString3);
+					
 					mav.addAttribute("image",paramList);
 				}
 			}catch (Exception e) {
@@ -110,9 +122,12 @@ public class Board_POST {
 					mav.addAttribute("board", boardvo);
 					List<Map<String,Object>> resultList = null;
 					List<String> paramList = new ArrayList<String>();
+					List<String> paramList2 = new ArrayList<String>();
+					List<String> paramList3 = new ArrayList<String>();
+
 					try {
 						resultList = service.getboardImage(vo.getSeq());
-						mav.addAttribute("resultList",resultList);
+						/*mav.addAttribute("resultList",resultList);*/					
 						Iterator<Map<String,Object>> itr = resultList.iterator();
 						while(itr.hasNext()){
 							Map<String,Object>element = (Map<String,Object>)itr.next();
@@ -126,9 +141,14 @@ public class Board_POST {
 							element.put("base642", encodedString2);
 							element.put("base643", encodedString3);
 							paramList.add(encodedString);
-							paramList.add(encodedString2);
-							paramList.add(encodedString3);
+							paramList2.add(encodedString2);
+							paramList3.add(encodedString3);
+							
 							mav.addAttribute("image",paramList);
+							mav.addAttribute("image2",paramList2);
+							mav.addAttribute("image3",paramList3);
+
+							
 								}
 							}catch (Exception e) {
 								// TODO: handle exception
@@ -140,21 +160,27 @@ public class Board_POST {
 			
 			@RequestMapping(value ="/boardupdate2.do" ,method = RequestMethod.POST)
 			public String boardupdate2(BoardVO vo,imageDTO dto) throws IllegalStateException, Exception {
-			 log.info("===========boardUpdate===============");
-				service.boardupdate(vo);
+			 log.info("===========boardUpdate2===============");
+			 System.out.println(vo);
+				service.boardupdate2(vo);
 			 try {
-				 log.info("===========imageUpdate===============");
-			        Map<String, Object> imageMap = new HashMap<String, Object>();
-			        imageMap.put("img", dto.getImgFile().getBytes());
+				 log.info("===========imageUpdate2===============");
+			        Map<String, Object> imageMap = new HashMap<String, Object>();			        			
+				    imageMap.put("img", dto.getImgFile().getBytes());
 			        imageMap.put("img2", dto.getImgFile2().getBytes());
 			        imageMap.put("img3", dto.getImgFile3().getBytes());
+			        imageMap.put("seq", vo.getSeq());
 
 			        System.out.println(imageMap);
-			        service.boardImage(imageMap);   
+			       
+			        service.boardImageUpdate(imageMap);   
 			    } catch (Exception e) {
 			        e.printStackTrace();
 			    }
 				
 				return "redirect:board_all.do";
 			}
+			
+			
+			
 }

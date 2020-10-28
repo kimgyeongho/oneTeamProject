@@ -40,9 +40,9 @@ public class Main_POST_Controller {
 
 	@Autowired // 이메일 보내기 회원가입 
 	private MailSendService mailsender; 
-	
-    @Autowired //json 파일 위도,경도 값으로 파일 만들기
-    private JSONservice jsonService;
+	  /* @Autowired //json 파일 위도,경도 값으로 파일 만들기
+	    private JSONservice jsonService;*/
+ 
     
     
 	 // 회원가입 post
@@ -202,7 +202,7 @@ public class Main_POST_Controller {
 	 }
 		 
 		 
-		 
+	/*	 
 	 //위도경도 json 파일 만들기
      @RequestMapping(value = "/sand", method = RequestMethod.POST)
 	 public String address(addressDTO DTO,
@@ -212,5 +212,5 @@ public class Main_POST_Controller {
 	 jsonService.sand();
 		 
 	 return "main";
-     }
+     }*/
 }

@@ -3,6 +3,7 @@ package com.knk.home_alone.mapper;
 import java.util.List;
 import java.util.Map;
 
+
 import com.knk.home_alone.domain.BoardVO;
 
 public interface BoardMapper {
@@ -23,5 +24,11 @@ public interface BoardMapper {
 	public void boardupdate2(BoardVO vo)throws Exception;
 	//게시판 이미지 수정하기
 	public void boardImageUpdate(Map<String, Object> imageMap)throws Exception;
-
+    //게시판 글 삭제하기
+	public void board_Delete(BoardVO vo)throws Exception;
+    //이미지 글 삭제하기
+	public void board_Delete2(BoardVO vo)throws Exception;
+	// 위도경도  찾기
+		public List<String> selec_lat() throws Exception;
+		public List<String> selec_lng() throws Exception;
 }

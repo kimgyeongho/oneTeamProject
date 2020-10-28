@@ -22,4 +22,8 @@ public interface BoardService {
 		public void boardupdate2(BoardVO vo)throws Exception;
 		//게시판 이미지 수정하기
 		public void boardImageUpdate(Map<String, Object> imageMap)throws Exception;
+		//게시판 글 삭제하기
+		public void board_Delete(BoardVO vo)throws Exception;
+		//이미지 글 삭제하기
+		public void board_Delete2(BoardVO vo)throws Exception;
 }

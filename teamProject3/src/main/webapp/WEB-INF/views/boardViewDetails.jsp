@@ -77,6 +77,7 @@
          <form action="boardupdate.do" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
              <table class="boardWrite_table">
                <tr class="boardWrite_table_tr">
+               
                   <td class="boardWrite_index">제목</td>
 						<td>${board.title}</td>
                </tr>
@@ -107,10 +108,10 @@
                </tr>
                <tr>
                   <td colspan="2" id="boardmap" style="width: 600px; height: 300px;">
-                  <input type="hidden" id="lat" name="lat" value=" ${board.lat}" /></td>
-                  <td><input type="hidden" id="lng" name="lng" value=" ${board.lng}" />
+                  <input type="hidden" id="lat" name="lat" value="${board.lat}" /></td>
+                  <td><input type="hidden" id="lng" name="lng" value="${board.lng}"/>
                   </td>
-                  
+                  					
                   <c:forEach var="image" items="${image}">
 					 <tr class="boardWrite_table_tr">
 					<td><img src="data:image/png;base64,${image}"></td>
@@ -134,26 +135,27 @@
 $(function(){
 		if($("#userID1").val()==$("#userID2").val()){		
 	              $('.boardWrite_btn_container').append('<a href="Bulletin_board_repair.do?seq=${board.seq}"><input type="button" class="board_fix_btn" value="수정하기"/></a>');
+	              $('.boardWrite_btn_container').append('<a href="board_Delete.do?seq=${board.seq}"><input type="button" class="board_fix_btn" value="삭제하기"/></a>');
 	          }
 		});
 
-   var mapContainer = document.getElementById('boardmap'), // 지도를 표시할 div 
-   mapOption = {
-      center : new kakao.maps.LatLng(37.4860759059799, 126.92448237288), // 지도의 중심좌표
-      level : 5
-   // 지도의 확대 레벨
-   };
+var mapContainer = document.getElementById('boardmap'), // 지도를 표시할 div 
+mapOption = {
+   center : new kakao.maps.LatLng(37.4860759059799, 126.92448237288), // 지도의 중심좌표
+   level : 5
+// 지도의 확대 레벨
+};
 	var lat= document.getElementById('lat').value;
 	var lng= document.getElementById('lng').value;
-   //지도를 생성합니다    
-   var map = new kakao.maps.Map(mapContainer, mapOption);
+//지도를 생성합니다    
+var map = new kakao.maps.Map(mapContainer, mapOption);
 	
-   //주소-좌표 변환 객체를 생성합니다
-   var geocoder = new kakao.maps.services.Geocoder();
-   var marker = new kakao.maps.Marker({map: map,position: new kakao.maps.LatLng(lat,lng)});
-   var infowindow = new kakao.maps.InfoWindow({content : '<div style="width:150px;text-align:center;padding:6px 0;">우리집</div>'});
-   infowindow.open(map,marker);
-   map.setCenter( new kakao.maps.LatLng(lat,lng));
+//주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+var marker = new kakao.maps.Marker({map: map,position: new kakao.maps.LatLng(lat,lng)});
+var infowindow = new kakao.maps.InfoWindow({content : '<div style="width:150px;text-align:center;padding:6px 0;">우리집</div>'});
+infowindow.open(map,marker);
+map.setCenter( new kakao.maps.LatLng(lat,lng));
 
 
 </script>

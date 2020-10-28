@@ -50,7 +50,6 @@ public class MailSendService {
 	// 난수를 이용한 키 생성
 	private boolean lowerCheck;
 	private int size;
-	private ServletResponse response;
 
 	public String getKey(boolean lowerCheck, int size) {
 		this.lowerCheck = lowerCheck;

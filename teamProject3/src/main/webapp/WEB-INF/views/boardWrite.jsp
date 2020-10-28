@@ -26,9 +26,9 @@
             <ul class="nav_ul">
                <li><p>소개</p>
                   <ul class="nav_ul_b">
-                     <a href="purpose.do"><li>목표</li></a>
-                     <a href="service_info.do"><li>서비스 소개</li></a>
-                     <a href="maker.do"><li>만든이</li></a>
+                     <a href="#"><li>목표</li></a>
+                     <a href="#"><li>서비스 소개</li></a>
+                     <a href="#"><li>만든이</li></a>
                   </ul></li>
             </ul>
          </nav>
@@ -113,26 +113,25 @@
                   </td>
                </tr>
                <tr class="boardWrite_table_tr">
-                  <td class="boardWrite_index" >사진올리기</td>
+                  <td class="boardWrite_index">사진올리기</td>
                </tr>
                  <tr class="boardWrite_table_tr">
-       			<td><input type="file" name="imgFile" accept="image/*" onchange="loadFile(event)"></td>           
-         	    <td><img id="output1" class="output"/></td>
-         	    </tr>
+       			<td><input type="file"  id="imgFile" name="imgFile" accept="image/*" onchange="loadFile(event)"></td>           
+         	    <td><img  id="output1" class="output"/></td>
+         	    </tr>       	    
          	     <tr class="boardWrite_table_tr">
-       			<td><input type="file" name="imgFile2" accept="image/*" onchange="loadFile2(event)"></td>           
-         	    <td><img id="output2" class="output"/></td>
-         	    </tr>
+       			<td><input type="file" id="imgFile2" name="imgFile2" accept="image/*" onchange="loadFile2(event)"></td>           
+         	    <td><img  id="output2" class="output"/></td>
+         	    </tr>         	    
          	     <tr class="boardWrite_table_tr">
-       			<td><input type="file" name="imgFile3" accept="image/*" onchange="loadFile3(event)"></td>           
-         	    <td><img id="output3" class="output"/></td>
-         	    </tr>
-         
+       			<td><input type="file" id="imgFile3" name="imgFile3" accept="image/*" onchange="loadFile3(event)"></td>           
+         	    <td><img  id="output3" class="output"/></td>
+         	    </tr>   
               
             </table>      
          <!-- 보드 검색창 버튼 부분 -->
          <div class="boardWrite_btn_container">
-            <button type="submit" class="board_search_btn">올리기</button>
+            <button id="Check" type="submit" class="board_search_btn">올리기</button>
             <a href="board_all.do"><button class="board_fix_btn" >취소</button></a>
          </div>
       </div>
@@ -178,7 +177,19 @@ map.setCenter(coords);
 });
 });
 });
-
+$("#Check").on("click", function(){ 
+	if($("#imgFile").val()==""){
+		alert('이미지 파일을 3개 전부 올려주세요');
+		return false;
+	}if($("#imgFile2").val()==""){
+			alert('이미지 파일을 3개 전부 올려주세요');
+			return false;
+		}
+			if($("#imgFile3").val()==""){
+				alert('이미지 파일을 3개 전부 올려주세요');
+				return false;
+	}
+	});
 
 var loadFile = function(event) {
 	  var reader = new FileReader();

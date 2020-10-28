@@ -7,18 +7,18 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.knk.home_alone.mapper.MainMapper;
+import com.knk.home_alone.mapper.BoardMapper;
 
 import lombok.extern.log4j.Log4j;
 @Log4j
 public class JSONservice {
 	@Autowired //json만들기 위한 Mapper에서 바로 사용  서비스에서 가지고 오지 않음
-	private MainMapper mainMapper;
+	private BoardMapper BoardMapper;
             //데이터베이스에서 위도,경도 값을 가지고와서 json 만들기
 			public void sand() throws Exception {
 				
-				ArrayList<String> lat= (ArrayList<String>) mainMapper.selec_lat();
-				ArrayList<String> lng= (ArrayList<String>) mainMapper.selec_lng();
+				ArrayList<String> lat= (ArrayList<String>) BoardMapper.selec_lat();
+				ArrayList<String> lng= (ArrayList<String>) BoardMapper.selec_lng();
 
 		        JSONObject myjson = new JSONObject();	
 		        JSONArray positionsArray = new JSONArray();

@@ -42,8 +42,8 @@ CREATE TABLE `board` (
 	`address` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
 	`regDate` DATE NULL DEFAULT sysdate(),
 	`cnt` INT(11) NULL DEFAULT '0',
-	`lat` DOUBLE(22,0) NULL DEFAULT NULL,
-	`lng` DOUBLE(22,0) NULL DEFAULT NULL,
+	`lat` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`lng` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	PRIMARY KEY (`seq`, `userID`) USING BTREE
 )
 COLLATE='utf8_general_ci'
@@ -58,8 +58,11 @@ ENGINE=InnoDB
 
 //이미지 테이블 
 CREATE TABLE `oneteam_img` (
-	`seq` INT(11) NULL DEFAULT NULL,
-	`img` BLOB NULL DEFAULT NULL
+	`seq` INT(11) NOT NULL,
+	`img` BLOB NULL DEFAULT NULL,
+	`img2` BLOB NULL DEFAULT NULL,
+	`img3` BLOB NULL DEFAULT NULL,
+	PRIMARY KEY (`seq`) USING BTREE
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB

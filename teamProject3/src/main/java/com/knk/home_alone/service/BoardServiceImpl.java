@@ -61,6 +61,17 @@ public class BoardServiceImpl implements BoardService {
 		boardMapper.boardImageUpdate(imageMap);
 		
 	}
+	//게시판 글 삭제하기
+	@Override
+	public void board_Delete(BoardVO vo) throws Exception {
+		boardMapper.board_Delete(vo);
+	}
+	//게시판 글 삭제하기
+	@Override
+	public void board_Delete2(BoardVO vo) throws Exception {
+		boardMapper.board_Delete2(vo);
+
+	}
 
 	
 

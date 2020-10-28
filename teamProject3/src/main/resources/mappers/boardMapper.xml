@@ -27,7 +27,7 @@
 		update board set 
 		title = #{title},
 		content_character = #{content_character},
-		content_character = #{content_character2},
+		content_character2 = #{content_character2},
 		content = #{content},
 		address = #{address},
 		lat = #{lat},
@@ -75,17 +75,38 @@
     
     
 </select>
-	
+	<!--게시판 글 삭제하기-->
+	<delete id="board_Delete">
+		DELETE FROM board
+	WHERE SEQ=#{seq}
+	</delete>
+	<!--이미지 삭제하기-->
+	<delete id="board_Delete2">
+		DELETE FROM oneteam_img
+	WHERE SEQ=#{seq}
+	</delete>
 	<update id="boardImageUpdate" parameterType="java.util.Map">
 		update oneteam_img set 		
 		img = #{img},
 		img2 = #{img2},
-		img3 = #{img3},
-		where seq=#{seq}
+		img3 = #{img3}
+	WHERE SEQ=#{seq}
 	</update>
 	
 	<!--게시판 이미지 올리기  -->
 	<insert id="boardImage" parameterType="java.util.Map">
-    INSERT INTO oneteam_img(img,img2,img3,seq) VALUES(#{img},#{img2},#{img3},(SELECT IFNULL(MAX(seq+1), 0) FROM board SUBQUERY))   
+    INSERT INTO oneteam_img(seq,img,img2,img3) VALUES((SELECT IFNULL(MAX(seq+1), 0) FROM oneteam_img SUBQUERY),#{img},#{img2},#{img3})   
 </insert>
+
+	 <!-- 위도,경도 찾기  test중입니다-->
+   <select id="selec_lat" 
+		resultType="String">
+		SELECT lat 
+		FROM board 
+	</select>
+	 <!-- 위도,경도 찾기  test중입니다-->
+   <select id="selec_lng" 
+		resultType="String">
+		SELECT lng FROM board
+	</select>
 </mapper>
