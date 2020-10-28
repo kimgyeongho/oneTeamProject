@@ -72,13 +72,17 @@
     </header>    
     <section class="all_body_section">
     <div class="page_name" style=" background-image: url(/resources/img/board.png);"><h1>게시판</h1></div>
-        <div class="board_div">
-            <button class="board_btn_all">전체 게시판</button>
+        
+    <section class="board_section" >     
+    <div style="margin-left:16px; float:left; position: relative; width: 500px; height: 24px;">
+          <form style="height: 24px;" action="board_all.do">
+				<input style="float: left; width: 200px;" type="text" name="serchKeyword" placeholder="검색어를 입력하세요">
+				<button  style="color: white;float: left; width: 84px;"type="submit">검색	</button>	
+		</form>
         </div>
         <div class="board_go_boardWrite">
             <a href="boardWrite.do"><button class="btn_go_boardWrite">글쓰기</button></a>        
-        </div>
-    <section class="board_section">        
+        </div>   
           <table class="board_contentA" >             
           <tbody style="height: 400px; overflow: scroll;">             
             <tr class="contentA_index">
@@ -86,7 +90,7 @@
               <td><h4>번호</h4></td>
               </c:if>
               <td><h4>제목</h4></td>
-			  <td><h4>벙 구조</h4></td>
+			  <td><h4>방 구조</h4></td>
 			  <td><h4>계약기간</h4></td>    
               <td><h4>아이디</h4></td>
               <td><h4>내용</h4></td>
@@ -99,14 +103,14 @@
 		<c:if test="${boardList == null}"> 			             		
 		<td>${board.seq }</td>
 		</c:if>
-		<td><a href="getBoard.do?seq=${board.seq}">${board.title}</a></td>
-		<td><a href="getBoard.do?seq=${board.seq}">${board.content_character}</a></td>
-		<td><a href="getBoard.do?seq=${board.seq}">${board.content_character2}</a></td>
-		<td><a href="getBoard.do?seq=${board.seq}">${board.userID}</a></td>		
-		<td><a href="getBoard.do?seq=${board.seq}">${board.content}</a></td>
-		<td><a href="getBoard.do?seq=${board.seq}">${board.address}</a></td>				
-		<td><a href="getBoard.do?seq=${board.seq}">${board.regDate}</a></td>
-		<td><a href="getBoard.do?seq=${board.seq}">${board.cnt}</a></td>
+		<td><a style="font-size: 12px; text-decoration: none;" href="getBoard.do?seq=${board.seq}">${board.title}</a></td>
+		<td><a style="font-size: 12px;text-decoration: none;"href="getBoard.do?seq=${board.seq}">${board.content_character}</a></td>
+		<td><a style="font-size: 12px;text-decoration: none;"href="getBoard.do?seq=${board.seq}">${board.content_character2}</a></td>
+		<td><a style="font-size: 12px;text-decoration: none;"href="getBoard.do?seq=${board.seq}">${board.userID}</a></td>		
+		<td><a style="font-size: 12px;text-decoration: none;"href="getBoard.do?seq=${board.seq}">${board.content}</a></td>
+		<td><a style="font-size: 12px;text-decoration: none;"href="getBoard.do?seq=${board.seq}">${board.address}</a></td>				
+		<td><a style="font-size: 12px;text-decoration: none;"href="getBoard.do?seq=${board.seq}">${board.regDate}</a></td>
+		<td><a style="font-size: 12px;text-decoration: none;"href="getBoard.do?seq=${board.seq}">${board.cnt}</a></td>
 		</tr>
 					</c:forEach>
 
