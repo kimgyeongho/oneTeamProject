@@ -104,6 +104,7 @@ public class MainServiceImpl implements MainService {
 		if (id == null) {
 			out.println("<script>");
 			out.println("alert('가입된 아이디가 없습니다.');");
+			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
 			return null;

@@ -125,13 +125,13 @@
 					<td  style="width: 204px;"><img  style="width:204px;"src="data:image/png;base64,${image}"></td>
 					<td colspan="2">
 					<ul style="list-style: none; margin-left: 8px;">
-					<li style="text-decoration: none;">#방 유형(원룸)</li>
-					<li style="text-decoration: none;"><h2 style= "font-size: 28px;">#가격(예,500/50)</h2></li>
-					<li style="text-decoration: none;">#위치</li>
-					<li style="text-decoration: none;">#올린사람 아이디</li>
+					<li style="text-decoration: none;"><h2 style= "font-size: 18px;">${board.content_character}</h2></li>
+					<li style="text-decoration: none;"><h2 style= "font-size: 18px;">${board.content_character2}</h2></li>
+					<li style="text-decoration: none;"><h2 style= "font-size: 28px;">${board.title}</h2></li>
+					<li style="text-decoration: none;"><h2 style= "font-size: 18px;">${board.address}</h2></li>
 					</ul>
 					</td>
-					<td style="width: 64px;">2020-10-20</td>
+					<td style="width: 64px;"><h2 style= "font-size: 11px;">${board.regDate}</h2></td>
 					</tr>					
 					</c:forEach>					
 					</c:forEach>					

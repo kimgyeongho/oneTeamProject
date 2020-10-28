@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.knk.home_alone.domain.BoardVO;
 import com.knk.home_alone.domain.imageDTO;
@@ -209,7 +210,28 @@ public class Board_POST {
 				
 				return "redirect:board_all.do";
 			}
-			
+			   @ResponseBody
+			   @RequestMapping(value="/selectboard", method = RequestMethod.POST)
+			   public List<BoardVO> select(BoardVO vo) throws Exception {
+//			            if (vo.getSerchKeyword() == null)vo.setSerchKeyword("");
+//			            StringBuffer sb = new StringBuffer();
+//			            sb.append("{시발\":[");
+//			            List<BoardVO> data= service.getboardList(vo);
+//			            for (int i = 0; i < data.size(); i++) {
+//			               sb.append("[{value\":\""+data.get(i).getTitle()+"\"},");
+//			               sb.append("[{value\":\""+data.get(i).getContent_character()+"\"},");
+//			               sb.append("[{value\":\""+data.get(i).getContent_character2()+"\"},");
+//			               sb.append("[{value\":\""+data.get(i).getUserID()+"\"},");
+//			               sb.append("[{value\":\""+data.get(i).getContent()+"\"},");
+//			               sb.append("[{value\":\""+data.get(i).getAddress()+"\"},");
+//			               sb.append("[{value\":\""+data.get(i).getRegDate()+"\"},");
+//			               sb.append("[{value\":\""+data.get(i).getCnt()+"\"},");
+//			            }
+//			            sb.append("]}");
+//			            System.out.println(sb.toString());
+			      return null;
+
+			   }
 			
 			
 }

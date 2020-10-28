@@ -120,6 +120,28 @@
     </section>
     <!-- <img class="board_img_up" src="/images/arrowUP.png" alt=" 화살표">
     <img class="board_img_down" src="/images/arrowDown.png" alt="아래 화살표">  -->
+    <script type="text/javascript">
+function selectboard(){
+  var a= document.getElementById('contentA');
+   if(a!=null){
+    a.remove();
+   }
+
+ $.ajax({
+        url: "/selectboard",
+        type: "POST",
+        dataType : "json",
+        data: $("#serchKeyword"),
+         success: function(data){
+            if(data==null){
+               
+            }
+        }  
+
+  }) 
+    }
+ 
+</script>
     
    
 </body>

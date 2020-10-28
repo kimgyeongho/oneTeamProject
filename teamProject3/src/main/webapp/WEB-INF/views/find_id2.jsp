@@ -82,8 +82,8 @@
 				</div>				
                 </div>
             <div class="find_identification_btn" style="width: 316px;">
-            <button type="submit" style="height: 24px;">로그인</button>
-            <button type="submit" style="height: 24px;">비밀번호 찾기</button>
+            <a href="login.do"><button type="button" style="height: 24px;">로그인</button></a>
+            <a href="find_pw.do"><button type="button" style="height: 24px;">비밀번호 찾기</button></a>
             </div>
         </form> 
     </section>
