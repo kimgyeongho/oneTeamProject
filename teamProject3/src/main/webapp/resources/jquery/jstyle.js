@@ -198,6 +198,19 @@ $(document).ready(function() {
 	
 
 });
+$(function() {
+	var timeout = setTimeout(function(){
+		$('.main_logo').fadeOut(800)
+		},6000);
+	var show1 = setTimeout(function() {
+		$('.main_logo1').fadeIn(1000)
+		},7050)
+	setTimeout(timeout, 6000);
+	setTimeout(show1, 7050);
+
+
+	});
+
 
   
 

@@ -92,10 +92,13 @@
             <img id="nav_right_arrow"src="resources/img/arrow_right_w.png" alt="오른쪽화살표">
         </div>    
     </header>    
-  
-   <div class="main_logo">
-    <!-- <img id="main_logo" src="img/main_logo.png" alt="메인로고'나홀로집에'"> -->
-    </div>
+  <div class="main_logo" id="main_logo">
+  <!-- 	<img id="main_move" src="resources/img/purpose_2.gif"/>
+  	<img id="main_img" src="resources/img/main_logo.png"/> -->
+  </div>
+  <div class="main_logo1" ></div>
+   
+    
     <form action="board_all.do">
 		<div class="div_search">
 			<div class="search_container">
@@ -104,14 +107,16 @@
 					<img src="resources/img/search_w.png" alt="검색">
 				</button>
 			</div>
-			</div>
-	</form>
- 
-        <div id="page_dot">            
+			<div id="page_dot">            
             <div id="dot_div"></div>           
             <!-- <div id="dot_div"></div>           
             <div id="dot_div"></div>            -->
-    </div> 
+    		</div> 
+			</div>
+	</form>
+ 	
+        
+    
      
     <section class="main_part2">        
         <div id="imgs_main">            
