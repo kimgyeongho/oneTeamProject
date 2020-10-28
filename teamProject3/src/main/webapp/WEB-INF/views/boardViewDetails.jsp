@@ -157,8 +157,8 @@
 <script>
 $(function(){
 		if($("#userID1").val()==$("#userID2").val()){		
-	              $('.boardWrite_btn_container').append('<a href="Bulletin_board_repair.do?seq=${board.seq}"><input type="button" style="background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); margin-top:8px; border-radius:5px; border:none; color:white;"class="board_fix_btn" value="수정하기"/></a>');
-	              $('.boardWrite_btn_container').append('<a href="board_Delete.do?seq=${board.seq}"><input type="button" style="background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); margin-top:8px; border-radius:5px; border:none; color:white;" class="board_fix_btn" value="삭제하기"/></a>');
+	              $('.boardWrite_btn_container').append('<a href="Bulletin_board_repair.do?seq=${board.seq}"><input type="button" style="margin-right:4px; background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); margin-top:8px; border-radius:5px; border:none; color:white;"class="board_fix_btn" value="수정하기"/></a>');
+	              $('.boardWrite_btn_container').append('<a href="board_Delete.do?seq=${board.seq}"><input type="button" style="margin-left:4px; background: linear-gradient(rgb(159, 231, 43), rgb(25, 199, 34), rgb(7, 173, 35)); margin-top:8px; border-radius:5px; border:none; color:white;" class="board_fix_btn" value="삭제하기"/></a>');
 	          }
 		});
 

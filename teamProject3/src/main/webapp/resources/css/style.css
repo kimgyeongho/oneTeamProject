@@ -161,11 +161,12 @@ button:hover{opacity: .7;}
 #map_search_btn{position: absolute; width: 60px; height: 24px; font-size: 14px;}
 
 /* 지도 기능 옵션 버튼 */
-.map_control_btn{z-index: 3; width: 1280px; left: 36px; top: 136px; position: absolute;}
+.map_control_btn{z-index: 3; width: 1280px; left: 36px; top: 70px; position: absolute;}
 .btn_search{float: right; margin-left: 5px; background: #777; }
-#map{position: absolute; left: 36px; top: 96px; width: 1280px; height: 750px;}
+#map{position: absolute; left: 36px; top: 36px; width: 1280px; height: 800px;}
 #roadview{position: absolute;top: 96px; left: 1320px; width:540px;height:360px; z-index: 2;}
-.communication{border: 1px solid rgb(192, 192, 192); position: absolute;top: 460px; left: 1320px; width:540px;height:380px; z-index: 2;}
+.m_communication{border: 1px solid rgb(192, 192, 192); height: 800px;float: right; margin-right: 36px; padding:3px;overflow:hidden; overflow-y: scroll;  position: absolute;left: 1320px; width:540px;z-index: 2;top:36px;}
+.m_communication::-webkit-scrollbar{display: none;}
 #map>p{position: absolute; z-index: 3; width: 50%; margin: 5px; border: 1px solid black;}
 #btnRoadview{z-index: 8; position: absolute; left: 50px;}
 .map_p{left: 360px; top: 880px; position: absolute; z-index: 2;}
@@ -173,10 +174,10 @@ button:hover{opacity: .7;}
 #result{position: absolute; z-index: 4; width: 1500px;}
 
 /*지도로 거리구하는 알고리즘*/
-#map_distance_show{display: none; width: 420px; font-size: 14px; position: absolute; top: 72px; left: 800px; color:rgb(192, 192, 192);}
-#map_cata_show{display: none;width: 420px; font-size: 14px; position: absolute; top: 84px; left: 960px; color:rgb(192, 192, 192);}
-#map_loc_show{display: none;width: 420px; font-size: 14px; position: absolute; top: 84px; left: 1144px; color:rgb(192, 192, 192);}
-#map_marker_show{display: none;width: 420px; font-size: 14px; position: absolute; top: 84px; left: 640px; color:rgb(192, 192, 192);}
+#map_distance_show{display: none; width: 420px; font-size: 14px; position: absolute; top: 27px; left: 800px; color:rgb(192, 192, 192);}
+#map_cata_show{display: none;width: 420px; font-size: 14px; position: absolute; top: 39px; left: 960px; color:rgb(192, 192, 192);}
+#map_loc_show{display: none;width: 420px; font-size: 14px; position: absolute; top: 39px; left: 1144px; color:rgb(192, 192, 192);}
+#map_marker_show{display: none;width: 420px; font-size: 14px; position: absolute; top: 39px; left: 640px; color:rgb(192, 192, 192);}
 .dot {overflow:hidden;float:left;width:12px;height:12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');}    
 .dotOverlay {position:relative;bottom:10px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;font-size:12px;padding:5px;background:#fff;}
 .dotOverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}    
@@ -260,11 +261,10 @@ button:hover{opacity: .7;}
 .map_sum::-webkit-scrollbar{display: none;}
 
 /*맵 커뮤니케이션 부분============================================================================================*/
-.communication{width: 534px; height: 372px;border: 2px solid rgb(192, 192, 192); position: absolute; float: right; margin-right: 36px; padding:3px;overflow:hidden; overflow-y: scroll; } 
-.communication::-webkit-scrollbar{display: none;}
+
 .map_com{width: 530px;border: 1px solid black;}
 #map_tr{border: 1px solid black; height: 24px;}
-#map_tr:nth-child(2n){background-color: rgb(220,220,220);}
+#map_tr:nth-child(2n){background-color: rgb(240,240,240);}
 
 /* 마이페이지================================================================================================ */
 .mypage_section{margin-top:50px; width: 100%; height: 840px;}

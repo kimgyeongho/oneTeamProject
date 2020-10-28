@@ -113,21 +113,24 @@
 		</div>
 		<div class="map_wrap">
 			<div id="map"></div>
-			<div id="roadview"></div>
-			<div class="communication">
+			<!--################로드뷰 숨김######################
+			 <div id="roadview"></div> -->
+			<div class="m_communication">
 				<table class="map_com">
-					<tr id="map_tr">
-					<td style="width: 48px;"><h4>#번호</h4></td>
-					<td><h4>#${user.userID}#</h4></td>
-					<td colspan="2"><h4>#내용</h4></td>
-					<td style="width: 64px;"><h4>#날짜</h4></td>
+					
 				
 					<c:forEach items="${boardList}" var="board">
 					<c:forEach var="image" items="${image}">					           
 					<tr id="map_tr">
-					<td style="width: 48px;"><img  style="width:104px;"src="data:image/png;base64,${image}"></td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">${board.content}</td>
+					<td  style="width: 204px;"><img  style="width:204px;"src="data:image/png;base64,${image}"></td>
+					<td colspan="2">
+					<ul style="list-style: none; margin-left: 8px;">
+					<li style="text-decoration: none;">#방 유형(원룸)</li>
+					<li style="text-decoration: none;"><h2 style= "font-size: 28px;">#가격(예,500/50)</h2></li>
+					<li style="text-decoration: none;">#위치</li>
+					<li style="text-decoration: none;">#올린사람 아이디</li>
+					</ul>
+					</td>
 					<td style="width: 64px;">2020-10-20</td>
 					</tr>					
 					</c:forEach>					
