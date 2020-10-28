@@ -21,8 +21,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.knk.home_alone.domain.MainVO;
-import com.knk.home_alone.domain.addressDTO;
-import com.knk.home_alone.service.JSONservice;
 import com.knk.home_alone.service.MailSendService;
 import com.knk.home_alone.service.MainService;
 

@@ -113,7 +113,6 @@
 		<td><a style="font-size: 12px;text-decoration: none;"href="getBoard.do?seq=${board.seq}">${board.cnt}</a></td>
 		</tr>
 					</c:forEach>
-
                    </tbody>               
           </table>
            

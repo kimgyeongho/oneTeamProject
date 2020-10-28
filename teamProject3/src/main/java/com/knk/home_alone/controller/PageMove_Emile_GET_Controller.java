@@ -177,11 +177,11 @@ public class PageMove_Emile_GET_Controller {
 		
 		
 		
-		//맵으로 이동
-		@RequestMapping(value = "/map.do")
-		public void map() {
-			 
-		}   
+//		//맵으로 이동
+//		@RequestMapping(value = "/map.do")
+//		public void map() {
+//			 
+//		}   
 		
 		
 		//목표 페이지 이동

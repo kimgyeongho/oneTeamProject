@@ -1,3 +1,9 @@
+//페이지마다 로그인 되어 있을때 로그아웃 처리
+function logout(){
+if(confirm("로그아웃하시겠습니까?")){
+	location.href = "logout.do";
+}
+}
 $(function() { 
     // 헤더 노출부분================================================
     $("#nav_right_arrow").click(function(){

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,19 @@
             <div class="header_logo">
             <!-- <img src="img/logo.png" alt="로고"> -->
             </div>
-        </a>   
+        </a>
+        <div class="user_information">
+           <c:if test="${user != null}">        
+           <a href="mypage.do">           
+           <h3>${user.userID}Mypage</h3>
+           </a>            
+           </c:if>
+           <c:if test="${result != null}">        
+           <a href="mypage.do">           
+           <h3 id=name></h3>
+           </a>            
+           </c:if>
+        </div>   
         <nav class="ul_nav">
             <ul class="nav_ul">
                 <li><p>About us</p> 
@@ -38,7 +51,13 @@
                 <li><p>Member</p> 
                 <ul class="nav_ul_b">
                     <a href="authentication.do"><li>Sign up</li></a>
+                    <c:if test="${user == null}">
                     <a href="login.do"><li>login</li></a>
+                     </c:if> 
+                      <c:if test="${user != null}">
+                    <a onclick="logout();"><li>logout</li></a>
+                     </c:if>           
+                     
                 </ul>
                 </li>
             </ul>
