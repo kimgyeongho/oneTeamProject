@@ -121,133 +121,18 @@
 					<td><h4>#${user.userID}#</h4></td>
 					<td colspan="2"><h4>#내용</h4></td>
 					<td style="width: 64px;"><h4>#날짜</h4></td>
-					</tr>
+				
+					<c:forEach items="${boardList}" var="board">
+					<c:forEach var="image" items="${image}">					           
 					<tr id="map_tr">
-					<td style="width: 48px;">3</td>
-					<td>허니콤보레드 소스</td>
-					<td colspan="2">혼자 살기 좋은집</td>
-					<td style="width: 64px;">2020-10-21</td>
-					</tr>
-					           <c:forEach items="${boardList}" var="board">
-					           
-					<tr id="map_tr">
-					<td style="width: 48px;">2</td>
+					<td style="width: 48px;"><img  style="width:104px;"src="data:image/png;base64,${image}"></td>
 					<td>#${user.userID}#</td>
 					<td colspan="2">${board.content}</td>
 					<td style="width: 64px;">2020-10-20</td>
 					</tr>					
 					</c:forEach>					
-					  <c:forEach var="image" items="${image}">
-                  	<tr><td></td></tr>
-				 	<tr class="boardWrite_table_img">
-					<td colspan="2">
-					<img src="data:image/png;base64,${image}">
-					</td>
-               		</tr>
-               		</c:forEach>
-					<!-- ======================================================== -->
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
-					<tr id="map_tr">
-					<td style="width: 48px;">1</td>
-					<td>#${user.userID}#</td>
-					<td colspan="2">#내용</td>
-					<td style="width: 64px;">2020-10-19</td>
-					</tr>
+					</c:forEach>					
+                  	
 					
 				</table>
 			</div>
