@@ -89,7 +89,7 @@
         </table>
         <div class="loginbutton">
         <a><button type="button" class="log" id="idCheck" onclick="idCheck1()">로그인</button></a>
-        <a href="authentication.do"><button type="submit" class="sign">회원가입</button></a>
+        <a href="authentication.do"><button type="button" class="sign">회원가입</button></a>
         </div>
         </form>
         <div id="naver_id_login" style="text-align:center"><a href="${url}">

@@ -49,7 +49,9 @@
                 <ul class="nav_ul_b">
                     <a href="map.do"><li>map</li></a>
                     <a href="board_all.do"><li>board</li></a>
+                    	<c:if test="${user != null}">        
                     <a href="boardWrite.do"><li>write</li></a>
+                               </c:if>         
                 </ul>
                 </li>
             </ul>
