@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.knk.home_alone.domain.MainVO;
-import com.knk.home_alone.domain.addressDTO;
 import com.knk.home_alone.mapper.MainMapper;
 
 import lombok.Setter;
@@ -139,15 +138,7 @@ public class MainServiceImpl implements MainService {
 		return emailCheck;
 	}
 	
-	
-	
-	//위도,경도 데이터베이스에 입력
-	@Override
-	public void insert_address(addressDTO DTO)throws Exception {
-		// TODO Auto-generated method stub
-		mainMapper.insert_address(DTO);
 
-	}
 	
 
 	

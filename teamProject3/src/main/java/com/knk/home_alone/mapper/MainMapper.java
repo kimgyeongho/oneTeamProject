@@ -6,7 +6,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.knk.home_alone.domain.MainVO;
-import com.knk.home_alone.domain.addressDTO;
 
 
 
@@ -63,7 +62,6 @@ public interface MainMapper {
 	// 위도경도  찾기
 	public List<String> selec_lat() throws Exception;
 	public List<String> selec_lng() throws Exception;
-	// 위도경도  입력
-	public void insert_address(addressDTO DTO) throws Exception;
+	
 
 }

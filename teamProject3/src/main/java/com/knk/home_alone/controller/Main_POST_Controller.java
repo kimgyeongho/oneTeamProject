@@ -38,9 +38,6 @@ public class Main_POST_Controller {
 
 	@Autowired // 이메일 보내기 회원가입 
 	private MailSendService mailsender; 
-	  /* @Autowired //json 파일 위도,경도 값으로 파일 만들기
-	    private JSONservice jsonService;*/
- 
     
     
 	 // 회원가입 post
@@ -48,10 +45,6 @@ public class Main_POST_Controller {
 	 public String postjoin(MainVO VO ,HttpServletRequest request) throws Exception {
 	 log.info("==========================");
 	 log.info("POST join");
-			 /*	int IdCheck = service.oneteam_idCHeck(VO);
-		if(IdCheck==1) {
-		return "redirect:/signup.do";
-		}else if(IdCheck==0){*/
 	 String passwordSecurity = VO.getUserPW();
 	 String password = pwencoder.encode(passwordSecurity);
 	 VO.setUserPW(password);
@@ -76,10 +69,7 @@ public class Main_POST_Controller {
 	 boolean PwMapping = pwencoder.matches(VO.getUserPW(),login.getUserPW());
 	 if(login != null && PwMapping == true) {
 	 session.setAttribute("user", login);
-	 }/*else {
-	 session.setAttribute("user", null);
-	 //	RA.addFlashAttribute("message", false); 메시지를 전달 할 것이라면  사용하기 일단 보류 
-	 return "redirect:/login.do";}*/
+	 }
 	 }catch(NullPointerException e){
 	 return "redirect:/login.do";
 	 }
@@ -199,16 +189,4 @@ public class Main_POST_Controller {
 	 return userCheck;
 	 }
 		 
-		 
-	/*	 
-	 //위도경도 json 파일 만들기
-     @RequestMapping(value = "/sand", method = RequestMethod.POST)
-	 public String address(addressDTO DTO,
-	 HttpServletRequest request) throws Exception{
-	 log.info("===========test===============");
-	 service.insert_address(DTO);
-	 jsonService.sand();
-		 
-	 return "main";
-     }*/
 }
