@@ -35,7 +35,7 @@ public class JSONservice {
 				log.info("JSONservice" +myjson);
 
 		  try {
-		        FileWriter writer = new FileWriter("C:\\Users\\kkh\\git\\oneTeamProject4\\teamProject3\\src\\main\\webapp\\resources\\json\\json.json");
+		        FileWriter writer = new FileWriter("C:\\Users\\kkh\\git\\oneTeamProject7\\teamProject3\\src\\main\\webapp\\resources\\json\\json.json");
 		        writer.write(myjson.toJSONString());
 		        writer.flush();
 		        writer.close();

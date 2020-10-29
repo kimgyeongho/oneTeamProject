@@ -117,26 +117,22 @@
 			 <div id="roadview"></div> -->
 			<div class="m_communication">
 				<table class="map_com">
-					
-				
-					<c:forEach items="${boardList}" var="board">
-					<c:forEach var="image" items="${image}">					           
+				<c:forEach items="${resultList}" var="board">
 					<tr id="map_tr">
-					<td  style="width: 204px;"><img  style="width:204px;"src="data:image/png;base64,${image}"></td>
+					<td  style="width: 204px;"><a href="getBoard.do?seq=${board.seq}"><img  style="width:204px;"src="data:image/png;base64,${board.strImg}"></a></td>
 					<td colspan="2">
 					<ul style="list-style: none; margin-left: 8px;">
 					<li style="text-decoration: none;"><h2 style= "font-size: 18px;">${board.content_character}</h2></li>
-					<li style="text-decoration: none;"><h2 style= "font-size: 18px;">${board.content_character2}</h2></li>
+					<li style="text-decoration: none;"><h2 style= "font-size
+					: 18px;">${board.content_character2}</h2></li>
 					<li style="text-decoration: none;"><h2 style= "font-size: 28px;">${board.title}</h2></li>
 					<li style="text-decoration: none;"><h2 style= "font-size: 18px;">${board.address}</h2></li>
 					</ul>
 					</td>
 					<td style="width: 64px;"><h2 style= "font-size: 11px;">${board.regDate}</h2></td>
 					</tr>					
-					</c:forEach>					
-					</c:forEach>					
-                  	
-					
+					</c:forEach>						
+                  				
 				</table>
 			</div>
 			<div id="menu_wrap" class="bg_white">
@@ -169,9 +165,7 @@
 		</div>
 		<p class="map_p">
 			<button class="map_btn" onclick="setOverlayMapTypeId('traffic')">교통정보
-				보기</button>
-			<button class="map_btn" onclick="setOverlayMapTypeId('roadview')">로드뷰
-				도로정보 보기</button>
+				보기</button>			
 			<button class="map_btn" onclick="setOverlayMapTypeId('terrain')">지형정보
 				보기</button>
 			<button class="map_btn" onclick="setOverlayMapTypeId('use_district')">지적편집도
@@ -182,7 +176,7 @@
 
 
 	</section>
-	<script type="text/javascript"
+<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eebca8bc6ea1c503c7974e25d7381936&libraries=services,clusterer,drawing"></script>
 
 	<!-- 지도를 구성하는 스크립트문(쿼리x) -->
@@ -697,17 +691,17 @@
 			setMarkers(null);
 		}
 		//로드뷰@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		roadviewContainer = document.getElementById('roadview'); //로드뷰를 표시할 div
-		roadview = new kakao.maps.Roadview(roadviewContainer); //로드뷰 객체
+/* 		roadviewContainer = document.getElementById('roadview'); //로드뷰를 표시할 div
+	roadview = new kakao.maps.Roadview(roadviewContainer); //로드뷰 객체
 		roadviewClient = new kakao.maps.RoadviewClient(); //좌표로부터 로드뷰 파노ID를 가져올 로드뷰 helper객체
 
-		positionRoad = new kakao.maps.LatLng(37.566826, 126.9786567);
+		positionRoad = new kakao.maps.LatLng(37.566826, 126.9786567); 
 
 		// 특정 위치의 좌표와 가까운 로드뷰의 panoId를 추출하여 로드뷰를 띄운다.
 		roadviewClient.getNearestPanoId(positionRoad, 50, function(panoId) {
 			roadview.setPanoId(panoId, positionRoad); //panoId와 중심좌표를 통해 로드뷰 실행
 		});
-
+ */
 		// // 장소 검색 객체를 생성합니다
 		ps = new kakao.maps.services.Places();
 		psd = new kakao.maps.services.Places();

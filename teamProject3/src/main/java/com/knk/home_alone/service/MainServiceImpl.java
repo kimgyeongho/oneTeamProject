@@ -3,6 +3,7 @@ package com.knk.home_alone.service;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,7 +96,7 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public String oneteam_findId(HttpServletResponse response, String email, String userName) throws Exception {
 		log.info("oneteam_findId");
-
+		
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String id = mainMapper.oneteam_findId(email, userName);

@@ -41,26 +41,19 @@ public class Board_POST {
 	
 	
 	@RequestMapping("/map.do")
-	public String getBoardMapList(BoardVO vo, Model mav) throws Exception {
-		log.info("getBoardList");
-		if (vo.getSerchKeyword() == null)vo.setSerchKeyword("");
-		log.info(vo.getSerchKeyword()+"키워드가져옵니다");
-		mav.addAttribute("boardList", service.getboardList(vo));
-		List<Map<String,Object>> resultList = null;
-		List<String> paramList = new ArrayList<String>();
-		try {
-			resultList = service.getboardImage(vo.getSeq());
-			/*mav.addAttribute("resultList",resultList);*/					
-			Iterator<Map<String,Object>> itr = resultList.iterator();
-			while(itr.hasNext()){
-				Map<String,Object>element = (Map<String,Object>)itr.next();
-				byte[] encoded=org.apache.commons.codec.binary.Base64.encodeBase64((byte[]) element.get("img"));
-				String encodedString =new String(encoded);
-				element.put("base64", encodedString);
-				paramList.add(encodedString);				
-				mav.addAttribute("image",paramList);
+	public String getBoardMapList(Model mav) throws Exception {		
 
-					}
+		log.info("getBoardList");
+		List<BoardVO> resultList = null;
+		try {
+			resultList = service.seq();
+			for(BoardVO vo : resultList) {
+				byte[] encoded=org.apache.commons.codec.binary.Base64.encodeBase64((byte[]) vo.getImg());
+				String encodedString =new String(encoded);
+				vo.setStrImg(encodedString);
+				System.out.println(vo);
+				}		
+				mav.addAttribute("resultList",resultList);		
 				}catch (Exception e) {
 					// TODO: handle exception
 				}

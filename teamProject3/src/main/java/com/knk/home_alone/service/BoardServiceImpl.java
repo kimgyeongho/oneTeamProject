@@ -72,6 +72,11 @@ public class BoardServiceImpl implements BoardService {
 		boardMapper.board_Delete2(vo);
 
 	}
+	@Override
+	public List<BoardVO> seq() throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.seq();
+	}
 
 	
 

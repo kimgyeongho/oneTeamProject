@@ -8,6 +8,8 @@ import com.knk.home_alone.domain.BoardVO;
 public interface BoardService {
 	//메인화면 검색창을 통해 게시판 확인 및 게시판 클릭시 게시판 목록 보이기
 		public List<BoardVO> getboardList(BoardVO vo)throws Exception;
+		public List<BoardVO> seq() throws Exception;
+
 		//클릭시 게시판 상세 보기 
 		public BoardVO getBoard(BoardVO vo)throws Exception;
 		//게시판 글쓰기
