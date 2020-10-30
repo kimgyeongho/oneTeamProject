@@ -1,4 +1,4 @@
-package com.knk.home_alone.controller;
+/*package com.knk.home_alone.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -266,3 +266,4 @@ public class ImageUploadController {
 	
 
 }
+*/
