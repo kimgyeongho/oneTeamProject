@@ -80,7 +80,7 @@
                 <li><p>Services</p> 
                 <ul class="nav_ul_b">
                     <a href="tips.do"><li>tip</li></a>
-                    <a href=""><li>Language</li></a>
+                   
                 </ul>
                 </li>
             </ul>

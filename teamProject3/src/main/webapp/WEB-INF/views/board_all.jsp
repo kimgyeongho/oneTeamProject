@@ -59,7 +59,7 @@
                 <li><p>서비스</p> 
                 <ul class="nav_ul_b">
                     <a href="tips.do"><li>팁</li></a>
-                    <a href=""><li>언어 / Language</li></a>
+                   
                 </ul>
                 </li>
             </ul>

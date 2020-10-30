@@ -55,7 +55,7 @@
                     <a href="login.do"><li>로그인</li></a>
                      </c:if> 
                       <c:if test="${user != null}">
-                    <a onclick="logout();"><li>로그아웃</li></a>
+                    <a onclick="logout();"><li style="cursor: pointer">로그아웃</li></a>
                      </c:if>           
                      
                 </ul>
@@ -81,7 +81,7 @@
                 <li><p>서비스</p> 
                 <ul class="nav_ul_b">
                     <a href="tips.do"><li>팁</li></a>
-                    <a href=""><li>언어 / Language</li></a>
+                    
                 </ul>
                 </li>
             </ul>
