@@ -206,23 +206,12 @@ public class Board_POST {
 			   @ResponseBody
 			   @RequestMapping(value="/selectboard", method = RequestMethod.POST)
 			   public List<BoardVO> select(BoardVO vo) throws Exception {
-//			            if (vo.getSerchKeyword() == null)vo.setSerchKeyword("");
-//			            StringBuffer sb = new StringBuffer();
-//			            sb.append("{시발\":[");
-//			            List<BoardVO> data= service.getboardList(vo);
-//			            for (int i = 0; i < data.size(); i++) {
-//			               sb.append("[{value\":\""+data.get(i).getTitle()+"\"},");
-//			               sb.append("[{value\":\""+data.get(i).getContent_character()+"\"},");
-//			               sb.append("[{value\":\""+data.get(i).getContent_character2()+"\"},");
-//			               sb.append("[{value\":\""+data.get(i).getUserID()+"\"},");
-//			               sb.append("[{value\":\""+data.get(i).getContent()+"\"},");
-//			               sb.append("[{value\":\""+data.get(i).getAddress()+"\"},");
-//			               sb.append("[{value\":\""+data.get(i).getRegDate()+"\"},");
-//			               sb.append("[{value\":\""+data.get(i).getCnt()+"\"},");
-//			            }
-//			            sb.append("]}");
-//			            System.out.println(sb.toString());
-			      return null;
+			            if (vo.getSerchKeyword() == null)vo.setSerchKeyword("");
+			            List<BoardVO> data= service.getboardList(vo);
+			          for(BoardVO si:data) {
+			          }
+			        
+			      return data;
 
 			   }
 			
