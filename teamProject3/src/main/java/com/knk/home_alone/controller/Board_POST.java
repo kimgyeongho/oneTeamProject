@@ -57,7 +57,7 @@ public class Board_POST {
 				}catch (Exception e) {
 					// TODO: handle exception
 				}
-		return "map";
+		return "map3";
 	}
 	
 	@RequestMapping("/board_Delete.do")

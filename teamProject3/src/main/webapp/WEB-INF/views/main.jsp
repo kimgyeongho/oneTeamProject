@@ -55,7 +55,7 @@
                     <a href="login.do"><li>로그인</li></a>
                      </c:if> 
                       <c:if test="${user != null}">
-                    <a onclick="logout();"><li style="cursor: pointer">로그아웃</li></a>
+                    <a onclick="logout();"><li style="cursor: pointer;">로그아웃</li></a>
                      </c:if>           
                      
                 </ul>

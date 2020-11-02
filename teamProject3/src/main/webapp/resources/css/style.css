@@ -165,7 +165,7 @@ button:hover{opacity: .7;}
 .btn_search{float: right; margin-left: 5px; background: #777; }
 #map{position: absolute; left: 36px; top: 36px; width: 1280px; height: 800px;}
 #roadview{position: absolute;top: 96px; left: 1320px; width:540px;height:360px; z-index: 2;}
-.m_communication{border: 1px solid rgb(192, 192, 192); height: 800px;float: right; margin-right: 36px; padding:3px;overflow:hidden; overflow-y: scroll;  position: absolute;left: 1320px; width:540px;z-index: 2;top:36px;}
+.m_communication{ height: 800px;float: right; margin-right: 36px; padding:3px;overflow:hidden; overflow-y: scroll;  position: absolute;left: 1320px; width:540px;z-index: 2;top:98px;}
 .m_communication::-webkit-scrollbar{display: none;}
 #map>p{position: absolute; z-index: 3; width: 50%; margin: 5px; border: 1px solid black;}
 #btnRoadview{z-index: 8; position: absolute; left: 50px;}
@@ -189,9 +189,9 @@ button:hover{opacity: .7;}
 
 /* 지도오버레이============================================================================= */
 .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-.map_wrap {position:relative;width:100%;height:720px;}
-#category {display: none; position:absolute;top:112px;left:48px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
-#category li {float:left;list-style: none;width:50px; border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
+.map_wrap {position:relative;width:100%;height:350px;}
+#category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
+#category li {float:left;list-style: none;width:50px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
 #category li.on {background: #eee;}
 #category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
 #category li:last-child{margin-right:0;border-right:0;}
@@ -214,7 +214,6 @@ button:hover{opacity: .7;}
 .placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
 .placeinfo .tel {color:#0f7833;}
 .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
-
  /*장소 검색하는 알고리즘=================================================================================*/
 #menu_wrap {display: none; position:absolute;top:180px;left:36px;bottom:0;width:250px; margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 5px;}
 .bg_white {background:#fff;}

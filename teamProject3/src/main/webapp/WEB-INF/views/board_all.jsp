@@ -77,9 +77,9 @@
 			<div
 				style="margin-left: 16px; float: left; position: relative; width: 500px; height: 24px;">
 				<form style="height: 24px;" action="board_all.do">
-					<input style="float: left; width: 200px;" type="text" id="serchKeyword" name="serchKeyword" placeholder="검색어를 입력하세요" onkeyup="selectboard()"/>
-					<button style="color: white; float: left; width: 84px;"
-						type="submit">검색</button> 
+				<button style="color: white; float: left; width: 84px;"
+						type="button">검색창</button> 	<input style="float: left; width: 200px;" type="text" id="serchKeyword" name="serchKeyword" placeholder="검색어를 입력하세요" onkeyup="selectboard()"/>
+					
 				</form>
 			</div>
 			<div class="board_go_boardWrite">

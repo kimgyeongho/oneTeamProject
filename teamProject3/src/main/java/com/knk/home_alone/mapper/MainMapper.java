@@ -58,10 +58,5 @@ public interface MainMapper {
 	//비밀번호 찾기 유저정보 체크하기 
 	public int oneteam_userCHeck(MainVO VO) throws Exception;
 	
-	
-	// 위도경도  찾기
-	public List<String> selec_lat() throws Exception;
-	public List<String> selec_lng() throws Exception;
-	
 
 }
