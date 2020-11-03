@@ -222,22 +222,20 @@ $(function() {
          data: $("#serchKeyword"),
       success: function(data) {
       for(var i=0;i<data.length;i++){
-			console.log(data[i].regDate);
-
        $("#map_com_board").append("<tr id='map_tr'>"
                +"<td style='width: 204px;'><a href='getBoard.do?seq="+data[i].seq+"'onmouseover='abc(this)'><img  style='width:204px;'src='data:image/png;base64,"+data[i].strImg+"'></a></td>"
                +"<td class='lat' style='display: none;'>"+data[i].lat+"</td>"
-                     +"<td class='lng'  style='display: none;'>"+data[i].lng+"</td>"
+               +"<td class='lng'  style='display: none;'>"+data[i].lng+"</td>"
                +"<td colspan='2'>"
                +"<ul style='list-style:none; margin-left: 8px;'>"
-               +"<li style='text-decoration: none;'><h2 style= 'font-size: 18px;'>"+data[i].content_character+"</h2></li>"
-               +"<li style='text-decoration: none;'><h2 style= 'font-size: 18px;'>"+data[i].content_character2+"</h2></li>"
-               +"<li style='text-decoration: none;'><h2 style= 'font-size: 28px;'>"+data[i].title+"</h2></li>"
+               +"<li style='text-decoration: none;'><h2 class='boardtitle' style= 'font-size: 18px;'>"+data[i].content_character+"</h2></li>"
+               +"<li style='text-decoration: none;'><h2 class='boardtitle' style= 'font-size: 18px;'>"+data[i].content_character2+"</h2></li>"
+               +"<li style='text-decoration: none;'><h2 class='boardtitle' style= 'font-size: 28px;'>"+data[i].title+"</h2></li>"
                +"<li style='text-decoration: none;'><h2 style= 'font-size: 18px;'>"+data[i].address+"</h2></li>"
                +"</ul>"
                +"</td>"
                +"<td style='width: 64px;'><h2 style= 'font-size: 11px;'>"+data[i].regDate+"</h2></td>"
-               +"</tr>" );
+               +"</tr>");
       }
       
       

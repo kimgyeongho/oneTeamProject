@@ -137,7 +137,7 @@
 <button style="float: left; width: 84px; height:30px;"
                   type="button" value="검색창">검색창</button> 
                  
-           <form>
+     <form>
       <input style=" float: left; width: 442px; height:25px;" type="text"
                   id="serchKeyword" name="serchKeyword" placeholder="검색어를 입력하세요"
                   onkeyup="selectmapboard()" />
@@ -146,23 +146,22 @@
             <c:forEach items="${resultList}" var="board">
                <tr id="map_tr">
                <td  style="width: 204px;">
-                  <a href="getBoard.do?seq=${board.seq}" onmouseover="abc(this)" ><img  style="width:204px;"src="data:image/png;base64,${board.strImg}"></a></td>
+                  <a href="getBoard.do?seq=${board.seq}" onmouseover="abc(this)"><img  style="width:204px;"src="data:image/png;base64,${board.strImg}"></a></td>
               <td class="lat" style='display: none;'>${board.lat}</td>
                <td class="lng" style='display: none;'>${board.lng}</td>
              
                <td colspan="2">
                <ul style="list-style: none; margin-left: 8px;">
-               <li style="text-decoration: none;"><h2 style= "font-size: 18px;">${board.content_character}</h2></li>
-               <li style="text-decoration: none;"><h2 style= "font-size
-               : 18px;">${board.content_character2}</h2></li>
-               <li style="text-decoration: none;"><h2 style= "font-size: 28px;">${board.title}</h2></li>
+               <li style="text-decoration: none;"><h2 class="boardtitle" style= "font-size: 18px;">${board.content_character}</h2></li>
+               <li style="text-decoration: none;"><h2 class="boardtitle" style= "font-size: 18px;">${board.content_character2}</h2></li>
+               <li  style="text-decoration: none;"><h2 class="boardtitle" style= "font-size: 28px;">${board.title}</h2></li>
                <li style="text-decoration: none;"><h2 style= "font-size: 18px;">${board.address}</h2></li>
             
                </ul>
                </td>
                <td style="width: 64px;"><h2 style= "font-size: 11px;">${board.regDate}</h2></td>
                </tr>               
-               </c:forEach>                                                
+               </c:forEach>                                               
             </table>
          </div>
 </div>
@@ -497,6 +496,8 @@ if (chkTraffic.checked) {
 
 }  
 function abc(e){
+	var boardtitle=$(e).closest('tr').find('.boardtitle').text();
+	var infowindow = new kakao.maps.InfoWindow({content : "<div style='width:150px;text-align:center;padding:6px 0;'>"+boardtitle+"</div>"});
     var lng = parseFloat($(e).parent().siblings('.lng').text());
     var lat = parseFloat($(e).parent().siblings('.lat').text());
    
@@ -505,34 +506,27 @@ function abc(e){
    imageSize2 = new kakao.maps.Size(27, 28); // 마커이미지의 크기입니다
    
    
-   var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2);
+   var markerImage3 = new kakao.maps.MarkerImage(imageSrc2, imageSize2);
    markerPosition3 = new kakao.maps.LatLng(lat, lng); // 마커가 표시될 위치입니다
 
    //마커를 생성합니다
    var marker3 = new kakao.maps.Marker({
    position: markerPosition3, 
-   image: markerImage2, // 마커이미지 설정 
+   image: markerImage3, // 마커이미지 설정 
    zIndex: 1
    });
-   
-   
-   marker3.setMap(map); 
+   marker3.setMap(map);
    map.setCenter(new kakao.maps.LatLng(lat, lng));
    map.setLevel(3);
+   infowindow.open(map,marker3);
    $(e).mouseout(function(){
-      marker3.setMap(null); 
-      map.setCenter(new kakao.maps.LatLng(37.566826, 126.9786567));
-      map.setLevel(7);
+	   marker3.setMap(null);
+	   map.setCenter(new kakao.maps.LatLng(37.566826, 126.9786567));
+	   map.setLevel(7);
    });
+   map.setCenter(new kakao.maps.LatLng(lat, lng));	   
    
-   map.setCenter(new kakao.maps.LatLng(lat, lng));
-
    }
-   
-   
-	
-	
-
 
 
 </script>
