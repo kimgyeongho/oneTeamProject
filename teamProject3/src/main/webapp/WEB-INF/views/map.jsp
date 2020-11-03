@@ -146,7 +146,7 @@
             <c:forEach items="${resultList}" var="board">
                <tr id="map_tr">
                <td  style="width: 204px;">
-                  <a href="getBoard.do?seq=${board.seq}" onmouseover="abc(this)"><img  style="width:204px;"src="data:image/png;base64,${board.strImg}"></a></td>
+                  <a href="getBoard.do?seq=${board.seq}" onmouseover="abc(this)" ><img  style="width:204px;"src="data:image/png;base64,${board.strImg}"></a></td>
               <td class="lat" style='display: none;'>${board.lat}</td>
                <td class="lng" style='display: none;'>${board.lng}</td>
              
@@ -496,36 +496,40 @@ if (chkTraffic.checked) {
 }
 
 }  
- function abc(e){
-    var lng = $(e).parent().siblings('.lng').text();
-    var lat = $(e).parent().siblings('.lat').text();
+function abc(e){
+    var lng = parseFloat($(e).parent().siblings('.lng').text());
+    var lat = parseFloat($(e).parent().siblings('.lat').text());
+   
 
-	var imageSrc3 = '/resources/img/KakaoTalk_2.png', // 마커이미지의 주소입니다    
-	imageSize3 = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-	imageOption3 = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-	  
-	//마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-	var markerImage3 = new kakao.maps.MarkerImage(imageSrc3, imageSize3, imageOption3),
-	markerPosition3 = new kakao.maps.LatLng(lng, lat); // 마커가 표시될 위치입니다
+   var imageSrc2 = '/resources/img/KakaoTalk_2.png', // 마커이미지의 주소입니다    
+   imageSize2 = new kakao.maps.Size(27, 28); // 마커이미지의 크기입니다
+   
+   
+   var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2);
+   markerPosition3 = new kakao.maps.LatLng(lat, lng); // 마커가 표시될 위치입니다
 
-	//마커를 생성합니다
-	var marker3 = new kakao.maps.Marker({
-	position: markerPosition3, 
-	image: markerImage3, // 마커이미지 설정 
-	zIndex: 1
-	});
-	
-	$("button").on({				// 모든 <button>요소에
-		mouseenter: function() {	// mouseenter 이벤트를 설정함.
-			
-			//마커가 지도 위에 표시되도록 설정합니다
-			marker3.setMap(map);  		
-		},
-		mouseleave: function() {	// mouseleave 이벤트를 설정함.
-			marker3.setMap(null);
-		}
-	});
-	}
+   //마커를 생성합니다
+   var marker3 = new kakao.maps.Marker({
+   position: markerPosition3, 
+   image: markerImage2, // 마커이미지 설정 
+   zIndex: 1
+   });
+   
+   
+   marker3.setMap(map); 
+   map.setCenter(new kakao.maps.LatLng(lat, lng));
+   map.setLevel(3);
+   $(e).mouseout(function(){
+      marker3.setMap(null); 
+      map.setCenter(new kakao.maps.LatLng(37.566826, 126.9786567));
+      map.setLevel(7);
+   });
+   
+   map.setCenter(new kakao.maps.LatLng(lat, lng));
+
+   }
+   
+   
 	
 	
 

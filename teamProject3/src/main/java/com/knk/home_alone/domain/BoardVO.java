@@ -11,7 +11,7 @@ public class BoardVO {
 	private String userID;
 	private String content;
 	private String address;
-	private Date regDate;
+	private String regDate;
 	private int cnt;
 	private String serchKeyword;
 	private Double lat;

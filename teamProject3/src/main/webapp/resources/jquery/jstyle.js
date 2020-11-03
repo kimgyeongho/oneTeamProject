@@ -222,6 +222,8 @@ $(function() {
          data: $("#serchKeyword"),
       success: function(data) {
       for(var i=0;i<data.length;i++){
+			console.log(data[i].regDate);
+
        $("#map_com_board").append("<tr id='map_tr'>"
                +"<td style='width: 204px;'><a href='getBoard.do?seq="+data[i].seq+"'onmouseover='abc(this)'><img  style='width:204px;'src='data:image/png;base64,"+data[i].strImg+"'></a></td>"
                +"<td class='lat' style='display: none;'>"+data[i].lat+"</td>"
@@ -235,7 +237,7 @@ $(function() {
                +"</ul>"
                +"</td>"
                +"<td style='width: 64px;'><h2 style= 'font-size: 11px;'>"+data[i].regDate+"</h2></td>"
-               +"</tr>");
+               +"</tr>" );
       }
       
       
