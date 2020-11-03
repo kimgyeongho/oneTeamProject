@@ -126,4 +126,28 @@
 		resultType="String">
 		SELECT lng FROM board
 	</select>
+	
+   
+   
+     <select id="seq2" parameterType="BoardVO" resultType="BoardVO" >
+   SELECT board.seq as seq,
+   title,
+   content_character,
+   content_character2,
+   userID,
+   content,
+   address,
+   regDate,
+   cnt,
+   lat,
+   lng,
+   img
+   FROM board 
+   JOIN oneteam_img ON board.seq = oneteam_img.seq
+   where title LIKE #{serchKeyword} OR content LIKE #{serchKeyword};
+    
+</select>
+
+     
+     
 </mapper>

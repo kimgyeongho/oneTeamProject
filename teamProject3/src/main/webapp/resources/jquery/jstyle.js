@@ -1,7 +1,7 @@
 //페이지마다 로그인 되어 있을때 로그아웃 처리
 function logout(){
 if(confirm("로그아웃하시겠습니까?")){
-	location.href = "logout.do";
+   location.href = "logout.do";
 }
 }
 $(function() { 
@@ -81,19 +81,19 @@ $(function(){
 });
 
 //$(function(){
-//	  $(".pw").focusout(function(){
-//	        var pwd3 = $("#userPW").val();
-//	        var pwd4 = $("#pwCheck").val();
-//	        if(pwd1 !='' && pwd2 == ''){
-//	            null;
-//	        }else if(pwd3 !='' && pwd4 != ''){
-//	            if(pwd3 == pwd4){
-//	                $("#pw_right_msg").show();
-//	            }else{
-//	                $("#pw_right__msg").hide();
-//	            }        
-//	        }
-//	  });
+//     $(".pw").focusout(function(){
+//           var pwd3 = $("#userPW").val();
+//           var pwd4 = $("#pwCheck").val();
+//           if(pwd1 !='' && pwd2 == ''){
+//               null;
+//           }else if(pwd3 !='' && pwd4 != ''){
+//               if(pwd3 == pwd4){
+//                   $("#pw_right_msg").show();
+//               }else{
+//                   $("#pw_right__msg").hide();
+//               }        
+//           }
+//     });
 //});
 
 
@@ -164,53 +164,86 @@ $(function(){
 });
 //목표 페이지 이미지 슬라이드
 $(document).ready(function() {
-	var imgs;
-	var img_count;
-	var img_position=1;
-	
-	imgs=$(".slide ul");
-	img_count=imgs.children().length;
-	
-	$("#back").click(function() {
-		back();
-	});
-	$("#next").click(function() {
-		next();
-	});
-	function next() {
-		if(img_count>img_position){
-			imgs.animate({
-				left:'-=1920px'
-			});
-			img_position++;
-		
-		}
-	}
-	function back() {
-		if(1<img_position){
-			imgs.animate({
-				left:'+=1920px'
-			});
-			img_position--;
-		}
-		
-	}
-	
+   var imgs;
+   var img_count;
+   var img_position=1;
+   
+   imgs=$(".slide ul");
+   img_count=imgs.children().length;
+   
+   $("#back").click(function() {
+      back();
+   });
+   $("#next").click(function() {
+      next();
+   });
+   function next() {
+      if(img_count>img_position){
+         imgs.animate({
+            left:'-=1920px'
+         });
+         img_position++;
+      
+      }
+   }
+   function back() {
+      if(1<img_position){
+         imgs.animate({
+            left:'+=1920px'
+         });
+         img_position--;
+      }
+      
+   }
+   
 
 });
 $(function() {
-	var timeout = setTimeout(function(){
-		$('.main_logo').fadeOut(800)
-		},6000);
-	var show1 = setTimeout(function() {
-		$('.main_logo1').fadeIn(1000)
-		},7050)
-	setTimeout(timeout, 6000);
-	setTimeout(show1, 7050);
+   var timeout = setTimeout(function(){
+      $('.main_logo').fadeOut(800)
+      },6000);
+   var show1 = setTimeout(function() {
+      $('.main_logo1').fadeIn(1000)
+      },7050)
+   setTimeout(timeout, 6000);
+   setTimeout(show1, 7050);
 
 
-	});
+   });
+         //map 부분 검색 구현
+ function selectmapboard() {
+  var a = document.getElementById("map_com_board");
+         a.innerHTML = "";
+        
+          $.ajax({
+         url: "/seltmapboard",
+         type: "POST",
+         dataType: "json",
+         data: $("#serchKeyword"),
+      success: function(data) {
+      for(var i=0;i<data.length;i++){
+       $("#map_com_board").append("<tr id='map_tr'>"
+               +"<td style='width: 204px;'><a href='getBoard.do?seq="+data[i].seq+"'onmouseover='abc(this)'><img  style='width:204px;'src='data:image/png;base64,"+data[i].strImg+"'></a></td>"
+               +"<td class='lat' style='display: none;'>"+data[i].lat+"</td>"
+                     +"<td class='lng'  style='display: none;'>"+data[i].lng+"</td>"
+               +"<td colspan='2'>"
+               +"<ul style='list-style:none; margin-left: 8px;'>"
+               +"<li style='text-decoration: none;'><h2 style= 'font-size: 18px;'>"+data[i].content_character+"</h2></li>"
+               +"<li style='text-decoration: none;'><h2 style= 'font-size: 18px;'>"+data[i].content_character2+"</h2></li>"
+               +"<li style='text-decoration: none;'><h2 style= 'font-size: 28px;'>"+data[i].title+"</h2></li>"
+               +"<li style='text-decoration: none;'><h2 style= 'font-size: 18px;'>"+data[i].address+"</h2></li>"
+               +"</ul>"
+               +"</td>"
+               +"<td style='width: 64px;'><h2 style= 'font-size: 11px;'>"+data[i].regDate+"</h2></td>"
+               +"</tr>");
+      }
+      
+      
+      
+}
+})
+      }
+     
 
 
   
-

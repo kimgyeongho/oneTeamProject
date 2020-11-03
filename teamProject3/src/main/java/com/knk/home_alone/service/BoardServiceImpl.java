@@ -77,6 +77,11 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return boardMapper.seq();
 	}
+	@Override
+	public List<BoardVO> seq2(BoardVO vo) throws Exception {
+
+		return boardMapper.seq2(vo);
+	}
 
 	
 

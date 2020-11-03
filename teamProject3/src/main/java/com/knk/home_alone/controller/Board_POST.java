@@ -57,7 +57,7 @@ public class Board_POST {
 				}catch (Exception e) {
 					// TODO: handle exception
 				}
-		return "map3";
+		return "map";
 	}
 	
 	@RequestMapping("/board_Delete.do")
@@ -215,5 +215,21 @@ public class Board_POST {
 
 			   }
 			
+			   
+			   
+			   @ResponseBody
+	            @RequestMapping(value="/seltmapboard", method = RequestMethod.POST)
+	            public List<BoardVO> seltmapboard(BoardVO vo) throws Exception {
+	                     if (vo.getSerchKeyword() == null)vo.setSerchKeyword("");
+	                     List<BoardVO> data= service.seq2(vo);
+	                      for(BoardVO vo2 : data) {
+	                         byte[] encoded=org.apache.commons.codec.binary.Base64.encodeBase64((byte[]) vo2.getImg());
+	                         String encodedString =new String(encoded);
+	                         vo2.setStrImg(encodedString);
+	                         }      
+	                     
+	               return data;
+
+	            }
 			
 }
